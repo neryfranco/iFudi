@@ -9,6 +9,21 @@ package model;
  *
  * @author Jessica
  */
-public class PagDinheiro {
-    
+public class PagDinheiro extends Pagamento {
+
+    private String codDinheiro;
+
+    public PagDinheiro(String codDinheiro, String codPagamento, String valor, String formaPagamento) {
+        super(codPagamento, valor, formaPagamento);
+        this.codDinheiro = codDinheiro;
+    }
+
+    public String getCodDinheiro() {
+        return codDinheiro;
+    }
+
+    public void setCodDinheiro(String codDinheiro) {
+        this.codDinheiro = codDinheiro;
+    }
+
 }

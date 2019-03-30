@@ -9,6 +9,21 @@ package model;
  *
  * @author Jessica
  */
-public class PagCartao {
+public class PagCartao extends Pagamento{
+    
+    private String codCartao;
+
+    public PagCartao(String codCartao, String codPagamento, String valor, String formaPagamento) {
+        super(codPagamento, valor, formaPagamento);
+        this.codCartao = codCartao;
+    }
+
+    public String getCodCartao() {
+        return codCartao;
+    }
+
+    public void setCodCartao(String codCartao) {
+        this.codCartao = codCartao;
+    }
     
 }

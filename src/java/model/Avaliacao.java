@@ -13,18 +13,12 @@ public class Avaliacao {
 
     private String codAvaliacao;
     private String descAvaliacao;
+    private Integer votacao;
 
-    public Avaliacao(String codAvaliacao, String descAvaliacao) {
+    public Avaliacao(String codAvaliacao, String descAvaliacao, Integer votacao) {
         this.codAvaliacao = codAvaliacao;
         this.descAvaliacao = descAvaliacao;
-    }
-
-    public String getDescAvaliacao() {
-        return descAvaliacao;
-    }
-
-    public void setDescAvaliacao(String descAvaliacao) {
-        this.descAvaliacao = descAvaliacao;
+        this.votacao = votacao;
     }
 
     public String getCodAvaliacao() {
@@ -35,4 +29,21 @@ public class Avaliacao {
         this.codAvaliacao = codAvaliacao;
     }
 
+    public String getDescAvaliacao() {
+        return descAvaliacao;
+    }
+
+    public void setDescAvaliacao(String descAvaliacao) {
+        this.descAvaliacao = descAvaliacao;
+    }
+
+    public Integer getVotacao() {
+        return votacao;
+    }
+
+    public void setVotacao(Integer votacao) {
+        this.votacao = votacao;
+    }
+
+    
 }

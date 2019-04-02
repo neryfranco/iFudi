@@ -12,20 +12,22 @@ package model;
 public class Pagamento {
 
     private String codPagamento;
-    private String valor;
-    private String formaPagamento;
+    private Pedido pedido;
+    private Double valor;
+    private FormaPagamento formaPagamento;
 
-    public Pagamento(String codPagamento, String valor, String formaPagamento) {
+    public Pagamento(String codPagamento, Pedido pedido, Double valor, FormaPagamento formaPagamento) {
         this.codPagamento = codPagamento;
+        this.pedido = pedido;
         this.valor = valor;
         this.formaPagamento = formaPagamento;
     }
 
-    public String getFormaPagamento() {
+    public FormaPagamento getFormaPagamento() {
         return formaPagamento;
     }
 
-    public void setFormaPagamento(String formaPagamento) {
+    public void setFormaPagamento(FormaPagamento formaPagamento) {
         this.formaPagamento = formaPagamento;
     }
 
@@ -37,11 +39,11 @@ public class Pagamento {
         this.codPagamento = codPagamento;
     }
 
-    public String getValor() {
+    public Double getValor() {
         return valor;
     }
 
-    public void setValor(String valor) {
+    public void setValor(Double valor) {
         this.valor = valor;
     }
 

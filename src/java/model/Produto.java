@@ -9,12 +9,13 @@ package model;
  *
  * @author Jessica
  */
-public class Produtos {
+public class Produto {
 
     private String codProduto;
     private String descricao;
+    private Promocao promocao;
 
-    public Produtos(String codProduto, String descricao) {
+    public Produto(String codProduto, String descricao) {
         this.codProduto = codProduto;
         this.descricao = descricao;
     }
@@ -35,4 +36,13 @@ public class Produtos {
         this.codProduto = codProduto;
     }
 
+    public Promocao getPromocao() {
+        return promocao;
+    }
+
+    public void setPromocao(Promocao promocao) {
+        this.promocao = promocao;
+    }
+    
+    
 }

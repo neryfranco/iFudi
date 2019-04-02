@@ -9,21 +9,6 @@ package model;
  *
  * @author Jessica
  */
-public class PagDebito extends Pagamento {
-
-    private String codDebito;
-
-    public PagDebito(String codDebito, String codPagamento, String valor, String formaPagamento) {
-        super(codPagamento, valor, formaPagamento);
-        this.codDebito = codDebito;
-    }
-
-    public String getCodDebito() {
-        return codDebito;
-    }
-
-    public void setCodDebito(String codDebito) {
-        this.codDebito = codDebito;
-    }
+public class PagDebito implements FormaPagamento {
 
 }

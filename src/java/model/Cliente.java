@@ -11,23 +11,14 @@ package model;
  */
 public class Cliente extends Usuario {
 
-    private String codCliente;
     private String nome;
     private String cpf;
+    private Endereco endereco;
 
-    public Cliente(String codCliente, String nome, String cpf, String codUsuario, String email, String senha) {
-        super(codUsuario, email, senha);
-        this.codCliente = codCliente;
+    public Cliente(String nome, String cpf, String codUsuario, String email, String senha) {
+        super(email, senha, nome);
         this.nome = nome;
         this.cpf = cpf;
-    }
-
-    public String getCodCliente() {
-        return codCliente;
-    }
-
-    public void setCodCliente(String codCliente) {
-        this.codCliente = codCliente;
     }
 
     public String getNome() {

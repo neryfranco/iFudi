@@ -11,14 +11,15 @@ package model;
  */
 public class Usuario {
 
-    private String codUsuario;
     private String email;
     private String senha;
+    private String nome;
+    private String cpf;
 
-    public Usuario(String codUsuario, String email, String senha) {
-        this.codUsuario = codUsuario;
+    public Usuario(String email, String senha, String nome) {
         this.email = email;
         this.senha = senha;
+        this.nome = nome;
     }
 
     public String getSenha() {
@@ -27,14 +28,6 @@ public class Usuario {
 
     public void setSenha(String senha) {
         this.senha = senha;
-    }
-
-    public String getCodUsuario() {
-        return codUsuario;
-    }
-
-    public void setCodUsuario(String codUsuario) {
-        this.codUsuario = codUsuario;
     }
 
     public String getEmail() {

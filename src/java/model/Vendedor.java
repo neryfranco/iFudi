@@ -5,45 +5,33 @@
  */
 package model;
 
+import java.util.List;
+
 /**
  *
  * @author Jessica
  */
 public class Vendedor extends Usuario {
 
-    private String codVendedor;
-    private String nome;
-    private String cpf;
+    private List<Restaurante> restaurantes;
 
-    public Vendedor(String codVendedor, String nome, String cpf, String codUsuario, String email, String senha) {
-        super(codUsuario, email, senha);
-        this.codVendedor = codVendedor;
-        this.nome = nome;
-        this.cpf = cpf;
+    public Vendedor(String email, String senha, String nome) {
+        super(email, senha, nome);
     }
 
-    public String getCodVendedor() {
-        return codVendedor;
+    public List<Restaurante> getRestaurantes() {
+        return restaurantes;
     }
 
-    public void setCodVendedor(String codVendedor) {
-        this.codVendedor = codVendedor;
+    public void setRestaurantes(List<Restaurante> restaurantes) {
+        this.restaurantes = restaurantes;
     }
-
-    public String getNome() {
-        return nome;
+  
+    public void addRestaurante(Restaurante restaurante){
+        restaurantes.add(restaurante);
     }
-
-    public void setNome(String nome) {
-        this.nome = nome;
+    
+    public void removeRestaurante(Restaurante restaurante){
+        restaurantes.remove(restaurante);
     }
-
-    public String getCpf() {
-        return cpf;
-    }
-
-    public void setCpf(String cpf) {
-        this.cpf = cpf;
-    }
-
 }

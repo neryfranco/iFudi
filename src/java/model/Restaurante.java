@@ -5,36 +5,33 @@
  */
 package model;
 
+import java.util.List;
+
 /**
  *
  * @author Jessica
  */
 public class Restaurante {
 
-    private String codRestaurante;
+    private String cnpj;
     private String nome;
-    private String ramoAtividade;
+    private Endereco endereco;
+    private List<Produto> listaProdutos;
+    private Categoria categoria;
 
-    public Restaurante(String codRestaurante, String nome, String ramoAtividade) {
-        this.codRestaurante = codRestaurante;
+    public Restaurante(String cnpj, String nome, Endereco endereco, Categoria categoria) {
+        this.cnpj = cnpj;
         this.nome = nome;
-        this.ramoAtividade = ramoAtividade;
+        this.endereco = endereco;
+        this.categoria = categoria;
     }
 
-    public String getRamoAtividade() {
-        return ramoAtividade;
+    public String getCnpj() {
+        return cnpj;
     }
 
-    public void setRamoAtividade(String ramoAtividade) {
-        this.ramoAtividade = ramoAtividade;
-    }
-
-    public String getCodRestaurante() {
-        return codRestaurante;
-    }
-
-    public void setCodRestaurante(String codRestaurante) {
-        this.codRestaurante = codRestaurante;
+    public void setCnpj(String cnpj) {
+        this.cnpj = cnpj;
     }
 
     public String getNome() {
@@ -45,4 +42,37 @@ public class Restaurante {
         this.nome = nome;
     }
 
+    public Endereco getEndereco() {
+        return endereco;
+    }
+
+    public void setEndereco(Endereco endereco) {
+        this.endereco = endereco;
+    }
+
+    public List<Produto> getListaProdutos() {
+        return listaProdutos;
+    }
+
+    public void setListaProdutos(List<Produto> listaProdutos) {
+        this.listaProdutos = listaProdutos;
+    }
+    
+    public void addProduto(Produto produto){
+        listaProdutos.add(produto);
+    }
+    
+    public void removeProduto(Produto produto){
+        listaProdutos.remove(produto);
+    }
+
+    public Categoria getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(Categoria categoria) {
+        this.categoria = categoria;
+    }
+
+    
 }

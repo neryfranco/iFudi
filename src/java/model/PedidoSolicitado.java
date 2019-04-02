@@ -7,7 +7,8 @@ package model;
 
 /**
  *
- * @author Jessica
+ * @author Nery
  */
-public class PagDinheiro implements FormaPagamento {
+public class PedidoSolicitado implements PedidoStatus{
+    
 }

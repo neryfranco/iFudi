@@ -1,2 +1,10 @@
-/nbproject/private/
-/build/
+/DP-Modelo1/DP-Modelo1/build/
+/DP-Modelo1/DP-Modelo1/dist/
+/DP-Modelo1/DP-Modelo1/nbproject/private/
+/PadraoObserverJava/build/
+/PadraoObserverJava/nbproject/private/
+/PadraoObserverWeb/nbproject/private/
+/PadraoStrategy/build/
+/PadraoStrategy/nbproject/private/
+/PadraoTemplateMethod/build/
+/PadraoTemplateMethod/nbproject/private/

@@ -13,7 +13,6 @@ public class Cliente extends Usuario {
 
     private String nome;
     private String cpf;
-    private Endereco endereco;
 
     public Cliente(String nome, String cpf, String codUsuario, String email, String senha) {
         super(email, senha, nome);

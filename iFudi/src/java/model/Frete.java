@@ -11,30 +11,30 @@ package model;
  */
 public class Frete {
 
-    private String codFrete;
-    private String taxaFrete;
+    private String id;
+    private String taxa;
     private String tempoEntrega;
 
-    public Frete(String codFrete, String taxaFrete, String tempoEntrega) {
-        this.codFrete = codFrete;
-        this.taxaFrete = taxaFrete;
+    public Frete(String id, String taxa, String tempoEntrega) {
+        this.id = id;
+        this.taxa = taxa;
         this.tempoEntrega = tempoEntrega;
     }
 
-    public String getCodFrete() {
-        return codFrete;
+    public String getID() {
+        return id;
     }
 
-    public void setCodFrete(String codFrete) {
-        this.codFrete = codFrete;
+    public void setID(String id) {
+        this.id = id;
     }
 
-    public String getTaxaFrete() {
-        return taxaFrete;
+    public String getTaxa() {
+        return taxa;
     }
 
-    public void setTaxaFrete(String taxaFrete) {
-        this.taxaFrete = taxaFrete;
+    public void setTaxa(String taxa) {
+        this.taxa = taxa;
     }
 
     public String getTempoEntrega() {

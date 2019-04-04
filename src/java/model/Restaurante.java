@@ -15,14 +15,12 @@ public class Restaurante {
 
     private String cnpj;
     private String nome;
-    private Endereco endereco;
     private List<Produto> listaProdutos;
     private Categoria categoria;
 
-    public Restaurante(String cnpj, String nome, Endereco endereco, Categoria categoria) {
+    public Restaurante(String cnpj, String nome, Categoria categoria) {
         this.cnpj = cnpj;
         this.nome = nome;
-        this.endereco = endereco;
         this.categoria = categoria;
     }
 
@@ -40,14 +38,6 @@ public class Restaurante {
 
     public void setNome(String nome) {
         this.nome = nome;
-    }
-
-    public Endereco getEndereco() {
-        return endereco;
-    }
-
-    public void setEndereco(Endereco endereco) {
-        this.endereco = endereco;
     }
 
     public List<Produto> getListaProdutos() {

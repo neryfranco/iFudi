@@ -14,18 +14,12 @@ public class Produto {
     private String codProduto;
     private String descricao;
     private Promocao promocao;
+    private Restaurante restaurate;
 
-    public Produto(String codProduto, String descricao) {
+    public Produto(String codProduto, String descricao, Restaurante restaurate) {
         this.codProduto = codProduto;
         this.descricao = descricao;
-    }
-
-    public String getDescricao() {
-        return descricao;
-    }
-
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
+        this.restaurate = restaurate;
     }
 
     public String getCodProduto() {
@@ -36,6 +30,14 @@ public class Produto {
         this.codProduto = codProduto;
     }
 
+    public String getDescricao() {
+        return descricao;
+    }
+
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
+    }
+
     public Promocao getPromocao() {
         return promocao;
     }
@@ -43,6 +45,14 @@ public class Produto {
     public void setPromocao(Promocao promocao) {
         this.promocao = promocao;
     }
-    
+
+    public Restaurante getRestaurate() {
+        return restaurate;
+    }
+
+    public void setRestaurate(Restaurante restaurate) {
+        this.restaurate = restaurate;
+    }
+
     
 }

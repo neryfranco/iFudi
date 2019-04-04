@@ -10,31 +10,34 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import model.Frete;
+import model.Cliente;
 
 /**
  *
  * @author Nery
  */
-public class FreteDAO {
+public class ClienteDAO {
     
-    private static FreteDAO instance = new FreteDAO();
+    private static ClienteDAO instance = new ClienteDAO();
     
-    private FreteDAO(){}
+    private ClienteDAO(){}
     
-    public static FreteDAO getInstance(){
+    public static ClienteDAO getInstance(){
         return instance;
     }
     
-    public void save (String id) throws SQLException, ClassNotFoundException {
+    public void save (String email) throws SQLException, ClassNotFoundException {
         Connection conn = null;
         Statement st = null;
         
         try {
             conn = DatabaseLocator.getInstance().getConnection();
             st = conn.createStatement();
-            st.execute("insert into frete (id)" +
-                    "values ('" + id + "')");
+            st.execute("insert into usuario (email)" +
+                    "values ('" + email + "')");
+            
+            st.execute("insert into cliente (email)" +
+                    "values ('" + email + "')");
         } catch(SQLException e){
             throw e;
         } finally {
@@ -42,17 +45,26 @@ public class FreteDAO {
         }
     }
     
-    public void save(Frete frete) throws SQLException, ClassNotFoundException {
+    public void save(Cliente cliente) throws SQLException, ClassNotFoundException {
         Connection conn = null;
         Statement st = null;
         String SQL = null;
         try {
             conn = DatabaseLocator.getInstance().getConnection();
             st = conn.createStatement();
-            SQL = "insert into frete (id, taxa, tempoEntrega) " +
-                    "values ('" + frete.getID() + "', '" 
-                    + frete.getTaxa() + "', '" 
-                    + frete.getTempoEntrega()+ "')";
+            SQL = "insert into usuario (email, senha, nome, cpf, rua, numero, cidade, estado) " +
+                    "values ('" + cliente.getEmail()+ "', '" 
+                    + cliente.getSenha()+ "', '" 
+                    + cliente.getNome()+ "', '" 
+                    + cliente.getCpf()+ "', '" 
+                    + cliente.getRua()+ "', '" 
+                    + cliente.getNumero()+ "', '" 
+                    + cliente.getCidade()+ "', '" 
+                    + cliente.getEstado() + "')";
+            st.execute(SQL);
+            
+            SQL = "insert into cliente (usuario_email)" +
+                    "values ('" + cliente.getEmail();
             st.execute(SQL);
         } catch(SQLException e){
             throw e;
@@ -61,15 +73,15 @@ public class FreteDAO {
         }
     }
     
-    public Frete read(Frete frete) throws SQLException, ClassNotFoundException {
+    public Cliente read(Cliente cliente) throws SQLException, ClassNotFoundException {
         Connection conn = null;
         Statement st = null;
         String stringSQL;
-        Frete a = null;
+        Cliente a = null;
         try {
             conn = DatabaseLocator.getInstance().getConnection();
             st = conn.createStatement();
-            ResultSet rs = st.executeQuery("select * from frete where id = '" + frete.getID()+ "'");
+            ResultSet rs = st.executeQuery("select * from cliente where usuario_email = '" + cliente.getEmail()+ "'");
             rs.first();
         } catch (SQLException e) {
             throw e;
@@ -79,14 +91,14 @@ public class FreteDAO {
         return a;
     }
     
-    public void delete(Frete frete) throws SQLException, ClassNotFoundException {
+    public void delete(Cliente cliente) throws SQLException, ClassNotFoundException {
         Connection conn = null;
         Statement st = null;
         String stringSQL;
         try {
             conn = DatabaseLocator.getInstance().getConnection();
             st = conn.createStatement();
-            stringSQL = "delete from Frete where id = '" + frete.getID()+ "'";
+            stringSQL = "delete from cliente where usuario_email = '" + cliente.getEmail()+ "'";
             st.execute(stringSQL);
         } catch (SQLException e) {
             throw e;

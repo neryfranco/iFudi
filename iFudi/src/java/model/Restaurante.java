@@ -15,14 +15,31 @@ public class Restaurante {
 
     private String cnpj;
     private String nome;
+    private String rua;
+    private String numero;
+    private String cidade;
+    private String estado;
     private List<Produto> listaProdutos;
     private Categoria categoria;
+    private Vendedor vendedor;
 
-    public Restaurante(String cnpj, String nome, Categoria categoria) {
+    public Restaurante(String cnpj, String nome, String rua, String numero, String cidade, String estado, List<Produto> listaProdutos, Categoria categoria, Vendedor vendedor) {
         this.cnpj = cnpj;
         this.nome = nome;
+        this.rua = rua;
+        this.numero = numero;
+        this.cidade = cidade;
+        this.estado = estado;
+        this.listaProdutos = listaProdutos;
         this.categoria = categoria;
+        this.vendedor = vendedor;
     }
+
+    public Restaurante(String cnpj) {
+        this.cnpj = cnpj;
+    }
+
+    
 
     public String getCnpj() {
         return cnpj;
@@ -40,12 +57,52 @@ public class Restaurante {
         this.nome = nome;
     }
 
+    public String getRua() {
+        return rua;
+    }
+
+    public void setRua(String rua) {
+        this.rua = rua;
+    }
+
+    public String getNumero() {
+        return numero;
+    }
+
+    public void setNumero(String numero) {
+        this.numero = numero;
+    }
+
+    public String getCidade() {
+        return cidade;
+    }
+
+    public void setCidade(String cidade) {
+        this.cidade = cidade;
+    }
+
+    public String getEstado() {
+        return estado;
+    }
+
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
+
     public List<Produto> getListaProdutos() {
         return listaProdutos;
     }
 
     public void setListaProdutos(List<Produto> listaProdutos) {
         this.listaProdutos = listaProdutos;
+    }
+
+    public Categoria getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(Categoria categoria) {
+        this.categoria = categoria;
     }
     
     public void addProduto(Produto produto){
@@ -56,12 +113,12 @@ public class Restaurante {
         listaProdutos.remove(produto);
     }
 
-    public Categoria getCategoria() {
-        return categoria;
+    public Vendedor getVendedor() {
+        return vendedor;
     }
 
-    public void setCategoria(Categoria categoria) {
-        this.categoria = categoria;
+    public void setVendedor(Vendedor vendedor) {
+        this.vendedor = vendedor;
     }
 
     

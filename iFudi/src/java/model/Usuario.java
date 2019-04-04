@@ -15,6 +15,10 @@ public class Usuario {
     private String senha;
     private String nome;
     private String cpf;
+    private String rua;
+    private String numero;
+    private String cidade;
+    private String estado;
 
     public Usuario(String email, String senha, String nome) {
         this.email = email;

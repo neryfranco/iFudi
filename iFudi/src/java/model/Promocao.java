@@ -11,22 +11,22 @@ package model;
  */
 public class Promocao {
 
-    private String codPromocao;
+    private Integer id;
     private String descricao;
     private Double porcentagem;
 
-    public Promocao(String codPromocao, String descricao, Double porcentagem) {
-        this.codPromocao = codPromocao;
+    public Promocao(Integer id, String descricao, Double porcentagem) {
+        this.id = id;
         this.descricao = descricao;
         this.porcentagem = porcentagem;
     }
 
-    public String getCodPromocao() {
-        return codPromocao;
+    public Integer getID() {
+        return id;
     }
 
-    public void setCodPromocao(String codPromocao) {
-        this.codPromocao = codPromocao;
+    public void setID(Integer id) {
+        this.id = id;
     }
 
     public String getDescricao() {

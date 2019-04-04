@@ -11,29 +11,29 @@ package model;
  */
 public class Frete {
 
-    private String id;
-    private String taxa;
+    private Integer id;
+    private Double taxa;
     private String tempoEntrega;
 
-    public Frete(String id, String taxa, String tempoEntrega) {
+    public Frete(Integer id, Double taxa, String tempoEntrega) {
         this.id = id;
         this.taxa = taxa;
         this.tempoEntrega = tempoEntrega;
     }
 
-    public String getID() {
+    public Integer getID() {
         return id;
     }
 
-    public void setID(String id) {
+    public void setID(Integer id) {
         this.id = id;
     }
 
-    public String getTaxa() {
+    public Double getTaxa() {
         return taxa;
     }
 
-    public void setTaxa(String taxa) {
+    public void setTaxa(Double taxa) {
         this.taxa = taxa;
     }
 

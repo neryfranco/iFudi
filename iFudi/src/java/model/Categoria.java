@@ -11,28 +11,29 @@ package model;
  */
 public class Categoria {
 
-    private String codCategoria;
-    private String tipoCategoria;
+    private Integer id;
+    private String nome;
 
-    public Categoria(String codCategoria, String tipoCategoria) {
-        this.codCategoria = codCategoria;
-        this.tipoCategoria = tipoCategoria;
+    public Categoria(Integer id, String nome) {
+        this.id = id;
+        this.nome = nome;
     }
 
-    public String getTipoCategoria() {
-        return tipoCategoria;
+    public Integer getID() {
+        return id;
     }
 
-    public void setTipoCategoria(String tipoCategoria) {
-        this.tipoCategoria = tipoCategoria;
+    public void setID(Integer id) {
+        this.id = id;
     }
 
-    public String getCodCategoria() {
-        return codCategoria;
+    public String getNome() {
+        return nome;
     }
 
-    public void setCodCategoria(String codCategoria) {
-        this.codCategoria = codCategoria;
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
+    
 }

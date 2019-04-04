@@ -11,29 +11,19 @@ package model;
  */
 public class Cliente extends Usuario {
 
-    private String nome;
-    private String cpf;
+    private Cartao cartao;
 
-    public Cliente(String nome, String cpf, String codUsuario, String email, String senha) {
+    public Cliente(String email, String senha, String nome) {
         super(email, senha, nome);
-        this.nome = nome;
-        this.cpf = cpf;
     }
 
-    public String getNome() {
-        return nome;
+    public Cartao getCartao() {
+        return cartao;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void setCartao(Cartao cartao) {
+        this.cartao = cartao;
     }
-
-    public String getCpf() {
-        return cpf;
-    }
-
-    public void setCpf(String cpf) {
-        this.cpf = cpf;
-    }
-
+    
+    
 }

@@ -11,23 +11,23 @@ package model;
  */
 public class Produto {
 
-    private String codProduto;
+    private Integer id;
     private String descricao;
     private Promocao promocao;
-    private Restaurante restaurate;
+    private Restaurante restaurante;
 
-    public Produto(String codProduto, String descricao, Restaurante restaurate) {
-        this.codProduto = codProduto;
+    public Produto(Integer id, String descricao, Restaurante restaurante) {
+        this.id = id;
         this.descricao = descricao;
-        this.restaurate = restaurate;
+        this.restaurante = restaurante;
     }
 
-    public String getCodProduto() {
-        return codProduto;
+    public Integer getID() {
+        return id;
     }
 
-    public void setCodProduto(String codProduto) {
-        this.codProduto = codProduto;
+    public void setID(Integer id) {
+        this.id = id;
     }
 
     public String getDescricao() {
@@ -46,12 +46,12 @@ public class Produto {
         this.promocao = promocao;
     }
 
-    public Restaurante getRestaurate() {
-        return restaurate;
+    public Restaurante getRestaurante() {
+        return restaurante;
     }
 
-    public void setRestaurate(Restaurante restaurate) {
-        this.restaurate = restaurate;
+    public void setRestaurante(Restaurante restaurate) {
+        this.restaurante = restaurate;
     }
 
     

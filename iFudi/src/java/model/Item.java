@@ -11,24 +11,34 @@ package model;
  */
 public class Item {
 
-    private String codItem;
+    private Integer id;
     private Produto produto;
     private Integer quantidade;
     private Double precoTotal;
+    private Pedido pedido;
 
-    public Item(String codItem, Produto produto, Integer quantidade) {
-        this.codItem = codItem;
+    public Item(Integer id, Produto produto, Integer quantidade, Double precoTotal, Pedido pedido) {
+        this.id = id;
+        this.produto = produto;
+        this.quantidade = quantidade;
+        this.precoTotal = precoTotal;
+        this.pedido = pedido;
+    }
+
+    public Item(Integer id, Produto produto, Integer quantidade) {
+        this.id = id;
         this.produto = produto;
         this.quantidade = quantidade;
     }
     
+    
 
-    public String getCodItem() {
-        return codItem;
+    public Integer getId() {
+        return id;
     }
 
-    public void setCodItem(String codItem) {
-        this.codItem = codItem;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public Produto getProduto() {
@@ -55,6 +65,14 @@ public class Item {
         this.precoTotal = precoTotal;
     }
 
-    
+    public Pedido getPedido() {
+        return pedido;
+    }
 
+    public void setPedido(Pedido pedido) {
+        this.pedido = pedido;
+    }
+
+    
+   
 }

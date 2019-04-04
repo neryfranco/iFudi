@@ -11,18 +11,35 @@ package model;
  */
 public class Pagamento {
 
-    private String codPagamento;
+    private Integer id;
     private Pedido pedido;
     private Double valor;
     private FormaPagamento formaPagamento;
 
-    public Pagamento(String codPagamento, Pedido pedido, Double valor, FormaPagamento formaPagamento) {
-        this.codPagamento = codPagamento;
+    public Pagamento(Integer id, Pedido pedido, Double valor, FormaPagamento formaPagamento) {
+        this.id = id;
         this.pedido = pedido;
         this.valor = valor;
         this.formaPagamento = formaPagamento;
     }
 
+    
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public Pedido getPedido() {
+        return pedido;
+    }
+
+    public void setPedido(Pedido pedido) {
+        this.pedido = pedido;
+    }
+    
     public FormaPagamento getFormaPagamento() {
         return formaPagamento;
     }
@@ -31,12 +48,12 @@ public class Pagamento {
         this.formaPagamento = formaPagamento;
     }
 
-    public String getCodPagamento() {
-        return codPagamento;
+    public Integer getID() {
+        return id;
     }
 
-    public void setCodPagamento(String codPagamento) {
-        this.codPagamento = codPagamento;
+    public void setID(Integer id) {
+        this.id = id;
     }
 
     public Double getValor() {
@@ -47,4 +64,6 @@ public class Pagamento {
         this.valor = valor;
     }
 
+
+    
 }

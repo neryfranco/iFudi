@@ -9,6 +9,6 @@ package model;
  *
  * @author Jessica
  */
-public class PagCartao implements FormaPagamento{
+public class PagCrédito implements FormaPagamento{
 
 }

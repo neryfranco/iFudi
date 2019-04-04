@@ -9,6 +9,15 @@ package model;
  *
  * @author Nery
  */
-public class PedidoSolicitado implements PedidoStatus{
+public class PedidoSolicitado extends PedidoStatus{
+
+    public PedidoSolicitado(String status) {
+        super(status);
+    }
     
+    public PedidoStatus cancelando(){System.out.println("Sim");return getStatus();};
+    public PedidoStatus entregando(){System.out.println("Sim");return getStatus();};
+    public PedidoStatus entregue(){System.out.println("Sim");return getStatus();};
+    public PedidoStatus preparando(){System.out.println("Sim");return getStatus();};
+    public PedidoStatus solicitado(){System.out.println("Não");return getStatus();};  
 }

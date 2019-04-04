@@ -9,6 +9,15 @@ package model;
  *
  * @author Nery
  */
-public interface PedidoStatus {
+public abstract class PedidoStatus extends Pedido {
+
+    public PedidoStatus(String status) {
+        super(status);
+    }
     
+    public PedidoStatus cancelando(){return getStatus();};
+    public PedidoStatus entregando(){return getStatus();};
+    public PedidoStatus entregue(){return getStatus();};
+    public PedidoStatus preparando(){return getStatus();};
+    public PedidoStatus solicitado(){return getStatus();};
 }

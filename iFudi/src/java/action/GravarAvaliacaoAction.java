@@ -6,6 +6,7 @@
 package action;
 
 import controller.Action;
+import dao.AvaliacaoDAO;
 import java.io.IOException;
 import java.sql.SQLException;
 import javax.servlet.http.HttpServletRequest;
@@ -18,30 +19,30 @@ import model.Avaliacao;
  */
 public class GravarAvaliacaoAction implements Action {
 
-    public GravarAvaliacaoAction() {
-    }
+    public GravarAvaliacaoAction() {}
 
     @Override
     public void execute(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
-        String codAvaliacao = request.getParameter("textCodAvaliacao");
-        String descAvaliacao = request.getParameter("textDescAvaliacao");
-        Integer votacao = Integer.parseInt(request.getParameter("textVotacao"));
+        Integer id = Integer.parseInt(request.getParameter("txtId"));
+        String descricao = request.getParameter("txtDescricao");
+        Integer votacao = Integer.parseInt(request.getParameter("txtVotacao"));
 
-        if (codAvaliacao.equals("") || descAvaliacao.equals("") || votacao.equals("")) {
+        if (id.equals("") || descricao.equals("") || votacao.equals("")) {
             response.sendRedirect("gravarAvaliacao.jsp");
         } else {
-            Avaliacao a = new Avaliacao(codAvaliacao, descAvaliacao, votacao);
+            Avaliacao av = new Avaliacao(id, descricao, votacao);
             try {
-                AvaliacaoDAO.getInstance().save(avaliacao);
+                AvaliacaoDAO.getInstance().save(av);
                 response.sendRedirect("sucesso.jsp");
             } catch (SQLException ex) {
                 response.sendRedirect("erro.jsp");
                 ex.printStackTrace();
             } catch (ClassNotFoundException ex) {
+                response.sendRedirect("erro.jsp");
                 ex.printStackTrace();
             }
         }
-    }
 
+    }
 }

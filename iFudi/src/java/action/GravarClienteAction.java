@@ -6,20 +6,20 @@
 package action;
 
 import controller.Action;
-import dao.VendedorDAO;
+import dao.ClienteDAO;
 import java.io.IOException;
 import java.sql.SQLException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import model.Vendedor;
+import model.Cliente;
 
 /**
  *
  * @author Jessica
  */
-public class GravarVendedorAction implements Action {
-    
-    public GravarVendedorAction(){}
+public class GravarClienteAction implements Action {
+
+    public GravarClienteAction() {}
 
     @Override
     public void execute(HttpServletRequest request, HttpServletResponse response) throws IOException {
@@ -29,11 +29,11 @@ public class GravarVendedorAction implements Action {
         String nome = request.getParameter("txtNome");
 
         if (email.equals("") || email.equals("") || nome.equals("")) {
-            response.sendRedirect("gravarVendedor.jsp");
+            response.sendRedirect("gravarCliente.jsp");
         } else {
-            Vendedor v = new Vendedor(email, senha, nome);
+            Cliente cl = new Cliente(email, senha, nome);
             try {
-                VendedorDAO.getInstance().save(v);
+                ClienteDAO.getInstance().save(cl);
                 response.sendRedirect("sucesso.jsp");
             } catch (SQLException ex) {
                 response.sendRedirect("erro.jsp");

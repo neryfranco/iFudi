@@ -35,11 +35,18 @@ public class Restaurante {
         this.vendedor = vendedor;
     }
 
+    public Restaurante(String cnpj, String nome, String rua, String numero, String cidade, String estado) {
+        this.cnpj = cnpj;
+        this.nome = nome;
+        this.rua = rua;
+        this.numero = numero;
+        this.cidade = cidade;
+        this.estado = estado;
+    }
+
     public Restaurante(String cnpj) {
         this.cnpj = cnpj;
     }
-
-    
 
     public String getCnpj() {
         return cnpj;
@@ -104,12 +111,12 @@ public class Restaurante {
     public void setCategoria(Categoria categoria) {
         this.categoria = categoria;
     }
-    
-    public void addProduto(Produto produto){
+
+    public void addProduto(Produto produto) {
         listaProdutos.add(produto);
     }
-    
-    public void removeProduto(Produto produto){
+
+    public void removeProduto(Produto produto) {
         listaProdutos.remove(produto);
     }
 
@@ -120,5 +127,5 @@ public class Restaurante {
     public void setVendedor(Vendedor vendedor) {
         this.vendedor = vendedor;
     }
-    
+
 }

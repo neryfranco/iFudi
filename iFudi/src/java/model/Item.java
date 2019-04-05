@@ -30,8 +30,12 @@ public class Item {
         this.produto = produto;
         this.quantidade = quantidade;
     }
-    
-    
+
+    public Item(Integer id, Integer quantidade, Double precoTotal) {
+        this.id = id;
+        this.quantidade = quantidade;
+        this.precoTotal = precoTotal;
+    }
 
     public Integer getId() {
         return id;
@@ -73,6 +77,4 @@ public class Item {
         this.pedido = pedido;
     }
 
-    
-   
 }

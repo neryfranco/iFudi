@@ -22,6 +22,18 @@ public class Produto {
         this.restaurante = restaurante;
     }
 
+    public Produto(Integer id, String descricao, Promocao promocao, Restaurante restaurante) {
+        this.id = id;
+        this.descricao = descricao;
+        this.promocao = promocao;
+        this.restaurante = restaurante;
+    }
+
+    public Produto(Integer id, String descricao) {
+        this.id = id;
+        this.descricao = descricao;
+    }
+
     public Integer getID() {
         return id;
     }
@@ -54,5 +66,4 @@ public class Produto {
         this.restaurante = restaurate;
     }
 
-    
 }

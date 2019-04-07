@@ -31,9 +31,9 @@ public class GravarAvaliacaoAction implements Action {
         if (id.equals("") || descricao.equals("") || votacao.equals("")) {
             response.sendRedirect("gravarAvaliacao.jsp");
         } else {
-            Avaliacao av = new Avaliacao(id, descricao, votacao);
+            Avaliacao avaliacao = new Avaliacao(id, descricao, votacao);
             try {
-                AvaliacaoDAO.getInstance().save(av);
+                AvaliacaoDAO.getInstance().save(avaliacao);
                 response.sendRedirect("sucesso.jsp");
             } catch (SQLException ex) {
                 response.sendRedirect("erro.jsp");

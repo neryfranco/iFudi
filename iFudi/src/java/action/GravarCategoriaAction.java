@@ -30,9 +30,9 @@ public class GravarCategoriaAction implements Action {
         if (id.equals("") || nome.equals("")) {
             response.sendRedirect("gravarCategoria.jsp");
         } else {
-            Categoria ca = new Categoria(id, nome);
+            Categoria categoria = new Categoria(id, nome);
             try {
-                CategoriaDAO.getInstance().save(ca);
+                CategoriaDAO.getInstance().save(categoria);
                 response.sendRedirect("sucesso.jsp");
             } catch (SQLException ex) {
                 response.sendRedirect("erro.jsp");

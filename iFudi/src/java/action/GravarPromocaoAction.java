@@ -31,9 +31,9 @@ public class GravarPromocaoAction implements Action {
         if (id.equals("") || descricao.equals("") || porcentagem.equals("")) {
             response.sendRedirect("gravarPromocao.jsp");
         } else {
-            Promocao pr = new Promocao(id, descricao, porcentagem);
+            Promocao promocao = new Promocao(id, descricao, porcentagem);
             try {
-                PromocaoDAO.getInstance().save(pr);
+                PromocaoDAO.getInstance().save(promocao);
                 response.sendRedirect("sucesso.jsp");
             } catch (SQLException ex) {
                 response.sendRedirect("erro.jsp");

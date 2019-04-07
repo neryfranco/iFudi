@@ -31,16 +31,16 @@ public class GravarVendedorAction implements Action {
         if (email.equals("") || email.equals("") || nome.equals("")) {
             response.sendRedirect("gravarVendedor.jsp");
         } else {
-            Vendedor v = new Vendedor(email, senha, nome);
+            Vendedor vendedor = new Vendedor(email, senha, nome);
             try {
-                VendedorDAO.getInstance().save(v);
+                VendedorDAO.getInstance().save(vendedor);
                 response.sendRedirect("sucesso.jsp");
             } catch (SQLException ex) {
                 response.sendRedirect("erro.jsp");
                 ex.printStackTrace();
             } catch (ClassNotFoundException ex) {
                 response.sendRedirect("erro.jsp");
-                ex.printStackTrace();
+                ex.printStackTrace(); 
             }
         }
     }

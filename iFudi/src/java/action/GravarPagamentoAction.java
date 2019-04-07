@@ -28,17 +28,17 @@ public class GravarPagamentoAction implements Action {
 
         Integer id = Integer.parseInt(request.getParameter("txtId"));
         Double valor = Double.parseDouble(request.getParameter("txtValor"));
-        String data = request.getParameter("optPedido");
+        Integer tempoPreparacao = Integer.parseInt(request.getParameter("optPedido"));
 
         if (id.equals("") || valor.equals("")) {
             response.sendRedirect("gravarPagamento.jsp");
         } else {
-            Pagamento pg = new Pagamento(id, valor);
-            Pedido pdo = new Pedido(null, null, null, data, null, null, null, null, null);
+            Pagamento pagamento = new Pagamento(id, valor);
+            Pedido pedido = new Pedido(null, null, tempoPreparacao);
             try {
-                Pedido pd = PedidoDAO.getInstance().read(pdo);
-                pg.setPedido(pd);
-                PagamentoDAO.getInstance().save(pg);
+                Pedido pd = PedidoDAO.getInstance().read(pedido);
+                pagamento.setPedido(pd);
+                PagamentoDAO.getInstance().save(pagamento);
                 response.sendRedirect("sucesso.jsp");
             } catch (SQLException ex) {
                 response.sendRedirect("erro.jsp");

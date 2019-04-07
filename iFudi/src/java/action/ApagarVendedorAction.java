@@ -6,19 +6,42 @@
 package action;
 
 import controller.Action;
+import dao.VendedorDAO;
 import java.io.IOException;
+import java.sql.SQLException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import model.Vendedor;
 
 /**
  *
  * @author Jessica
  */
-public class ApagarVendedorAction implements Action{
+public class ApagarVendedorAction implements Action {
+    
+    public ApagarVendedorAction(){}
 
     @Override
     public void execute(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+
+        String nome = request.getParameter("txtNome");
+        
+        Vendedor vendedor = new Vendedor(null, null, nome);
+        if (nome.equals("")) {
+            response.sendRedirect("apagarVendedor.jsp");
+        } else {
+            try {
+                Vendedor v = VendedorDAO.getInstance().read(vendedor);
+                if (v != null) {
+                    VendedorDAO.getInstance().delete(vendedor);
+                    response.sendRedirect("sucesso.jsp");
+                }
+            } catch (SQLException ex) {
+                response.sendRedirect("erro.jsp");
+                ex.printStackTrace();
+            } catch (ClassNotFoundException ex) {
+                ex.printStackTrace();
+            }
+        }
     }
-    
 }

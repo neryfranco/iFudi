@@ -36,9 +36,9 @@ public class GravarUsuarioAction implements Action {
         if (email.equals("") || senha.equals("") || nome.equals("") || cpf.equals("") || rua.equals("") || numero.equals("") || cidade.equals("") || estado.equals("")) {
             response.sendRedirect("gravarUsuario.jsp");
         } else {
-            Usuario u = new Usuario(email, senha, nome, cpf, rua, numero, cidade, estado);
+            Usuario usuario = new Usuario(email, senha, nome, cpf, rua, numero, cidade, estado);
             try {
-                UsuarioDAO.getInstance().save(u);
+                UsuarioDAO.getInstance().save(usuario);
                 response.sendRedirect("sucesso.jsp");
             } catch (SQLException ex) {
                 response.sendRedirect("erro.jsp");

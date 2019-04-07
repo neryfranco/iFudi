@@ -40,15 +40,15 @@ public class GravarRestauranteAction implements Action {
         if (cnpj.equals("") || nome.equals("") || rua.equals("") || numero.equals("") || cidade.equals("") || estado.equals("")) {
             response.sendRedirect("gravarRestaurante.jsp");
         } else {
-            Restaurante re = new Restaurante(cnpj, nome, rua, numero, cidade, estado);
-            Categoria ca = new Categoria(id, null);
-            Vendedor ve = new Vendedor(email, null, null);
+            Restaurante restaurante = new Restaurante(cnpj, nome, rua, numero, cidade, estado);
+            Categoria categoria = new Categoria(id, null);
+            Vendedor vendedor = new Vendedor(email, null, null);
             try {
-                Categoria c = CategoriaDAO.getInstance().read(ca);
-                Vendedor v = VendedorDAO.getInstance().read(ve);
-                re.setCategoria(c);
-                re.setVendedor(v);
-                RestauranteDAO.getInstance().save(re);
+                Categoria c = CategoriaDAO.getInstance().read(categoria);
+                Vendedor v = VendedorDAO.getInstance().read(vendedor);
+                restaurante.setCategoria(c);
+                restaurante.setVendedor(v);
+                RestauranteDAO.getInstance().save(restaurante);
                 response.sendRedirect("sucesso.jsp");
             } catch (SQLException ex) {
                 response.sendRedirect("erro.jsp");

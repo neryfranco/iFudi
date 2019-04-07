@@ -36,15 +36,15 @@ public class GravarProdutoAction implements Action {
         if (id.equals("") || descricao.equals("")) {
             response.sendRedirect("gravarProduto.jsp");
         } else {
-            Produto pr = new Produto(id, descricao);
-            Restaurante re = new Restaurante(null, nome, null, null, null, null, null, null, null);
-            Promocao pro = new Promocao(null, null, porcentagem);
+            Produto produto = new Produto(id, descricao);
+            Restaurante restaurante = new Restaurante(null, nome, null, null, null, null);
+            Promocao promocao = new Promocao(null, null, porcentagem);
             try {
-                Restaurante r = RestauranteDAO.getInstance().read(re);
-                Promocao p = PromocaoDAO.getInstance().read(pro);
-                pr.setPromocao(p);
-                pr.setRestaurante(r);
-                ProdutoDAO.getInstance().save(pr);
+                Restaurante r = RestauranteDAO.getInstance().read(restaurante);
+                Promocao prom = PromocaoDAO.getInstance().read(promocao);
+                produto.setPromocao(prom);
+                produto.setRestaurante(r);
+                ProdutoDAO.getInstance().save(produto);
                 response.sendRedirect("sucesso.jsp");
             } catch (SQLException ex) {
                 response.sendRedirect("erro.jsp");
@@ -55,5 +55,4 @@ public class GravarProdutoAction implements Action {
             }
         }
     }
-
 }

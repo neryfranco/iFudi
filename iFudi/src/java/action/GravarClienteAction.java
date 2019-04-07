@@ -31,9 +31,9 @@ public class GravarClienteAction implements Action {
         if (email.equals("") || email.equals("") || nome.equals("")) {
             response.sendRedirect("gravarCliente.jsp");
         } else {
-            Cliente cl = new Cliente(email, senha, nome);
+            Cliente cliente = new Cliente(email, senha, nome);
             try {
-                ClienteDAO.getInstance().save(cl);
+                ClienteDAO.getInstance().save(cliente);
                 response.sendRedirect("sucesso.jsp");
             } catch (SQLException ex) {
                 response.sendRedirect("erro.jsp");

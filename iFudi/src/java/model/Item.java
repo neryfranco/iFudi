@@ -25,12 +25,6 @@ public class Item {
         this.pedido = pedido;
     }
 
-    public Item(Integer id, Produto produto, Integer quantidade) {
-        this.id = id;
-        this.produto = produto;
-        this.quantidade = quantidade;
-    }
-
     public Item(Integer id, Integer quantidade, Double precoTotal) {
         this.id = id;
         this.quantidade = quantidade;

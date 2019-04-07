@@ -44,5 +44,4 @@ public class Frete {
     public void setTempoEntrega(String tempoEntrega) {
         this.tempoEntrega = tempoEntrega;
     }
-
 }

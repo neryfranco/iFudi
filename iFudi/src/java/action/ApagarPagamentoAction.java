@@ -6,19 +6,42 @@
 package action;
 
 import controller.Action;
+import dao.PagamentoDAO;
 import java.io.IOException;
+import java.sql.SQLException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import model.Pagamento;
 
 /**
  *
  * @author Jessica
  */
-public class ApagarPagamentoAction implements Action{
+public class ApagarPagamentoAction implements Action {
+    
+    public ApagarPagamentoAction(){}
 
     @Override
     public void execute(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+
+        Integer tempoPreparacao = Integer.parseInt(request.getParameter("txtValor"));
+       
+        Pagamento pagamento = new Pagamento(tempoPreparacao, null);
+        if (tempoPreparacao.equals("")) {
+            response.sendRedirect("apagarPagamento.jsp");
+        } else {
+            try {
+                Pagamento p = PagamentoDAO.getInstance().read(pagamento);
+                if (p != null) {
+                    PagamentoDAO.getInstance().delete(pagamento);
+                    response.sendRedirect("sucesso.jsp");
+                }
+            } catch (SQLException ex) {
+                response.sendRedirect("erro.jsp");
+                ex.printStackTrace();
+            } catch (ClassNotFoundException ex) {
+                ex.printStackTrace();
+            }
+        }
     }
-    
 }

@@ -32,20 +32,20 @@ public class GravarItemAction implements Action {
         Integer quantidade = Integer.parseInt(request.getParameter("txtQtd"));
         Double precoTotal = Double.parseDouble(request.getParameter("txtPrecoTotal"));
         String descricao = request.getParameter("optProduto");
-        String data = request.getParameter("optPedido");
+        Integer tempoPreparacao  = Integer.parseInt(request.getParameter("optPedido"));
         
         if (id.equals("") || quantidade.equals("") || precoTotal.equals("")) {
             response.sendRedirect("gravarItem.jsp");
         } else {
-            Item itm = new Item(id, quantidade, precoTotal);
-            Produto prd = new Produto(null, descricao, null, null);
-            Pedido pdo = new Pedido(null, null, null, data, null, null, null, null, null);
+            Item item = new Item(id, quantidade, precoTotal);
+            Produto produto = new Produto(null, descricao);
+            Pedido pedido = new Pedido(null, null, tempoPreparacao);
             try {
-                Pedido pd = PedidoDAO.getInstance().read(pdo);
-                Produto pr = ProdutoDAO.getInstance().read(prd);
-                itm.setPedido(pd);
-                itm.setProduto(pr);
-                ItemDAO.getInstance().save(itm);
+                Pedido pd = PedidoDAO.getInstance().read(pedido);
+                Produto prd = ProdutoDAO.getInstance().read(produto);
+                item.setPedido(pd);
+                item.setProduto(prd);
+                ItemDAO.getInstance().save(item);
                 response.sendRedirect("sucesso.jsp");
             } catch (SQLException ex) {
                 response.sendRedirect("erro.jsp");
@@ -56,5 +56,4 @@ public class GravarItemAction implements Action {
             }
         }
     }
-    
 }

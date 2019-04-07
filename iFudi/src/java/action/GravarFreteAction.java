@@ -31,9 +31,9 @@ public class GravarFreteAction implements Action {
         if (id.equals("") || taxa.equals("") || tempoEntrega.equals("")) {
             response.sendRedirect("gravarFrete.jsp");
         } else {
-            Frete fr = new Frete(id, taxa, tempoEntrega);
+            Frete frete = new Frete(id, taxa, tempoEntrega);
             try {
-                FreteDAO.getInstance().save(fr);
+                FreteDAO.getInstance().save(frete);
                 response.sendRedirect("sucesso.jsp");
             } catch (SQLException ex) {
                 response.sendRedirect("erro.jsp");

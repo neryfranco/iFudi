@@ -6,19 +6,42 @@
 package action;
 
 import controller.Action;
+import dao.ItemDAO;
 import java.io.IOException;
+import java.sql.SQLException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import model.Item;
 
 /**
  *
  * @author Jessica
  */
-public class ApagarItemAction implements Action{
+public class ApagarItemAction implements Action {
+    
+    public ApagarItemAction(){}
 
     @Override
     public void execute(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+
+        Integer tempoPreparacao = Integer.parseInt(request.getParameter("txtPrecoTotal"));
+        
+        Item item = new Item(tempoPreparacao, null, null);
+        if (tempoPreparacao.equals("")) {
+            response.sendRedirect("apagarItem.jsp");
+        } else {
+            try {
+                Item i = ItemDAO.getInstance().read(item);
+                if (i != null) {
+                    ItemDAO.getInstance().delete(item);
+                    response.sendRedirect("sucesso.jsp");
+                }
+            } catch (SQLException ex) {
+                response.sendRedirect("erro.jsp");
+                ex.printStackTrace();
+            } catch (ClassNotFoundException ex) {
+                ex.printStackTrace();
+            }
+        }
     }
-    
 }

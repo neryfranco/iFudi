@@ -24,11 +24,10 @@ public class ApagarProdutoAction implements Action {
     @Override
     public void execute(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
-        Double porcentagem = Double.parseDouble(request.getParameter("txtDescricao"));
-        String nome = request.getParameter("txtDescricao");
+        Integer id = Integer.parseInt(request.getParameter("txtId"));
 
-        Produto produto = new Produto(null, nome);
-        if (porcentagem.equals("") || nome.equals("")) {
+        Produto produto = new Produto(id, null);
+        if (id.equals("")) {
             response.sendRedirect("apagarProduto.jsp");
         } else {
             try {

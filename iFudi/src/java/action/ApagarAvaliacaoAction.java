@@ -24,10 +24,10 @@ public class ApagarAvaliacaoAction implements Action {
     @Override
     public void execute(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
-        String descricao = request.getParameter("txtDescricao");
+       Integer id = Integer.parseInt(request.getParameter("txtId"));
         
-        Avaliacao avaliacao = new Avaliacao(null, descricao, null);
-        if (descricao.equals("")) {
+        Avaliacao avaliacao = new Avaliacao(id, null, null);
+        if (id.equals("")) {
             response.sendRedirect("apagarAvaliacao.jsp");
         } else {
             try {

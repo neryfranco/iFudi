@@ -28,9 +28,10 @@ public class LerClienteAction implements Action {
     @Override
     public void execute(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
-        String nome = request.getParameter("txtNome");
-        Cliente cliente = new Cliente(null, null, nome);
-        if (nome.equals("")) {
+        String email = request.getParameter("txtEmail");
+        
+        Cliente cliente = new Cliente(email, null, null);
+        if (email.equals("")) {
             response.sendRedirect("lerCliente.jsp");
         } else {
             try {

@@ -13,7 +13,7 @@
         <link href="src/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
-        <h1>Ler Promoção</h1>
+        <h1>Ler Produto</h1>
         <table class="table table-dark table-hover">
             <tr>
                 <td>Código: </td> 

@@ -24,10 +24,10 @@ public class ApagarCategoriaAction implements Action {
     @Override
     public void execute(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
-        String nome = request.getParameter("txtNome");
+       Integer id = Integer.parseInt(request.getParameter("txtId"));
         
-        Categoria categoria = new Categoria(null, nome);
-        if (nome.equals("")) {
+        Categoria categoria = new Categoria(id, null);
+        if (id.equals("")) {
             response.sendRedirect("apagarCategoria.jsp");
         } else {
             try {

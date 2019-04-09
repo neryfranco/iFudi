@@ -24,10 +24,10 @@ public class ApagarPromocaoAction implements Action {
     @Override
     public void execute(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
-        String descricao = request.getParameter("txtDescricao");
+        Integer id = Integer.parseInt(request.getParameter("txtId"));
         
-        Promocao promocao = new Promocao(null, descricao, null);
-        if (descricao.equals("")) {
+        Promocao promocao = new Promocao(id, null, null);
+        if (id.equals("")) {
             response.sendRedirect("apagarPromocao.jsp");
         } else {
             try {

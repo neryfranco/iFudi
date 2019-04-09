@@ -28,9 +28,10 @@ public class LerAvaliacaoAction implements Action {
     @Override
     public void execute(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
-        String descricao = request.getParameter("txtDescricao");
-        Avaliacao avaliacao = new Avaliacao(null, descricao, null);
-        if (descricao.equals("")) {
+        Integer id = Integer.parseInt(request.getParameter("txtId"));
+        
+        Avaliacao avaliacao = new Avaliacao(id, null, null);
+        if (id.equals("")) {
             response.sendRedirect("lerAvaliacao.jsp");
         } else {
             try {

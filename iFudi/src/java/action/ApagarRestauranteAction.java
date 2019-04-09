@@ -24,11 +24,10 @@ public class ApagarRestauranteAction implements Action {
     @Override
     public void execute(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
-        Integer id = Integer.parseInt(request.getParameter("txtCnpj"));
-        String email = request.getParameter("txtCnpj");
+        String cnpj = request.getParameter("txtCnpj");
 
-        Restaurante restaurante = new Restaurante(email, null, null, null, null, null);
-        if (id.equals("")) {
+        Restaurante restaurante = new Restaurante(cnpj, null, null, null, null, null);
+        if (cnpj.equals("")) {
             response.sendRedirect("apagarRestaurante.jsp");
         } else {
             try {

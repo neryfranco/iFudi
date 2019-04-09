@@ -16,8 +16,8 @@
         <h1>Ler Cliente</h1>
         <form action="FrontController?action=action.LerAvaliacaoAction" method="post" style="width: 50%">
             <table class="table table-dark table-hover">
-                Entre com código
-                <input type="text" name="txtId"/><br/>
+                Entre com email
+                <input type="text" name="txtEmail"/><br/>
                 <input type="submit" class="btn btn-success"/>
             </table>
             <a href="index.jsp"  class="btn btn-default">Voltar</a>

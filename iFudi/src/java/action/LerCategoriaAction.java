@@ -28,9 +28,10 @@ public class LerCategoriaAction implements Action {
     @Override
     public void execute(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
-        String nome = request.getParameter("txtNome");
-        Categoria categoria = new Categoria(null, nome);
-        if (nome.equals("")) {
+        Integer id = Integer.parseInt(request.getParameter("txtId"));
+        
+        Categoria categoria = new Categoria(id, null);
+        if (id.equals("")) {
             response.sendRedirect("lerCategoria.jsp");
         } else {
             try {

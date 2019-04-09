@@ -28,9 +28,10 @@ public class LerItemAction implements Action {
     @Override
     public void execute(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
-        Double precoTotal = Double.parseDouble(request.getParameter("txtPrecoTotal"));
-        Item item = new Item(null, null, precoTotal);
-        if (precoTotal.equals("")) {
+        Integer id = Integer.parseInt(request.getParameter("txtId"));
+        
+        Item item = new Item(id, null, null);
+        if (id.equals("")) {
             response.sendRedirect("lerItem.jsp");
         } else {
             try {

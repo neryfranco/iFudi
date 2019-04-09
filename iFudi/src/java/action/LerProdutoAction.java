@@ -28,10 +28,10 @@ public class LerProdutoAction implements Action {
     @Override
     public void execute(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
-        String descricao = request.getParameter("txtDescricao");
-        
-        Produto produto = new Produto(null,  descricao);
-        if (descricao.equals("")) {
+        Integer id = Integer.parseInt(request.getParameter("txtId"));
+       
+        Produto produto = new Produto(id, null);
+        if (id.equals("")) {
             response.sendRedirect("lerProduto.jsp");
         } else {
             try {

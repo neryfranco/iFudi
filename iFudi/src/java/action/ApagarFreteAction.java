@@ -24,9 +24,10 @@ public class ApagarFreteAction implements Action {
     @Override
     public void execute(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
-        Double taxa = Double.parseDouble(request.getParameter("txtTaxa"));
-        Frete frete = new Frete(null, taxa, null);
-        if (taxa.equals("")) {
+        Integer id = Integer.parseInt(request.getParameter("txtId"));
+        
+        Frete frete = new Frete(id, null, null);
+        if (id.equals("")) {
             response.sendRedirect("apagarFrete.jsp");
         } else {
             try {

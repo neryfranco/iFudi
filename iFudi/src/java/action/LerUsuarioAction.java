@@ -28,10 +28,10 @@ public class LerUsuarioAction implements Action {
     @Override
     public void execute(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
-        String nome = request.getParameter("txtNome");
+        String email = request.getParameter("txtEmail");
         
-        Usuario usuario = new Usuario(null, null, nome, null, null, null, null, null);
-        if (nome.equals("")) {
+        Usuario usuario = new Usuario(email, null, null, null, null, null, null, null);
+        if (email.equals("")) {
             response.sendRedirect("lerUsuario.jsp");
         } else {
             try {

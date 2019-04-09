@@ -24,10 +24,10 @@ public class ApagarVendedorAction implements Action {
     @Override
     public void execute(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
-        String nome = request.getParameter("txtNome");
+        String email = request.getParameter("txtEmail");
         
-        Vendedor vendedor = new Vendedor(null, null, nome);
-        if (nome.equals("")) {
+        Vendedor vendedor = new Vendedor(email, null, null);
+        if (email.equals("")) {
             response.sendRedirect("apagarVendedor.jsp");
         } else {
             try {

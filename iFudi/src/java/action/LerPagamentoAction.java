@@ -28,10 +28,10 @@ public class LerPagamentoAction implements Action {
     @Override
     public void execute(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
-        Double valor = Double.parseDouble(request.getParameter("txtValor"));
+        Integer id = Integer.parseInt(request.getParameter("txtId"));
         
-        Pagamento pagamento = new Pagamento(null, valor);
-        if (valor.equals("")) {
+        Pagamento pagamento = new Pagamento(id, null);
+        if (id.equals("")) {
             response.sendRedirect("lerPagamento.jsp");
         } else {
             try {

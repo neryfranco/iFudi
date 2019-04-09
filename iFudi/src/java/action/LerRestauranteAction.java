@@ -28,10 +28,10 @@ public class LerRestauranteAction implements Action {
     @Override
     public void execute(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
-        String nome = request.getParameter("txtNome");
+        String cnpj = request.getParameter("txtCnpj");
         
-        Restaurante restaurante = new Restaurante(null, nome, null, null, null, null);
-        if (nome.equals("")) {
+        Restaurante restaurante = new Restaurante(cnpj, null, null, null, null, null);
+        if (cnpj.equals("")) {
             response.sendRedirect("lerRestaurante.jsp");
         } else {
             try {

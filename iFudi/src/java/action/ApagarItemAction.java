@@ -24,10 +24,10 @@ public class ApagarItemAction implements Action {
     @Override
     public void execute(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
-        Integer tempoPreparacao = Integer.parseInt(request.getParameter("txtPrecoTotal"));
+        Integer id = Integer.parseInt(request.getParameter("txtId"));
         
-        Item item = new Item(tempoPreparacao, null, null);
-        if (tempoPreparacao.equals("")) {
+        Item item = new Item(id, null, null);
+        if (id.equals("")) {
             response.sendRedirect("apagarItem.jsp");
         } else {
             try {

@@ -24,10 +24,10 @@ public class ApagarPedidoAction implements Action {
     @Override
     public void execute(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
-        Integer votacao = Integer.parseInt(request.getParameter("txtData"));
+       Integer id = Integer.parseInt(request.getParameter("txtId"));
 
-        Pedido pedido = new Pedido(votacao, null, null);
-        if (votacao.equals("")) {
+        Pedido pedido = new Pedido(id, null, null);
+        if (id.equals("")) {
             response.sendRedirect("apagarPedido.jsp");
         } else {
             try {

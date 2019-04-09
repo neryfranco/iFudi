@@ -24,10 +24,10 @@ public class ApagarPagamentoAction implements Action {
     @Override
     public void execute(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
-        Integer tempoPreparacao = Integer.parseInt(request.getParameter("txtValor"));
+        Integer id = Integer.parseInt(request.getParameter("txtId"));
        
-        Pagamento pagamento = new Pagamento(tempoPreparacao, null);
-        if (tempoPreparacao.equals("")) {
+        Pagamento pagamento = new Pagamento(id, null);
+        if (id.equals("")) {
             response.sendRedirect("apagarPagamento.jsp");
         } else {
             try {

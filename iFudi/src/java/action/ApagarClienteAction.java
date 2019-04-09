@@ -24,10 +24,10 @@ public class ApagarClienteAction implements Action {
     @Override
     public void execute(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
-        String nome = request.getParameter("txtNome");
+         String email = request.getParameter("txtEmail");
         
-        Cliente cliente = new Cliente(null, null, nome);
-        if (nome.equals("")) {
+        Cliente cliente = new Cliente(email, null, null);
+        if (email.equals("")) {
             response.sendRedirect("apagarCliente.jsp");
         } else {
             try {

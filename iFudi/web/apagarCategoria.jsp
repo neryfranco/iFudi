@@ -16,8 +16,8 @@
         <h1>Apagar Categoria</h1>
         <form action="FrontController?action=action.ApagarCategoriaAction" method="post" style="width: 50%">
             <table class="table table-dark table-hover">
-                Entre com nome
-                <input type="text" name="txtNome"/><br/>
+                Entre com código
+                <input type="text" name="txtId"/><br/>
                 <input type="submit" class="btn btn-success"/>
             </table>
             <a href="index.jsp"  class="btn btn-default">Voltar</a>

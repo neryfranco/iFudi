@@ -28,9 +28,10 @@ public class LerPedidoAction implements Action {
     @Override
     public void execute(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
-        String data = request.getParameter("txtData");
-        Pedido pedido = new Pedido(null, data, null);
-        if (data.equals("")) {
+        Integer id = Integer.parseInt(request.getParameter("txtId"));
+        
+        Pedido pedido = new Pedido(id, null, null);
+        if (id.equals("")) {
             response.sendRedirect("lerPedido.jsp");
         } else {
             try {

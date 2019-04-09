@@ -11,9 +11,11 @@ package model;
  */
 public class PedidoPreparando extends PedidoStatus{
 
-    public PedidoPreparando(String status) {
-        super(status);
+    public PedidoPreparando(Integer id) {
+        super(id);
     }
+
+    
     
     public PedidoStatus cancelando(){System.out.println("Não");return getStatus();};
     public PedidoStatus entregando(){System.out.println("Sim");return getStatus();};

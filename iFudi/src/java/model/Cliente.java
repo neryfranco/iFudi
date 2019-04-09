@@ -5,11 +5,14 @@
  */
 package model;
 
+import java.util.Observable;
+import java.util.Observer;
+
 /**
  *
  * @author Jessica
  */
-public class Cliente extends Usuario {
+public class Cliente extends Usuario implements Observer {
 
     private Cartao cartao;
 
@@ -24,6 +27,17 @@ public class Cliente extends Usuario {
     public void setCartao(Cartao cartao) {
         this.cartao = cartao;
     }
-    
-    
+
+    @Override
+    public void update(Observable pedidoSubject, Object arg) {
+        PedidoStatus statusPedido;
+        if (pedidoSubject instanceof Pedido) {
+            Pedido pedido = (Pedido) pedidoSubject;
+            statusPedido = pedido.getStatus();
+            System.out.println("Atenção" + getNome() + "seu pedido está no estado de: " + statusPedido);
+
+        }
+
+    }
+
 }

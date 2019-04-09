@@ -11,9 +11,11 @@ package model;
  */
 public class PedidoCancelado extends PedidoStatus{
 
-    public PedidoCancelado(String status) {
-        super(status);
+    public PedidoCancelado(Integer id) {
+        super(id);
     }
+
+    
     
     public PedidoStatus cancelando(){System.out.println("Não");return getStatus();};
     public PedidoStatus entregando(){System.out.println("Não");return getStatus();};

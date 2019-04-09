@@ -11,9 +11,11 @@ package model;
  */
 public abstract class PedidoStatus extends Pedido {
 
-    public PedidoStatus(String status) {
-        super(status);
+    public PedidoStatus(Integer id) {
+        super(id);
     }
+
+    
     
     public PedidoStatus cancelando(){return getStatus();};
     public PedidoStatus entregando(){return getStatus();};

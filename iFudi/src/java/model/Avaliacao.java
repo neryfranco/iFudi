@@ -11,30 +11,30 @@ package model;
  */
 public class Avaliacao {
 
-    private String codAvaliacao;
-    private String descAvaliacao;
+    private Integer id;
+    private String descricao;
     private Integer votacao;
 
-    public Avaliacao(String codAvaliacao, String descAvaliacao, Integer votacao) {
-        this.codAvaliacao = codAvaliacao;
-        this.descAvaliacao = descAvaliacao;
+    public Avaliacao(Integer id, String descricao, Integer votacao) {
+        this.id = id;
+        this.descricao = descricao;
         this.votacao = votacao;
     }
 
-    public String getCodAvaliacao() {
-        return codAvaliacao;
+    public Integer getID() {
+        return id;
     }
 
-    public void setCodAvaliacao(String codAvaliacao) {
-        this.codAvaliacao = codAvaliacao;
+    public void setID(Integer id) {
+        this.id = id;
     }
 
-    public String getDescAvaliacao() {
-        return descAvaliacao;
+    public String getDescricao() {
+        return descricao;
     }
 
-    public void setDescAvaliacao(String descAvaliacao) {
-        this.descAvaliacao = descAvaliacao;
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
     }
 
     public Integer getVotacao() {

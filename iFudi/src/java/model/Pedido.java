@@ -13,23 +13,38 @@ import java.util.List;
  */
 public class Pedido {
 
-    private String codPedido;
+    private Integer id;
     private List<Item> itens;
     private PedidoStatus status;
     private String data;
     private Integer tempoPreparacao; // em minutos
     private Avaliacao avaliacao;
+    private Frete frete;
+    private Cliente cliente;
+    private Restaurante restaurante;
 
-    public Pedido(String codPedido) {
-        this.codPedido = codPedido;
-    }
-  
-    public String getCodPedido() {
-        return codPedido;
+    public Pedido(Integer id) {
+        this.id = id;
     }
 
-    public void setCodPedido(String codPedido) {
-        this.codPedido = codPedido;
+    public Pedido(Integer id, List<Item> itens, PedidoStatus status, String data, Integer tempoPreparacao, Avaliacao avaliacao, Frete frete, Cliente cliente, Restaurante restaurante) {
+        this.id = id;
+        this.itens = itens;
+        this.status = status;
+        this.data = data;
+        this.tempoPreparacao = tempoPreparacao;
+        this.avaliacao = avaliacao;
+        this.frete = frete;
+        this.cliente = cliente;
+        this.restaurante = restaurante;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public List<Item> getItens() {
@@ -78,6 +93,30 @@ public class Pedido {
 
     public void setAvaliacao(Avaliacao avaliacao) {
         this.avaliacao = avaliacao;
+    }
+
+    public Frete getFrete() {
+        return frete;
+    }
+
+    public void setFrete(Frete frete) {
+        this.frete = frete;
+    }
+
+    public Cliente getCliente() {
+        return cliente;
+    }
+
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
+    }
+
+    public Restaurante getRestaurante() {
+        return restaurante;
+    }
+
+    public void setRestaurante(Restaurante restaurante) {
+        this.restaurante = restaurante;
     }
     
     

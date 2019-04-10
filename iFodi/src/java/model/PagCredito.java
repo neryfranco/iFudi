@@ -11,4 +11,9 @@ package model;
  */
 public class PagCredito implements FormaPagamento{
 
+    @Override
+    public String obterDesconto() {
+        return "Não possui desconto";
+    }
+
 }

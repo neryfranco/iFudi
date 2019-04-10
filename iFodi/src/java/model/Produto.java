@@ -22,6 +22,11 @@ public class Produto {
         this.restaurante = restaurante;
     }
 
+    public Produto(Integer id, String descricao) {
+        this.id = id;
+        this.descricao = descricao;
+    }
+
     public Integer getID() {
         return id;
     }
@@ -53,6 +58,4 @@ public class Produto {
     public void setRestaurante(Restaurante restaurate) {
         this.restaurante = restaurate;
     }
-
-    
 }

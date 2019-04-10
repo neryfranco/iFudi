@@ -26,6 +26,17 @@ public class Usuario {
         this.nome = nome;
     }
 
+    public Usuario(String email, String senha, String nome, String cpf, String rua, String numero, String cidade, String estado) {
+        this.email = email;
+        this.senha = senha;
+        this.nome = nome;
+        this.cpf = cpf;
+        this.rua = rua;
+        this.numero = numero;
+        this.cidade = cidade;
+        this.estado = estado;
+    }
+
     public String getSenha() {
         return senha;
     }
@@ -90,5 +101,4 @@ public class Usuario {
         this.estado = estado;
     }
 
-    
 }

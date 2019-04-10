@@ -10,5 +10,7 @@ package model;
  * @author Nery
  */
 public interface FormaPagamento {
-    
+
+    public String obterDesconto();
+
 }

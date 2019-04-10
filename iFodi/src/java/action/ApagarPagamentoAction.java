@@ -26,7 +26,7 @@ public class ApagarPagamentoAction implements Action {
 
         Integer id = Integer.parseInt(request.getParameter("txtId"));
        
-        Pagamento pagamento = new Pagamento(id);
+        Pagamento pagamento = new Pagamento(id, null);
         if (id.equals("")) {
             response.sendRedirect("apagarPagamento.jsp");
         } else {

@@ -6,12 +6,13 @@
 package model;
 
 import java.util.List;
+import java.util.Observable;
 
 /**
  *
  * @author Jessica
  */
-public class Pedido {
+public class Pedido extends Observable{
 
     private Integer id;
     private List<Item> itens;
@@ -39,6 +40,12 @@ public class Pedido {
         this.restaurante = restaurante;
     }
 
+    public Pedido(Integer id, String data, Integer tempoPreparacao) {
+        this.id = id;
+        this.data = data;
+        this.tempoPreparacao = tempoPreparacao;
+    }
+
     public Integer getId() {
         return id;
     }
@@ -54,21 +61,23 @@ public class Pedido {
     public void setItens(List<Item> itens) {
         this.itens = itens;
     }
-    
-    public void addItem(Item item){
+
+    public void addItem(Item item) {
         itens.add(item);
     }
-    
-    public void removeItem(Item item){
+
+    public void removeItem(Item item) {
         itens.remove(item);
     }
-    
+
     public PedidoStatus getStatus() {
         return status;
     }
 
     public void setStatus(PedidoStatus status) {
         this.status = status;
+        setChanged();
+        notifyObservers();
     }
 
     public String getData() {
@@ -118,6 +127,5 @@ public class Pedido {
     public void setRestaurante(Restaurante restaurante) {
         this.restaurante = restaurante;
     }
-    
-    
+
 }

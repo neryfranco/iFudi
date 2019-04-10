@@ -18,7 +18,7 @@
             <h1>Menu</h1>
 
             <h2>Avaliação</h2>
-            <li><a href="gravarAvalicao.jsp">Gravar</a></li>
+            <li><a href="gravarAvaliacao.jsp">Gravar</a></li>
             <li><a href="lerAvaliacao.jsp">Visualizar</a></li>
             <li><a href="apagarAvaliacao.jsp">Apagar</a></li>
             <br>

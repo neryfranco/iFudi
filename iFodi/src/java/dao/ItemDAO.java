@@ -11,6 +11,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import model.Item;
+import model.Pedido;
+import model.Produto;
 
 /**
  *
@@ -73,6 +75,17 @@ public class ItemDAO {
             st = conn.createStatement();
             ResultSet rs = st.executeQuery("select * from item where id = '" + item.getId()+ "'");
             rs.first();
+            
+            a = new Item(rs.getInt("id"), 
+                    null,
+                    rs.getInt("quantidade"),
+                    rs.getDouble("precoTotal"),
+                    null);
+            
+            Pedido pedido = PedidoDAO.getInstance().read(new Pedido (rs.getInt("id")));
+            Produto produto = ProdutoDAO.getInstance().read(new Produto(rs.getInt("id"), null));
+            a.setPedido(pedido);
+            a.setProduto(produto);
         } catch (SQLException e) {
             throw e;
         } finally {

@@ -10,7 +10,9 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import model.Categoria;
 import model.Restaurante;
+import model.Vendedor;
 
 /**
  *
@@ -78,6 +80,19 @@ public class RestauranteDAO {
             st = conn.createStatement();
             ResultSet rs = st.executeQuery("select * from restaurante where cnpj = '" + restaurante.getCnpj()+ "'");
             rs.first();
+            
+            a = new Restaurante(rs.getString("cnpj"), 
+                    rs.getString("nome"),
+                    rs.getString("rua"),
+                    rs.getString("numero"),
+                    rs.getString("cidade"),
+                    rs.getString("estado"),
+                    null,
+                    null);
+            Categoria categoria = CategoriaDAO.getInstance().read(new Categoria (rs.getInt("categoria_id"), null));
+            Vendedor vendedor = VendedorDAO.getInstance().read(new Vendedor (rs.getString("vendedor_usuario_email")));
+            a.setCategoria(categoria);
+            a.setVendedor(vendedor);
         } catch (SQLException e) {
             throw e;
         } finally {

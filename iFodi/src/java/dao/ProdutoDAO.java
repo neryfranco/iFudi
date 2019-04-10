@@ -11,6 +11,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import model.Produto;
+import model.Restaurante;
 
 /**
  *
@@ -74,6 +75,12 @@ public class ProdutoDAO {
             st = conn.createStatement();
             ResultSet rs = st.executeQuery("select * from produto where id = '" + produto.getID()+ "'");
             rs.first();
+            
+            a = new Produto(rs.getInt("id"), 
+                    rs.getString("descricao"),
+                    null);
+            Restaurante restaurante = RestauranteDAO.getInstance().read(new Restaurante (rs.getString("restaurante_cnpj")));
+            a.setRestaurante(restaurante);
         } catch (SQLException e) {
             throw e;
         } finally {

@@ -10,7 +10,9 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import model.FormaPagamento;
 import model.Pagamento;
+import model.Pedido;
 
 /**
  *
@@ -72,6 +74,14 @@ public class PagamentoDAO {
             st = conn.createStatement();
             ResultSet rs = st.executeQuery("select * from pagamento where id = '" + pagamento.getId()+ "'");
             rs.first();
+            
+            a = new Pagamento(rs.getInt("id"), 
+                    null,
+                    rs.getDouble("valor"),
+                    null);
+            
+            Pedido pedido = PedidoDAO.getInstance().read(new Pedido (rs.getInt("id")));
+            a.setPedido(pedido);
         } catch (SQLException e) {
             throw e;
         } finally {

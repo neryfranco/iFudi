@@ -35,6 +35,17 @@ public class Restaurante {
         this.vendedor = vendedor;
     }
 
+    public Restaurante(String cnpj, String nome, String rua, String numero, String cidade, String estado, Categoria categoria, Vendedor vendedor) {
+        this.cnpj = cnpj;
+        this.nome = nome;
+        this.rua = rua;
+        this.numero = numero;
+        this.cidade = cidade;
+        this.estado = estado;
+        this.categoria = categoria;
+        this.vendedor = vendedor;
+    }
+
     public Restaurante(String cnpj, String nome, String rua, String numero, String cidade, String estado) {
         this.cnpj = cnpj;
         this.nome = nome;

@@ -73,6 +73,11 @@ public class PromocaoDAO {
             st = conn.createStatement();
             ResultSet rs = st.executeQuery("select * from promocao where id = '" + promocao.getID()+ "'");
             rs.first();
+            
+            a = new Promocao(rs.getInt("id"), 
+                    rs.getString("descricao"),
+                    rs.getDouble("porcentagem"));
+
         } catch (SQLException e) {
             throw e;
         } finally {

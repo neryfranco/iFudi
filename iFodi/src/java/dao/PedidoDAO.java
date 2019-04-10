@@ -78,6 +78,10 @@ public class PedidoDAO {
             st = conn.createStatement();
             ResultSet rs = st.executeQuery("select * from pedido where id = '" + pedido.getId()+ "'");
             rs.first();
+            
+            a = new Pedido(rs.getInt("id"), 
+                    rs.getString("data"),
+                    rs.getInt("tempoPreparacao"));
         } catch (SQLException e) {
             throw e;
         } finally {

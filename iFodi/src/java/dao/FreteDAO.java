@@ -71,6 +71,11 @@ public class FreteDAO {
             st = conn.createStatement();
             ResultSet rs = st.executeQuery("select * from frete where id = '" + frete.getID()+ "'");
             rs.first();
+            
+            a = new Frete(rs.getInt("id"), 
+                    rs.getDouble("taxa"),
+                    rs.getString("tempoEntrega"));
+            
         } catch (SQLException e) {
             throw e;
         } finally {

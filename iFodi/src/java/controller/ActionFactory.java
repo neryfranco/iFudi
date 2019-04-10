@@ -14,7 +14,7 @@ public class ActionFactory {
     public static Action create(String action) {
 
         Action actionObject = null;
-        String nomeClasse = "action." + action + "Action";
+        String nomeClasse = action;
         Class classe = null;
         Object objeto = null;
 

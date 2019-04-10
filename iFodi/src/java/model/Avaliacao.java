@@ -14,6 +14,7 @@ public class Avaliacao {
     private Integer id;
     private String descricao;
     private Integer votacao;
+    private Pedido pedido;
 
     public Avaliacao(Integer id, String descricao, Integer votacao) {
         this.id = id;
@@ -43,6 +44,14 @@ public class Avaliacao {
 
     public void setVotacao(Integer votacao) {
         this.votacao = votacao;
+    }
+
+    public Pedido getPedido() {
+        return pedido;
+    }
+
+    public void setPedido(Pedido pedido) {
+        this.pedido = pedido;
     }
 
     

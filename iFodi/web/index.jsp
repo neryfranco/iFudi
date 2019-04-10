@@ -17,11 +17,13 @@
         <ul>
             <h1>Menu</h1>
 
+            <%-- Não faz sentido Avaliação na pagina inicial, ja que a avaliação é de um Pedido.
             <h2>Avaliação</h2>
             <li><a href="gravarAvaliacao.jsp">Gravar</a></li>
             <li><a href="lerAvaliacao.jsp">Visualizar</a></li>
             <li><a href="apagarAvaliacao.jsp">Apagar</a></li>
             <br>
+            --%>
             <h2>Categoria</h2>
             <li><a href="gravarCategoria.jsp">Gravar</a></li>
             <li><a href="lerCategoria.jsp">Visualizar</a></li>

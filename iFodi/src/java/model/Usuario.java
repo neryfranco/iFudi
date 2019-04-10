@@ -19,6 +19,7 @@ public class Usuario {
     private String numero;
     private String cidade;
     private String estado;
+    private String complemento;
 
     public Usuario(String email, String senha, String nome) {
         this.email = email;
@@ -26,7 +27,7 @@ public class Usuario {
         this.nome = nome;
     }
 
-    public Usuario(String email, String senha, String nome, String cpf, String rua, String numero, String cidade, String estado) {
+    public Usuario(String email, String senha, String nome, String cpf, String rua, String numero, String cidade, String estado, String complemento) {
         this.email = email;
         this.senha = senha;
         this.nome = nome;
@@ -35,7 +36,14 @@ public class Usuario {
         this.numero = numero;
         this.cidade = cidade;
         this.estado = estado;
+        this.complemento = complemento;
     }
+
+    public Usuario(String email) {
+        this.email = email;
+    }
+    
+    
 
     public String getSenha() {
         return senha;
@@ -101,4 +109,13 @@ public class Usuario {
         this.estado = estado;
     }
 
+    public String getComplemento() {
+        return complemento;
+    }
+
+    public void setComplemento(String complemento) {
+        this.complemento = complemento;
+    }
+
+    
 }

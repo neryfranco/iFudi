@@ -7,11 +7,13 @@ package action;
 
 import controller.Action;
 import dao.AvaliacaoDAO;
+import dao.PedidoDAO;
 import java.io.IOException;
 import java.sql.SQLException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import model.Avaliacao;
+import model.Pedido;
 
 /**
  *
@@ -27,12 +29,14 @@ public class GravarAvaliacaoAction implements Action {
         Integer id = Integer.parseInt(request.getParameter("txtId"));
         String descricao = request.getParameter("txtDescricao");
         Integer votacao = Integer.parseInt(request.getParameter("txtVotacao"));
+        Integer pedidoID = Integer.parseInt(request.getParameter("optPedido"));
 
         if (id.equals("") || descricao.equals("") || votacao.equals("")) {
             response.sendRedirect("gravarAvaliacao.jsp");
         } else {
-            Avaliacao avaliacao = new Avaliacao(id, descricao, votacao);
             try {
+                Pedido pedido = PedidoDAO.getInstance().read(new Pedido (pedidoID));
+                Avaliacao avaliacao = new Avaliacao(id, descricao, votacao,pedido);
                 AvaliacaoDAO.getInstance().save(avaliacao);
                 response.sendRedirect("sucesso.jsp");
             } catch (SQLException ex) {

@@ -11,6 +11,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import model.Cliente;
+import model.Usuario;
 
 /**
  *
@@ -64,7 +65,7 @@ public class ClienteDAO {
             st.execute(SQL);
             
             SQL = "insert into cliente (usuario_email)" +
-                    "values ('" + cliente.getEmail();
+                    "values ('" + cliente.getEmail() + "')";
             st.execute(SQL);
         } catch(SQLException e){
             throw e;
@@ -81,8 +82,19 @@ public class ClienteDAO {
         try {
             conn = DatabaseLocator.getInstance().getConnection();
             st = conn.createStatement();
-            ResultSet rs = st.executeQuery("select * from cliente where usuario_email = '" + cliente.getEmail()+ "'");
+            ResultSet rs = st.executeQuery("select * from cliente where usuario_email = '"  + cliente.getEmail() + "'");
             rs.first();
+            
+            Usuario usuario = UsuarioDAO.getInstance().read(new Usuario (rs.getString("usuario_email")));
+            a = new Cliente(usuario.getEmail(),
+                    usuario.getSenha(),
+                    usuario.getNome());
+            a.setCidade(usuario.getCidade());
+            a.setComplemento(usuario.getComplemento());
+            a.setCpf(usuario.getCpf());
+            a.setEstado(usuario.getEstado());
+            a.setNumero(usuario.getNumero());
+            a.setRua(usuario.getRua());
         } catch (SQLException e) {
             throw e;
         } finally {

@@ -14,7 +14,7 @@
     </head>
     <body>
         <h1>Ler Cliente</h1>
-        <form action="FrontController?action=action.LerAvaliacaoAction" method="post" style="width: 50%">
+        <form action="FrontController?action=action.LerClienteAction" method="post" style="width: 50%">
             <table class="table table-dark table-hover">
                 Entre com email
                 <input type="text" name="txtEmail"/><br/>

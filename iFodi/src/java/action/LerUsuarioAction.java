@@ -20,7 +20,7 @@ import model.Usuario;
 /**
  *
  * @author Jessica
- */
+
 public class LerUsuarioAction implements Action {
     
     public LerUsuarioAction(){}
@@ -50,3 +50,4 @@ public class LerUsuarioAction implements Action {
         }
     }
 }
+ */

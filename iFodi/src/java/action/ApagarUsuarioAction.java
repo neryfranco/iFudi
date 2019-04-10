@@ -16,7 +16,7 @@ import model.Usuario;
 /**
  *
  * @author Jessica
- */
+
 public class ApagarUsuarioAction implements Action {
 
     public ApagarUsuarioAction(){}
@@ -45,3 +45,4 @@ public class ApagarUsuarioAction implements Action {
         }
     }
 }
+ */

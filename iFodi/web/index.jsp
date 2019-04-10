@@ -13,17 +13,15 @@
         <link href="src/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
-        <h1>Sistema IFood</h1>
+        <h1>Sistema iFodi</h1>
         <ul>
             <h1>Menu</h1>
 
-            <%-- Não faz sentido Avaliação na pagina inicial, ja que a avaliação é de um Pedido.
             <h2>Avaliação</h2>
             <li><a href="gravarAvaliacao.jsp">Gravar</a></li>
             <li><a href="lerAvaliacao.jsp">Visualizar</a></li>
             <li><a href="apagarAvaliacao.jsp">Apagar</a></li>
             <br>
-            --%>
             <h2>Categoria</h2>
             <li><a href="gravarCategoria.jsp">Gravar</a></li>
             <li><a href="lerCategoria.jsp">Visualizar</a></li>
@@ -68,11 +66,6 @@
             <li><a href="gravarRestaurante.jsp">Gravar</a></li>
             <li><a href="lerRestaurante.jsp">Visualizar</a></li>
             <li><a href="apagarRestaurante.jsp">Apagar</a></li>
-            <br>
-            <h2>Usuário</h2>
-            <li><a href="gravarUsuario.jsp">Gravar</a></li>
-            <li><a href="lerUsuario.jsp">Visualizar</a></li>
-            <li><a href="apagarUsuario.jsp">Apagar</a></li>
             <br>
             <h2>Vendedor</h2>
             <li><a href="gravarVendedor.jsp">Gravar</a></li>

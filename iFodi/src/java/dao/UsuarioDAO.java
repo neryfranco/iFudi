@@ -76,6 +76,16 @@ public class UsuarioDAO {
             st = conn.createStatement();
             ResultSet rs = st.executeQuery("select * from usuario where email = '" + usuario.getEmail()+ "'");
             rs.first();
+            
+            a = new Usuario(rs.getString("email"), 
+                    rs.getString("senha"),
+                    rs.getString("nome"),
+                    rs.getString("cpf"),
+                    rs.getString("rua"),
+                    rs.getString("numero"),
+                    rs.getString("cidade"),
+                    rs.getString("estado"),
+                    rs.getString("complemento"));
         } catch (SQLException e) {
             throw e;
         } finally {

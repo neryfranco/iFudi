@@ -68,8 +68,10 @@ public class CategoriaDAO {
         try {
             conn = DatabaseLocator.getInstance().getConnection();
             st = conn.createStatement();
-            ResultSet rs = st.executeQuery("select * from categoria where id = '" + categoria.getID()+ "'");
+            ResultSet rs = st.executeQuery("select * from categoria where id = " + categoria.getID());
             rs.first();
+            
+            a = new Categoria(rs.getInt("id"), rs.getString("nome"));
         } catch (SQLException e) {
             throw e;
         } finally {

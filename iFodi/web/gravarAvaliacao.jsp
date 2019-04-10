@@ -22,6 +22,13 @@
             <input type="text" class="form-control"name="txtDescricao"/><br/>
             Votação:
             <input type="text" class="form-control" name="txtVotacao"/><br/>
+            Pedido:
+                <select class="form-control" name="optPedido">
+                    <option value="0"></option>  
+                    <c:forEach items="${pedidos}" var="pedido">
+                        <option value="${pedido.id}">${pedido.id}</option>  
+                    </c:forEach>
+                </select> 
             <input type="submit" class="btn btn-success"/>
             </table>
             <a href="index.jsp"  class="btn btn-default">Voltar</a>

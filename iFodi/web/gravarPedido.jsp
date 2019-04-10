@@ -20,13 +20,6 @@
                 <input type="text" class="form-control" name="txtId"/><br/>
                 Data:
                 <input type="text" class="form-control" name="txtData"/><br/>
-                Avaliacao:
-                <select class="form-control" name="optAvaliacao">
-                    <option value="0"></option>  
-                    <c:forEach items="${avaliacoes}" var="avaliacao">
-                        <option value="${avaliacao.votacao}">${avaliacao.descricao}</option>  
-                    </c:forEach>
-                </select> 
                 Restaurante:
                 <select class="form-control" name="optRestaurante">
                     <option value="0"></option>  

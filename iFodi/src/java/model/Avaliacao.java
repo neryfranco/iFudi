@@ -16,11 +16,19 @@ public class Avaliacao {
     private Integer votacao;
     private Pedido pedido;
 
+    public Avaliacao(Integer id, String descricao, Integer votacao, Pedido pedido) {
+        this.id = id;
+        this.descricao = descricao;
+        this.votacao = votacao;
+        this.pedido = pedido;
+    }
+
     public Avaliacao(Integer id, String descricao, Integer votacao) {
         this.id = id;
         this.descricao = descricao;
         this.votacao = votacao;
     }
+    
 
     public Integer getID() {
         return id;

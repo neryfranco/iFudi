@@ -10,6 +10,7 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import model.Usuario;
 import model.Vendedor;
 
 /**
@@ -64,7 +65,7 @@ public class VendedorDAO {
             st.execute(SQL);
             
             SQL = "insert into vendedor (usuario_email)" +
-                    "values ('" + vendedor.getEmail();
+                    "values ('" + vendedor.getEmail() + "')";
             st.execute(SQL);
         } catch(SQLException e){
             throw e;
@@ -81,8 +82,19 @@ public class VendedorDAO {
         try {
             conn = DatabaseLocator.getInstance().getConnection();
             st = conn.createStatement();
-            ResultSet rs = st.executeQuery("select * from vendedor where usuario_email = '" + vendedor.getEmail()+ "'");
+            ResultSet rs = st.executeQuery("select * from vendedor where usuario_email = '"  + vendedor.getEmail() + "'");
             rs.first();
+            
+            Usuario usuario = UsuarioDAO.getInstance().read(new Usuario (rs.getString("usuario_email")));
+            a = new Vendedor(usuario.getEmail(),
+                    usuario.getSenha(),
+                    usuario.getNome());
+            a.setCidade(usuario.getCidade());
+            a.setComplemento(usuario.getComplemento());
+            a.setCpf(usuario.getCpf());
+            a.setEstado(usuario.getEstado());
+            a.setNumero(usuario.getNumero());
+            a.setRua(usuario.getRua());
         } catch (SQLException e) {
             throw e;
         } finally {

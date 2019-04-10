@@ -13,7 +13,7 @@
         <link href="src/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
-        <h1>Sucesso</h1>
+        <h1>Erro</h1>
         <a href="index.jsp"  class="btn btn-default">Voltar</a>
     </body>
 </html>

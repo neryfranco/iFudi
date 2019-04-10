@@ -1,6 +1,6 @@
 <%-- 
     Document   : lerCategoria2
-    Created on : 07/04/2019, 11:00:00
+    Created on : 07/04/2019, 11:00:27
     Author     : Jessica
 --%>
 
@@ -17,7 +17,7 @@
         <table class="table table-dark table-hover">
             <tr>
                 <td>Código: </td> 
-                <td>${categoria.id}</td>
+                <td>${categoria.ID}</td>
             </tr>
             <tr>
                 <td>Nome: </td> 

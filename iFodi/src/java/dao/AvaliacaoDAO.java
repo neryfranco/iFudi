@@ -11,6 +11,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import model.Avaliacao;
+import model.Pedido;
 
 /**
  *
@@ -49,10 +50,11 @@ public class AvaliacaoDAO {
         try {
             conn = DatabaseLocator.getInstance().getConnection();
             st = conn.createStatement();
-            SQL = "insert into avaliacao (id, descricao, votacao) " +
+            SQL = "insert into avaliacao (id, descricao, votacao, pedido_id) " +
                     "values ('" + avaliacao.getID() + "', '" 
                     + avaliacao.getDescricao() + "', '" 
-                    + avaliacao.getVotacao() + "')";
+                    + avaliacao.getVotacao() + 
+                    + avaliacao.getPedido().getId() + "')";
             st.execute(SQL);
         } catch(SQLException e){
             throw e;
@@ -71,6 +73,14 @@ public class AvaliacaoDAO {
             st = conn.createStatement();
             ResultSet rs = st.executeQuery("select * from avaliacao where id = '" + avaliacao.getID()+ "'");
             rs.first();
+            
+            a = new Avaliacao(rs.getInt("id"), 
+                    rs.getString("descricao"),
+                    rs.getInt("votacao"),
+                    null);
+            
+            Pedido pedido = PedidoDAO.getInstance().read(new Pedido (rs.getInt("id")));
+            a.setPedido(pedido);
         } catch (SQLException e) {
             throw e;
         } finally {

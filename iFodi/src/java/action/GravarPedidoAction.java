@@ -35,7 +35,6 @@ public class GravarPedidoAction implements Action {
         Integer id = Integer.parseInt(request.getParameter("txtId"));
         String data = request.getParameter("txtData");
         Integer tempoPreparacao = Integer.parseInt(request.getParameter("txtTempoEntrega"));
-        Integer votacao = Integer.parseInt(request.getParameter("optAvaliacao"));
         String nome = request.getParameter("optRestaurante");
         Double taxa = Double.parseDouble(request.getParameter("optFrete"));
         String email = request.getParameter("optCliente");
@@ -44,16 +43,13 @@ public class GravarPedidoAction implements Action {
             response.sendRedirect("gravarPedido.jsp");
         } else {
             Pedido pedido = new Pedido(id, data, tempoPreparacao);
-            Avaliacao avaliacao = new Avaliacao(null, null, votacao);
             Restaurante restaurante = new Restaurante(null, nome, null, null, null, null);
             Frete frete = new Frete(null, taxa, null);
             Cliente cliente = new Cliente(email, null, null);
             try {
-                Avaliacao a = AvaliacaoDAO.getInstance().read(avaliacao);
                 Restaurante r = RestauranteDAO.getInstance().read(restaurante);
                 Frete f = FreteDAO.getInstance().read(frete);
                 Cliente c = ClienteDAO.getInstance().read(cliente);
-                pedido.setAvaliacao(a);
                 pedido.setRestaurante(r);
                 pedido.setFrete(f);
                 pedido.setCliente(c);

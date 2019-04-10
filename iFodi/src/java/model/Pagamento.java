@@ -23,6 +23,15 @@ public class Pagamento {
         this.formaPagamento = formaPagamento;
     }
 
+    public Pagamento(Integer id) {
+        this.id = id;
+    }
+
+    public Pagamento(Integer id, Double valor) {
+        this.id = id;
+        this.valor = valor;
+    }
+
     
     public Integer getId() {
         return id;

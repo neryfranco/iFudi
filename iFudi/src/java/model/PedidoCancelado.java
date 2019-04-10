@@ -9,6 +9,17 @@ package model;
  *
  * @author Nery
  */
-public class PedidoCancelado implements PedidoStatus{
+public class PedidoCancelado extends PedidoStatus{
+
+    public PedidoCancelado(Integer id) {
+        super(id);
+    }
+
     
+    
+    public PedidoStatus cancelando(){System.out.println("Não");return getStatus();};
+    public PedidoStatus entregando(){System.out.println("Não");return getStatus();};
+    public PedidoStatus entregue(){System.out.println("Não");return getStatus();};
+    public PedidoStatus preparando(){System.out.println("Não");return getStatus();};
+    public PedidoStatus solicitado(){System.out.println("Não");return getStatus();};    
 }

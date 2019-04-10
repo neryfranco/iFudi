@@ -6,12 +6,13 @@
 package model;
 
 import java.util.List;
+import java.util.Observable;
 
 /**
  *
  * @author Jessica
  */
-public class Pedido {
+public class Pedido extends Observable{
 
     private Integer id;
     private List<Item> itens;
@@ -75,6 +76,8 @@ public class Pedido {
 
     public void setStatus(PedidoStatus status) {
         this.status = status;
+        setChanged();
+        notifyObservers();
     }
 
     public String getData() {

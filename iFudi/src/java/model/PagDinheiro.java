@@ -10,4 +10,9 @@ package model;
  * @author Jessica
  */
 public class PagDinheiro implements FormaPagamento {
+
+    @Override
+    public String obterDesconto() {
+        return "Desconto de 15%";
+    }
 }

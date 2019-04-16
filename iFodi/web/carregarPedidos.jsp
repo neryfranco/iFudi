@@ -5,6 +5,8 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -17,20 +19,19 @@
         <form action="FrontController?action=action.CarregarPedidosAction" method="post" style="width: 50%">
             <table class="table table-dark table-hover">
                 <tr>
-                    <td>Código: </td> 
-                    <td>${pedido.id}</td>
-                </tr>
-                <tr>
+                    <th>Código: </th> 
                     <td>Restaurante: </td> 
-                    <td>${restaurante.cnpj}</td>
-                </tr>
-                <tr>
                     <td>Cliente: </td> 
-                    <td>${cliente.nome}</td>
+                    <td>Pedido Status: </td> 
                 </tr>
+                <c:forEach items="${pedidos}" var="pedido">
                 <tr>
-                    <td>pedido.getStatus</td>
+                    <td><c:out value="${pedido.id}" /></td>
+                    <td><c:out value="${pedido.restaurante.nome}" /></td>
+                    <td><c:out value="${pedido.cliente.email}" /></td>
+                    <td><c:out value="${pedido.status}" /></td>
                 </tr>
+            </c:forEach>
             </table>
         </form>
     </body>

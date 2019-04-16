@@ -50,7 +50,7 @@
             <h2>Pedido</h2>
             <li><a href="FrontController?action=action.PrepararGravarPedidoAction">Gravar</a></li>
             <li><a href="lerPedido.jsp">Visualizar</a></li>
-            <li><a href="carregarPedidos.jsp">Lista de Pedidos</a></li>
+            <li><a href="FrontController?action=action.CarregarPedidosAction">Lista de Pedidos</a></li>
             <li><a href="apagarPedido.jsp">Apagar</a></li>
             <br>
             <h2>Produto</h2>

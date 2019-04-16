@@ -34,25 +34,23 @@ public class GravarPedidoAction implements Action {
         
         Integer id = Integer.parseInt(request.getParameter("txtId"));
         String data = request.getParameter("txtData");
-        Integer tempoPreparacao = Integer.parseInt(request.getParameter("txtTempoEntrega"));
-        String nome = request.getParameter("optRestaurante");
-        Double taxa = Double.parseDouble(request.getParameter("optFrete"));
+        Integer tempoEstimado = Integer.parseInt(request.getParameter("txtTempoEntrega"));
+        String restaurante_cnpj = request.getParameter("optRestaurante");
+        Double frete = Double.parseDouble(request.getParameter("txtFrete"));
         String email = request.getParameter("optCliente");
         
-        if (id.equals("") || data.equals("") || tempoPreparacao.equals("")) {
+        if (id.equals("") || data.equals("") || tempoEstimado.equals("")) {
             response.sendRedirect("gravarPedido.jsp");
         } else {
-            Pedido pedido = new Pedido(id, data, tempoPreparacao);
-            Restaurante restaurante = new Restaurante(null, nome, null, null, null, null);
-            Frete frete = new Frete(null, taxa, null);
+            Pedido pedido = new Pedido(id, data, tempoEstimado);
+            Restaurante restaurante = new Restaurante(restaurante_cnpj, null, null, null, null, null);
             Cliente cliente = new Cliente(email, null, null);
             try {
                 Restaurante r = RestauranteDAO.getInstance().read(restaurante);
-                Frete f = FreteDAO.getInstance().read(frete);
                 Cliente c = ClienteDAO.getInstance().read(cliente);
                 pedido.setRestaurante(r);
-                pedido.setFrete(f);
                 pedido.setCliente(c);
+                pedido.setFrete(frete);
                 PedidoDAO.getInstance().save(pedido);
                 response.sendRedirect("sucesso.jsp");
             } catch (SQLException ex) {

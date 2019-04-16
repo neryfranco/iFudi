@@ -18,9 +18,9 @@ public class Pedido extends Observable{
     private List<Item> itens;
     private PedidoStatus status;
     private String data;
-    private Integer tempoPreparacao; // em minutos
+    private Integer tempoEstimado; // em minutos
     private Avaliacao avaliacao;
-    private Frete frete;
+    private Double frete;
     private Cliente cliente;
     private Restaurante restaurante;
 
@@ -28,22 +28,22 @@ public class Pedido extends Observable{
         this.id = id;
     }
 
-    public Pedido(Integer id, List<Item> itens, PedidoStatus status, String data, Integer tempoPreparacao, Avaliacao avaliacao, Frete frete, Cliente cliente, Restaurante restaurante) {
+    public Pedido(Integer id, List<Item> itens, PedidoStatus status, String data, Integer tempoEstimado, Avaliacao avaliacao, Double frete, Cliente cliente, Restaurante restaurante) {
         this.id = id;
         this.itens = itens;
         this.status = status;
         this.data = data;
-        this.tempoPreparacao = tempoPreparacao;
+        this.tempoEstimado = tempoEstimado;
         this.avaliacao = avaliacao;
         this.frete = frete;
         this.cliente = cliente;
         this.restaurante = restaurante;
     }
 
-    public Pedido(Integer id, String data, Integer tempoPreparacao) {
+    public Pedido(Integer id, String data, Integer tempoEstimado) {
         this.id = id;
         this.data = data;
-        this.tempoPreparacao = tempoPreparacao;
+        this.tempoEstimado = tempoEstimado;
     }
 
     public Integer getId() {
@@ -88,12 +88,12 @@ public class Pedido extends Observable{
         this.data = data;
     }
 
-    public Integer getTempoPreparacao() {
-        return tempoPreparacao;
+    public Integer getTempoEstimado() {
+        return tempoEstimado;
     }
 
-    public void setTempoPreparacao(Integer tempoPreparacao) {
-        this.tempoPreparacao = tempoPreparacao;
+    public void setTempoEstimado(Integer tempoEstimado) {
+        this.tempoEstimado = tempoEstimado;
     }
 
     public Avaliacao getAvaliacao() {
@@ -104,11 +104,11 @@ public class Pedido extends Observable{
         this.avaliacao = avaliacao;
     }
 
-    public Frete getFrete() {
+    public Double getFrete() {
         return frete;
     }
 
-    public void setFrete(Frete frete) {
+    public void setFrete(Double frete) {
         this.frete = frete;
     }
 
@@ -128,4 +128,5 @@ public class Pedido extends Observable{
         this.restaurante = restaurante;
     }
 
+    
 }

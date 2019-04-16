@@ -17,7 +17,7 @@
         <table class="table table-dark table-hover">
             <tr>
                 <td>Código: </td> 
-                <td>${frete.id}</td>
+                <td>${frete.ID}</td>
             </tr>
             <tr>
                 <td>Taxa: </td> 

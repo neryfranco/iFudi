@@ -29,7 +29,7 @@
             </tr>
             <tr>
                 <td>Produto: </td> 
-                <td>${produto.nome}</td>
+                <td>${produto.descricao}</td>
             </tr>
             <tr>
                 <td>Pedido: </td> 

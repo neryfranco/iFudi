@@ -48,7 +48,7 @@
             <li><a href="apagarPagamento.jsp">Apagar</a></li>
             <br>
             <h2>Pedido</h2>
-            <li><a href="gravarPedido.jsp">Gravar</a></li>
+            <li><a href="FrontController?action=action.PrepararGravarPedidoAction">Gravar</a></li>
             <li><a href="lerPedido.jsp">Visualizar</a></li>
             <li><a href="apagarPedido.jsp">Apagar</a></li>
             <br>

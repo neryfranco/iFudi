@@ -10,9 +10,11 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import model.Item;
 import model.Pedido;
 import model.Produto;
+import model.Item;
 
 /**
  *
@@ -51,11 +53,12 @@ public class ItemDAO {
         try {
             conn = DatabaseLocator.getInstance().getConnection();
             st = conn.createStatement();
-            SQL = "insert into item (id, quantidade, precoTotal, produto_id) " +
+            SQL = "insert into item (id, quantidade, precoTotal, produto_id, pedido_id) " +
                     "values ('" + item.getId() + "', '" 
                     + item.getQuantidade() + "', '" 
                     + item.getPrecoTotal()+ "', '" 
-                    + item.getProduto().getId() + "')";
+                    + item.getProduto().getId() + "', '" 
+                    + item.getPedido().getId() + "')";
             st.execute(SQL);
         } catch(SQLException e){
             throw e;
@@ -81,8 +84,8 @@ public class ItemDAO {
                     rs.getDouble("precoTotal"),
                     null);
             
-            Pedido pedido = PedidoDAO.getInstance().read(new Pedido (rs.getInt("id")));
-            Produto produto = ProdutoDAO.getInstance().read(new Produto(rs.getInt("id"), null));
+            Pedido pedido = PedidoDAO.getInstance().read(new Pedido (rs.getInt("pedido_id")));
+            Produto produto = ProdutoDAO.getInstance().read(new Produto(rs.getInt("produto_id"), null));
             a.setPedido(pedido);
             a.setProduto(produto);
         } catch (SQLException e) {
@@ -107,6 +110,28 @@ public class ItemDAO {
         } finally {
             closeResources(conn, st);
         }
+    }
+    
+    public ArrayList<Item> getItems() throws ClassNotFoundException {
+        Connection conn = null;
+        Statement st = null;
+        ArrayList<Item> items = new ArrayList<Item>();
+        Item item = null;
+        try {
+            conn = DatabaseLocator.getInstance().getConnection();
+            st = conn.createStatement();
+            ResultSet rs = st.executeQuery("select * from item");
+            while (rs.next()) {
+                item = new Item (rs.getInt("id"));
+                item = read(item);
+                items.add(item);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            closeResources(conn, st);
+        }
+        return items;
     }
 
     private void closeResources(Connection conn, Statement st) {

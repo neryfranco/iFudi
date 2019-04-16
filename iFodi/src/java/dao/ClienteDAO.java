@@ -10,6 +10,7 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import model.Cliente;
 import model.Usuario;
 
@@ -117,6 +118,28 @@ public class ClienteDAO {
         } finally {
             closeResources(conn, st);
         }
+    }
+    
+    public ArrayList<Cliente> getClientes() throws ClassNotFoundException {
+        Connection conn = null;
+        Statement st = null;
+        ArrayList<Cliente> clientes = new ArrayList<Cliente>();
+        Cliente cliente = null;
+        try {
+            conn = DatabaseLocator.getInstance().getConnection();
+            st = conn.createStatement();
+            ResultSet rs = st.executeQuery("select * from cliente");
+            while (rs.next()) {
+                cliente = new Cliente (rs.getString("usuario_email"), null, null);
+                cliente = read(cliente);
+                clientes.add(cliente);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            closeResources(conn, st);
+        }
+        return clientes;
     }
 
     private void closeResources(Connection conn, Statement st) {

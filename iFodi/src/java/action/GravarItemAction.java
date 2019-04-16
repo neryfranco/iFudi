@@ -32,15 +32,19 @@ public class GravarItemAction implements Action {
         Integer quantidade = Integer.parseInt(request.getParameter("txtQtd"));
         Double precoTotal = 0.0;
         Integer produto_id = Integer.parseInt(request.getParameter("optProduto"));
+        Integer pedido_id = Integer.parseInt(request.getParameter("optProduto"));
         
         if (id.equals("") || quantidade.equals("") || precoTotal.equals("")) {
             response.sendRedirect("gravarItem.jsp");
         } else {
             Item item = new Item(id, quantidade, precoTotal);
             Produto produto = new Produto(produto_id, null);
+            Pedido pedido = new Pedido (pedido_id);
             try {
                 Produto prd = ProdutoDAO.getInstance().read(produto);
+                Pedido pdd = PedidoDAO.getInstance().read(pedido);
                 item.setProduto(prd);
+                item.setPedido(pedido);
                 precoTotal = (quantidade * prd.getPreco());
                 item.setPrecoTotal(precoTotal);
                 ItemDAO.getInstance().save(item);

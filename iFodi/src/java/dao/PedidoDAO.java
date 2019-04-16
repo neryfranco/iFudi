@@ -10,7 +10,10 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import model.Cliente;
 import model.Pedido;
+import model.Restaurante;
 
 /**
  *
@@ -49,14 +52,13 @@ public class PedidoDAO {
         try {
             conn = DatabaseLocator.getInstance().getConnection();
             st = conn.createStatement();
-            SQL = "insert into pedido (id, frete_id, cliente_usuario_email, "
-                    + "tempoPreparacao, avaliacao_id, data, restaurante_cnpj) " +
+            SQL = "insert into pedido (id, frete, cliente_usuario_email, "
+                    + "tempoEstimado, data, restaurante_cnpj) " +
                     
                     "values ('" + pedido.getId() + "', '" 
-                    + pedido.getFrete().getID() + "', '" 
+                    + pedido.getFrete() + "', '" 
                     + pedido.getCliente().getEmail() + "', '" 
-                    + pedido.getTempoPreparacao() + "', '" 
-                    + pedido.getAvaliacao().getID()+ "', '" 
+                    + pedido.getTempoEstimado() + "', '" 
                     + pedido.getData() + "', '" 
                     + pedido.getRestaurante().getCnpj() + "')";
             
@@ -81,7 +83,12 @@ public class PedidoDAO {
             
             a = new Pedido(rs.getInt("id"), 
                     rs.getString("data"),
-                    rs.getInt("tempoPreparacao"));
+                    rs.getInt("tempoEstimado"));
+            a.setFrete(rs.getDouble("tempoEstimado"));
+            Cliente cliente = new Cliente (rs.getString("cliente_usuario_email"), null, null);
+            Restaurante restaurante = new Restaurante (rs.getString("restaurante_cnpj"));
+            a.setRestaurante(RestauranteDAO.getInstance().read(restaurante));
+            a.setCliente(ClienteDAO.getInstance().read(cliente));
         } catch (SQLException e) {
             throw e;
         } finally {
@@ -105,6 +112,29 @@ public class PedidoDAO {
             closeResources(conn, st);
         }
     }
+    
+    public ArrayList<Pedido> getPedidos() throws ClassNotFoundException {
+        Connection conn = null;
+        Statement st = null;
+        ArrayList<Pedido> pedidos = new ArrayList<Pedido>();
+        Pedido pedido = null;
+        try {
+            conn = DatabaseLocator.getInstance().getConnection();
+            st = conn.createStatement();
+            ResultSet rs = st.executeQuery("select * from pedido");
+            while (rs.next()) {
+                pedido = new Pedido (rs.getInt("id"));
+                pedido = read(pedido);
+                pedidos.add(pedido);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            closeResources(conn, st);
+        }
+        return pedidos;
+    }
+
 
     private void closeResources(Connection conn, Statement st) {
         try{

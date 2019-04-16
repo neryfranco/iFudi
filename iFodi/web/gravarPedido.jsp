@@ -5,6 +5,8 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -24,14 +26,7 @@
                 <select class="form-control" name="optRestaurante">
                     <option value="0"></option>  
                     <c:forEach items="${restaurantes}" var="restaurante">
-                        <option value="${restaurante.nome}">${restaurante.cnpj}</option>  
-                    </c:forEach>
-                </select> 
-                Frete:
-                <select class="form-control" name="optFrete">
-                    <option value="0"></option>  
-                    <c:forEach items="${fretes}" var="frete">
-                        <option value="${frete.taxa}">${frete.id}</option>  
+                        <option value="${restaurante.cnpj}">${restaurante.nome}</option>  
                     </c:forEach>
                 </select> 
                 Cliente:
@@ -41,6 +36,10 @@
                         <option value="${cliente.email}">${cliente.nome}</option>  
                     </c:forEach>
                 </select> 
+                Frete (R$):
+                <input type="text" class="form-control" name="txtFrete"/><br/>
+                Tempo Estimado (min):
+                <input type="text" class="form-control" name="txtTempoEntrega"/><br/>
                 <input type="submit" class="btn btn-success"/>
             </table>
             <a href="index.jsp"  class="btn btn-default">Voltar</a>

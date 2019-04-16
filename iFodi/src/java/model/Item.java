@@ -31,6 +31,10 @@ public class Item {
         this.precoTotal = precoTotal;
     }
 
+    public Item(Integer id) {
+        this.id = id;
+    }
+
     public Integer getId() {
         return id;
     }

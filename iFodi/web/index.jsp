@@ -17,11 +17,13 @@
         <ul>
             <h1>Menu</h1>
 
+            <%--
             <h2>Avaliação</h2>
             <li><a href="gravarAvaliacao.jsp">Gravar</a></li>
             <li><a href="lerAvaliacao.jsp">Visualizar</a></li>
             <li><a href="apagarAvaliacao.jsp">Apagar</a></li>
             <br>
+            --%>
             <h2>Categoria</h2>
             <li><a href="gravarCategoria.jsp">Gravar</a></li>
             <li><a href="lerCategoria.jsp">Visualizar</a></li>
@@ -42,11 +44,13 @@
             <li><a href="lerItem.jsp">Visualizar</a></li>
             <li><a href="apagarItem.jsp">Apagar</a></li>
             <br>
+            <%--
             <h2>Pagamento</h2>
             <li><a href="gravarPagamento.jsp">Gravar</a></li>
             <li><a href="lerPagamento.jsp">Visualizar</a></li>
             <li><a href="apagarPagamento.jsp">Apagar</a></li>
             <br>
+            --%>
             <h2>Pedido</h2>
             <li><a href="FrontController?action=action.PrepararGravarPedidoAction">Gravar</a></li>
             <li><a href="lerPedido.jsp">Visualizar</a></li>

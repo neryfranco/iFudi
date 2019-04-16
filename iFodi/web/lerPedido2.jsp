@@ -33,7 +33,7 @@
             </tr>
             <tr>
                 <td>Frete: </td> 
-                <td>${frete.id}</td>
+                <td>${pedido.frete}</td>
             </tr>
             <tr>
                 <td>Cliente: </td> 

@@ -9,17 +9,35 @@ package model;
  *
  * @author Nery
  */
-public class PedidoSolicitado extends PedidoStatus{
+public class PedidoSolicitado implements PedidoStatus{
 
-    public PedidoSolicitado(Integer id) {
-        super(id);
+    @Override
+    public String cancelando(Pedido pedido) {
+        return "Não pode solicitado";
     }
 
-    
-    
-    public PedidoStatus cancelando(){System.out.println("Sim");return getStatus();};
-    public PedidoStatus entregando(){System.out.println("Sim");return getStatus();};
-    public PedidoStatus entregue(){System.out.println("Sim");return getStatus();};
-    public PedidoStatus preparando(){System.out.println("Sim");return getStatus();};
-    public PedidoStatus solicitado(){System.out.println("Não");return getStatus();};  
+    @Override
+    public String entregando(Pedido pedido) {
+        pedido.setStatus(new PedidoSolicitado());
+        return "Pedido solicitado";
+    }
+
+    @Override
+    public String entregue(Pedido pedido) {
+        pedido.setStatus(new PedidoSolicitado());
+        return "Pedido solicitado";
+    }
+
+    @Override
+    public String preparando(Pedido pedido) {
+        pedido.setStatus(new PedidoSolicitado());
+        return "Pedido solicitado";
+    }
+
+    @Override
+    public String solicitado(Pedido pedido) {
+        return "Não pode solicitado";
+    }
+
+     
 }

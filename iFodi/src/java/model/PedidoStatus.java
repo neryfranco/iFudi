@@ -9,17 +9,11 @@ package model;
  *
  * @author Nery
  */
-public abstract class PedidoStatus extends Pedido {
-
-    public PedidoStatus(Integer id) {
-        super(id);
-    }
-
+public interface PedidoStatus {    
     
-    
-    public PedidoStatus cancelando(){return getStatus();};
-    public PedidoStatus entregando(){return getStatus();};
-    public PedidoStatus entregue(){return getStatus();};
-    public PedidoStatus preparando(){return getStatus();};
-    public PedidoStatus solicitado(){return getStatus();};
+    public String cancelando(Pedido pedido);
+    public String entregando(Pedido pedido);
+    public String entregue(Pedido pedido);
+    public String preparando(Pedido pedido);
+    public String solicitado(Pedido pedido);
 }

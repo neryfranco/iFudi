@@ -128,5 +128,7 @@ public class Pedido extends Observable{
         this.restaurante = restaurante;
     }
 
-    
+    public String solicitarPedido(){
+        return status.
+    }
 }

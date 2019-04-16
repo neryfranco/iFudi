@@ -19,6 +19,7 @@ import model.Avaliacao;
 import model.Cliente;
 import model.Frete;
 import model.Pedido;
+import model.PedidoSolicitado;
 import model.Restaurante;
 
 /**
@@ -51,6 +52,7 @@ public class GravarPedidoAction implements Action {
                 pedido.setRestaurante(r);
                 pedido.setCliente(c);
                 pedido.setFrete(frete);
+                pedido.setStatus(PedidoSolicitado);
                 PedidoDAO.getInstance().save(pedido);
                 response.sendRedirect("sucesso.jsp");
             } catch (SQLException ex) {

@@ -17,9 +17,9 @@ public class PedidoEntregando extends PedidoStatus{
     
     
     
-    public PedidoStatus cancelando(){System.out.println("Não");return getStatus();};
-    public PedidoStatus entregando(){System.out.println("Não");return getStatus();};
-    public PedidoStatus entregue(){System.out.println("Sim");return getStatus();};
-    public PedidoStatus preparando(){System.out.println("Não");return getStatus();};
-    public PedidoStatus solicitado(){System.out.println("Não");return getStatus();};  
+    public PedidoStatus cancelar(){System.out.println("Não");return getStatus();};
+    public PedidoStatus entregar(){System.out.println("Não");return getStatus();};
+    public PedidoStatus finalizar(){System.out.println("Sim");return getStatus();};
+    public PedidoStatus preparar(){System.out.println("Não");return getStatus();};
+    public PedidoStatus solicitar(){System.out.println("Não");return getStatus();};  
 }

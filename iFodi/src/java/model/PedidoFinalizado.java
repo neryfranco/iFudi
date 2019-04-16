@@ -9,17 +9,17 @@ package model;
  *
  * @author Nery
  */
-public class PedidoPreparando extends PedidoStatus{
+public class PedidoFinalizado extends PedidoStatus{
 
-    public PedidoPreparando(Integer id) {
+    public PedidoFinalizado(Integer id) {
         super(id);
     }
 
     
     
     public PedidoStatus cancelar(){System.out.println("Não");return getStatus();};
-    public PedidoStatus entregar(){System.out.println("Sim");return getStatus();};
-    public PedidoStatus finalizar(){System.out.println("Sim");return getStatus();};
+    public PedidoStatus entregar(){System.out.println("Não");return getStatus();};
+    public PedidoStatus finalizar(){System.out.println("Não");return getStatus();};
     public PedidoStatus preparar(){System.out.println("Não");return getStatus();};
     public PedidoStatus solicitar(){System.out.println("Não");return getStatus();};  
 }

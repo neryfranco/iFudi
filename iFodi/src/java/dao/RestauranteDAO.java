@@ -10,6 +10,7 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import model.Categoria;
 import model.Restaurante;
 import model.Vendedor;
@@ -59,7 +60,7 @@ public class RestauranteDAO {
                     + restaurante.getNumero() + "', '" 
                     + restaurante.getCidade() + "', '" 
                     + restaurante.getEstado() + "', '" 
-                    + restaurante.getCategoria().getID() + "', '" 
+                    + restaurante.getCategoria().getId() + "', '" 
                     + restaurante.getVendedor().getEmail() + "')";
             
             st.execute(SQL);
@@ -115,6 +116,28 @@ public class RestauranteDAO {
         } finally {
             closeResources(conn, st);
         }
+    }
+    
+    public ArrayList<Restaurante> getRestaurantes() throws ClassNotFoundException {
+        Connection conn = null;
+        Statement st = null;
+        ArrayList<Restaurante> promocoes = new ArrayList<Restaurante>();
+        Restaurante restaurante = null;
+        try {
+            conn = DatabaseLocator.getInstance().getConnection();
+            st = conn.createStatement();
+            ResultSet rs = st.executeQuery("select * from restaurante");
+            while (rs.next()) {
+                restaurante = new Restaurante (rs.getString("cnpj"));
+                restaurante = read(restaurante);
+                promocoes.add(restaurante);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            closeResources(conn, st);
+        }
+        return promocoes;
     }
 
     private void closeResources(Connection conn, Statement st) {

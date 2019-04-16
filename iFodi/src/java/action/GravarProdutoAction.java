@@ -30,20 +30,22 @@ public class GravarProdutoAction implements Action {
 
         Integer id = Integer.parseInt(request.getParameter("txtId"));
         String descricao = request.getParameter("txtDescricao");
-        Double porcentagem = Double.parseDouble(request.getParameter("optPromocao"));
-        String nome = request.getParameter("optRestaurante");
+        Double preco = Double.parseDouble(request.getParameter("txtPreco"));
+        Integer promocao_id = Integer.parseInt(request.getParameter("optPromocao"));
+        String restaurante_cnpj = request.getParameter("optRestaurante");
 
         if (id.equals("") || descricao.equals("")) {
             response.sendRedirect("gravarProduto.jsp");
         } else {
             Produto produto = new Produto(id, descricao);
-            Restaurante restaurante = new Restaurante(null, nome, null, null, null, null);
-            Promocao promocao = new Promocao(null, null, porcentagem);
+            Restaurante restaurante = new Restaurante(restaurante_cnpj, null, null, null, null, null);
+            Promocao promocao = new Promocao(promocao_id, null, null);
             try {
                 Restaurante r = RestauranteDAO.getInstance().read(restaurante);
                 Promocao prom = PromocaoDAO.getInstance().read(promocao);
                 produto.setPromocao(prom);
                 produto.setRestaurante(r);
+                produto.setPreco(preco);
                 ProdutoDAO.getInstance().save(produto);
                 response.sendRedirect("sucesso.jsp");
             } catch (SQLException ex) {

@@ -38,7 +38,7 @@
             <li><a href="apagarFrete.jsp">Apagar</a></li>
             <br>
             <h2>Item</h2>
-            <li><a href="gravarItem.jsp">Gravar</a></li>
+            <li><a href="FrontController?action=action.PrepararGravarItemAction">Gravar</a></li>
             <li><a href="lerItem.jsp">Visualizar</a></li>
             <li><a href="apagarItem.jsp">Apagar</a></li>
             <br>
@@ -53,7 +53,7 @@
             <li><a href="apagarPedido.jsp">Apagar</a></li>
             <br>
             <h2>Produto</h2>
-            <li><a href="gravarProduto.jsp">Gravar</a></li>
+            <li><a href="FrontController?action=action.PrepararGravarProdutoAction">Gravar</a></li>
             <li><a href="lerProduto.jsp">Visualizar</a></li>
             <li><a href="apagarProduto.jsp">Apagar</a></li>
             <br>
@@ -63,7 +63,7 @@
             <li><a href="apagarPromocao.jsp">Apagar</a></li>
             <br>
             <h2>Restaurante</h2>
-            <li><a href="gravarRestaurante.jsp">Gravar</a></li>
+            <li><a href="FrontController?action=action.PrepararGravarRestauranteAction">Gravar</a></li>
             <li><a href="lerRestaurante.jsp">Visualizar</a></li>
             <li><a href="apagarRestaurante.jsp">Apagar</a></li>
             <br>

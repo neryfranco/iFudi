@@ -14,8 +14,16 @@ public class Produto {
     private Integer id;
     private String descricao;
     private Promocao promocao;
+    private Double preco;
     private Restaurante restaurante;
 
+    public Produto(Integer id, String descricao, Restaurante restaurante, Double preco) {
+        this.id = id;
+        this.descricao = descricao;
+        this.restaurante = restaurante;
+        this.preco = preco;
+    }
+    
     public Produto(Integer id, String descricao, Restaurante restaurante) {
         this.id = id;
         this.descricao = descricao;
@@ -27,11 +35,11 @@ public class Produto {
         this.descricao = descricao;
     }
 
-    public Integer getID() {
+    public Integer getId() {
         return id;
     }
 
-    public void setID(Integer id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -58,4 +66,13 @@ public class Produto {
     public void setRestaurante(Restaurante restaurate) {
         this.restaurante = restaurate;
     }
+
+    public Double getPreco() {
+        return preco;
+    }
+
+    public void setPreco(Double preco) {
+        this.preco = preco;
+    }
+    
 }

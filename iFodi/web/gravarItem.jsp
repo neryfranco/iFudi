@@ -5,6 +5,8 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -20,20 +22,11 @@
                 <input type="text" class="form-control" name="txtId"/><br/>
                 Quantidade:
                 <input type="text" class="form-control" name="txtQtd"/><br/>
-                Preço Total:
-                <input type="text" class="form-control" name="txtPrecoTotal"/><br/>
                 Produto:
                 <select class="form-control" name="optProduto">
                     <option value="0"></option>  
                     <c:forEach items="${produtos}" var="produto">
-                        <option value="${produto.descricao}">${produto.nome}</option>  
-                    </c:forEach>
-                </select> 
-                Pedido:
-                <select class="form-control" name="optPedido">
-                    <option value="0"></option>  
-                    <c:forEach items="${pedidos}" var="pedido">
-                        <option value="${pedido.tempoPreparacao}">${pedido.id}</option>  
+                        <option value="${produto.id}">${produto.descricao}</option>  
                     </c:forEach>
                 </select> 
                 <input type="submit" class="btn btn-success"/>

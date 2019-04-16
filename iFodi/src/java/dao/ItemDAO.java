@@ -51,12 +51,11 @@ public class ItemDAO {
         try {
             conn = DatabaseLocator.getInstance().getConnection();
             st = conn.createStatement();
-            SQL = "insert into item (id, quantidade, precoTotal, produto_id, pedido_id) " +
+            SQL = "insert into item (id, quantidade, precoTotal, produto_id) " +
                     "values ('" + item.getId() + "', '" 
                     + item.getQuantidade() + "', '" 
                     + item.getPrecoTotal()+ "', '" 
-                    + item.getProduto().getID() + "', '" 
-                    + item.getPedido().getId() + "')";
+                    + item.getProduto().getId() + "')";
             st.execute(SQL);
         } catch(SQLException e){
             throw e;

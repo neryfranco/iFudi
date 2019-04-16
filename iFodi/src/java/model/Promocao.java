@@ -21,11 +21,15 @@ public class Promocao {
         this.porcentagem = porcentagem;
     }
 
-    public Integer getID() {
+    public Promocao(Integer id) {
+        this.id = id;
+    }
+
+    public Integer getId() {
         return id;
     }
 
-    public void setID(Integer id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

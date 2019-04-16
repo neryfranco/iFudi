@@ -10,6 +10,7 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import model.Promocao;
 
 /**
@@ -51,7 +52,7 @@ public class PromocaoDAO {
             st = conn.createStatement();
             SQL = "insert into promocao (id, descricao, porcentagem) "
                     
-                    + "values ('" + promocao.getID() + "', '" 
+                    + "values ('" + promocao.getId() + "', '" 
                     + promocao.getDescricao() + "', '" 
                     + promocao.getPorcentagem()+ "')";
             
@@ -71,7 +72,7 @@ public class PromocaoDAO {
         try {
             conn = DatabaseLocator.getInstance().getConnection();
             st = conn.createStatement();
-            ResultSet rs = st.executeQuery("select * from promocao where id = '" + promocao.getID()+ "'");
+            ResultSet rs = st.executeQuery("select * from promocao where id = '" + promocao.getId()+ "'");
             rs.first();
             
             a = new Promocao(rs.getInt("id"), 
@@ -93,13 +94,34 @@ public class PromocaoDAO {
         try {
             conn = DatabaseLocator.getInstance().getConnection();
             st = conn.createStatement();
-            stringSQL = "delete from Promocao where id = '" + promocao.getID()+ "'";
+            stringSQL = "delete from Promocao where id = '" + promocao.getId()+ "'";
             st.execute(stringSQL);
         } catch (SQLException e) {
             throw e;
         } finally {
             closeResources(conn, st);
         }
+    }
+    
+    public ArrayList<Promocao> getPromocoes() throws ClassNotFoundException {
+        Connection conn = null;
+        Statement st = null;
+        ArrayList<Promocao> promocoes = new ArrayList<Promocao>();
+        Promocao promocao = null;
+        try {
+            conn = DatabaseLocator.getInstance().getConnection();
+            st = conn.createStatement();
+            ResultSet rs = st.executeQuery("select * from promocao");
+            while (rs.next()) {
+                promocao = new Promocao (rs.getInt("id"), rs.getString("descricao"), rs.getDouble("porcentagem"));
+                promocoes.add(promocao);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            closeResources(conn, st);
+        }
+        return promocoes;
     }
 
     private void closeResources(Connection conn, Statement st) {

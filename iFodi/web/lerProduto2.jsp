@@ -24,12 +24,16 @@
                 <td>${produto.descricao}</td>
             </tr>
             <tr>
+                <td>Preço: </td> 
+                <td>${produto.preco}</td>
+            </tr>
+            <tr>
                 <td>Promoção: </td> 
-                <td>${promocao.descricao}</td>
+                <td>${promocao.porcentagem}</td>
             </tr>
             <tr>
                 <td>Restaurante: </td> 
-                <td>${restaurante.cnpj}</td>
+                <td>${restaurante.nome}</td>
             </tr>
         </table>
         <a href="index.jsp"  class="btn btn-default">Voltar</a>

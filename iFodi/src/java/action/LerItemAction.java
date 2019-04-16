@@ -30,7 +30,7 @@ public class LerItemAction implements Action {
 
         Integer id = Integer.parseInt(request.getParameter("txtId"));
         
-        Item item = new Item(id, null, null);
+        Item item = new Item(id, null, null, null, null);
         if (id.equals("")) {
             response.sendRedirect("lerItem.jsp");
         } else {

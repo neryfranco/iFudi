@@ -10,6 +10,7 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import model.Usuario;
 import model.Vendedor;
 
@@ -117,6 +118,36 @@ public class VendedorDAO {
         } finally {
             closeResources(conn, st);
         }
+    }
+    
+    public ArrayList<Vendedor> getVendedores() throws ClassNotFoundException {
+        Connection conn = null;
+        Statement st = null;
+        ArrayList<Vendedor> vendedores = new ArrayList<Vendedor>();
+        Vendedor vendedor = null;
+        try {
+            conn = DatabaseLocator.getInstance().getConnection();
+            st = conn.createStatement();
+            ResultSet rs = st.executeQuery("select * from vendedor");
+            while (rs.next()) {
+                Usuario usuario = UsuarioDAO.getInstance().read(new Usuario (rs.getString("usuario_email")));
+                vendedor = new Vendedor(usuario.getEmail(),
+                    usuario.getSenha(),
+                    usuario.getNome());
+                vendedor.setCidade(usuario.getCidade());
+                vendedor.setComplemento(usuario.getComplemento());
+                vendedor.setCpf(usuario.getCpf());
+                vendedor.setEstado(usuario.getEstado());
+                vendedor.setNumero(usuario.getNumero());
+                vendedor.setRua(usuario.getRua());
+                vendedores.add(vendedor);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            closeResources(conn, st);
+        }
+        return vendedores;
     }
 
     private void closeResources(Connection conn, Statement st) {

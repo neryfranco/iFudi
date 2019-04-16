@@ -10,6 +10,7 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import model.Categoria;
 
 /**
@@ -50,7 +51,7 @@ public class CategoriaDAO {
             conn = DatabaseLocator.getInstance().getConnection();
             st = conn.createStatement();
             SQL = "insert into categoria (id, nome) " +
-                    "values ('" + categoria.getID() + "', '" 
+                    "values ('" + categoria.getId() + "', '" 
                     + categoria.getNome() + "')";
             st.execute(SQL);
         } catch(SQLException e){
@@ -68,7 +69,7 @@ public class CategoriaDAO {
         try {
             conn = DatabaseLocator.getInstance().getConnection();
             st = conn.createStatement();
-            ResultSet rs = st.executeQuery("select * from categoria where id = " + categoria.getID());
+            ResultSet rs = st.executeQuery("select * from categoria where id = " + categoria.getId());
             rs.first();
             
             a = new Categoria(rs.getInt("id"), rs.getString("nome"));
@@ -87,13 +88,34 @@ public class CategoriaDAO {
         try {
             conn = DatabaseLocator.getInstance().getConnection();
             st = conn.createStatement();
-            stringSQL = "delete from Categoria where id = '" + categoria.getID()+ "'";
+            stringSQL = "delete from Categoria where id = '" + categoria.getId()+ "'";
             st.execute(stringSQL);
         } catch (SQLException e) {
             throw e;
         } finally {
             closeResources(conn, st);
         }
+    }
+    
+    public ArrayList<Categoria> getCategorias() throws ClassNotFoundException {
+        Connection conn = null;
+        Statement st = null;
+        ArrayList<Categoria> categorias = new ArrayList<Categoria>();
+        Categoria categoria = null;
+        try {
+            conn = DatabaseLocator.getInstance().getConnection();
+            st = conn.createStatement();
+            ResultSet rs = st.executeQuery("select * from categoria");
+            while (rs.next()) {
+                categoria = new Categoria (rs.getInt("id"), rs.getString("nome"));
+                categorias.add(categoria);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            closeResources(conn, st);
+        }
+        return categorias;
     }
 
     private void closeResources(Connection conn, Statement st) {

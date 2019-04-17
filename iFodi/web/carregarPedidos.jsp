@@ -23,16 +23,23 @@
                     <td>Restaurante: </td> 
                     <td>Cliente: </td> 
                     <td>Pedido Status: </td> 
+                    <td colspan=5>Mudar Status: </td>
                 </tr>
                 <c:forEach items="${pedidos}" var="pedido">
                 <tr>
                     <td><c:out value="${pedido.id}" /></td>
                     <td><c:out value="${pedido.restaurante.nome}" /></td>
                     <td><c:out value="${pedido.cliente.email}" /></td>
-                    <td><c:out value="${pedido.status}" /></td>
+                    <td><c:out value="${pedido.status.nomeClasse}" /></td>
+                    <td><a href="FrontController?action=action.pedido.SolicitarPedidoAction&idPedido=<c:out value="${pedido.id}"/>">Solicitar</a></td>
+                    <td><a href="FrontController?action=action.pedido.PrepararPedidoAction&idPedido=<c:out value="${pedido.id}"/>">Preparar</a></td>
+                    <td><a href="FrontController?action=action.pedido.EntregarPedidoAction&idPedido=<c:out value="${pedido.id}"/>">Entregar</a></td>
+                    <td><a href="FrontController?action=action.pedido.FinalizarPedidoAction&idPedido=<c:out value="${pedido.id}"/>">Finalizar</a></td>
+                    <td><a href="FrontController?action=action.pedido.CancelarPedidoAction&idPedido=<c:out value="${pedido.id}"/>">Cancelar</a></td>
                 </tr>
             </c:forEach>
             </table>
         </form>
+        <a href="index.jsp"  class="btn btn-default">Voltar</a>
     </body>
 </html>

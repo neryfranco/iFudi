@@ -12,9 +12,10 @@ package model;
 
 public interface PedidoStatus {    
     
-    public String cancelando(Pedido pedido);
-    public String entregando(Pedido pedido);
-    public String entregue(Pedido pedido);
-    public String preparando(Pedido pedido);
-    public String solicitado(Pedido pedido);
+    public String cancelar(Pedido pedido);
+    public String entregar(Pedido pedido);
+    public String finalizar(Pedido pedido);
+    public String preparar(Pedido pedido);
+    public String solicitar(Pedido pedido);
+    public String getNomeClasse();
 }

@@ -5,6 +5,8 @@
  */
 package controller;
 
+import model.PedidoStatus;
+
 /**
  *
  * @author Jessica
@@ -29,6 +31,27 @@ public class ActionFactory {
             return null;
         }
         actionObject = (Action) objeto;
+        return actionObject;
+    }
+    
+    public static PedidoStatus createPedidoStatus(String action) {
+
+        PedidoStatus actionObject = null;
+        String nomeClasse = action;
+        Class classe = null;
+        Object objeto = null;
+
+        try {
+            classe = Class.forName(nomeClasse);
+            objeto = classe.newInstance();
+
+        } catch (Exception ex) {
+            return null;
+        }
+        if (!(objeto instanceof PedidoStatus)) {
+            return null;
+        }
+        actionObject = (PedidoStatus) objeto;
         return actionObject;
     }
 

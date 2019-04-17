@@ -5,6 +5,7 @@
  */
 package dao;
 
+import controller.ActionFactory;
 import dao.DatabaseLocator;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -13,6 +14,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import model.Cliente;
 import model.Pedido;
+import model.PedidoStatus;
 import model.Restaurante;
 
 /**
@@ -53,14 +55,15 @@ public class PedidoDAO {
             conn = DatabaseLocator.getInstance().getConnection();
             st = conn.createStatement();
             SQL = "insert into pedido (id, frete, cliente_usuario_email, "
-                    + "tempoEstimado, data, restaurante_cnpj) " +
+                    + "tempoEstimado, data, restaurante_cnpj, status) " +
                     
                     "values ('" + pedido.getId() + "', '" 
                     + pedido.getFrete() + "', '" 
                     + pedido.getCliente().getEmail() + "', '" 
                     + pedido.getTempoEstimado() + "', '" 
                     + pedido.getData() + "', '" 
-                    + pedido.getRestaurante().getCnpj() + "')";
+                    + pedido.getRestaurante().getCnpj() + "', '" 
+                    + pedido.getStatus().getNomeClasse() + "')";
             
             st.execute(SQL);
         } catch(SQLException e){
@@ -75,6 +78,7 @@ public class PedidoDAO {
         Statement st = null;
         String stringSQL;
         Pedido a = null;
+        PedidoStatus ps = null;
         try {
             conn = DatabaseLocator.getInstance().getConnection();
             st = conn.createStatement();
@@ -89,12 +93,41 @@ public class PedidoDAO {
             Restaurante restaurante = new Restaurante (rs.getString("restaurante_cnpj"));
             a.setRestaurante(RestauranteDAO.getInstance().read(restaurante));
             a.setCliente(ClienteDAO.getInstance().read(cliente));
+            
+            String nomeClasse = "model." + rs.getString("status");
+            ps = (PedidoStatus) ActionFactory.createPedidoStatus(nomeClasse);
+            a.setStatus(ps);
         } catch (SQLException e) {
             throw e;
         } finally {
             closeResources(conn, st);
         }
         return a;
+    }
+    
+    public void edit(Pedido pedido) throws SQLException, ClassNotFoundException {
+        Connection conn = null;
+        Statement st = null;
+        String SQL = null;
+        try {
+            conn = DatabaseLocator.getInstance().getConnection();
+            st = conn.createStatement();
+            
+            SQL = "update pedido set " 
+                    + "frete = '" + pedido.getFrete()
+                    + "', tempoEstimado = '" + pedido.getTempoEstimado()
+                    + "', data = '" + pedido.getData()
+                    + "', restaurante_cnpj = '" + pedido.getRestaurante().getCnpj()
+                    + "', status = '" + pedido.getStatus().getNomeClasse()
+                    + "', cliente_usuario_email = '" + pedido.getCliente().getEmail()
+                    + "' where id = " + pedido.getId();
+            
+            st.execute(SQL);
+        } catch(SQLException e){
+            throw e;
+        } finally {
+            closeResources(conn, st);
+        }
     }
     
     public void delete(Pedido pedido) throws SQLException, ClassNotFoundException {

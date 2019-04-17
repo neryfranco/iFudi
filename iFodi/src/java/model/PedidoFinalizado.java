@@ -9,17 +9,37 @@ package model;
  *
  * @author Nery
  */
-public class PedidoFinalizado extends PedidoStatus{
+public class PedidoFinalizado implements PedidoStatus{
 
-    public PedidoFinalizado(Integer id) {
-        super(id);
+    public String nomeClasse = "PedidoFinalizado";
+    
+    @Override
+    public String cancelar(Pedido pedido) {
+        return "Pedido finalizado não pode ser cancelado";
     }
 
+    @Override
+    public String entregar(Pedido pedido) {
+        return "Pedido finalizado não pode ser entregue";
+    }
+
+    @Override
+    public String finalizar(Pedido pedido) {
+        return "Pedido finalizado não pode ser finalizado novamente";
+    }
+
+    @Override
+    public String preparar(Pedido pedido) {
+        return "Pedido finalizado não pode ser preparado";
+    }
+
+    @Override
+    public String solicitar(Pedido pedido) {
+       return "Pedido finalizado não pode ser solicitado";
+    }
+
+    public String getNomeClasse(){
+        return "PedidoFinalizado";
+    }
     
-    
-    public PedidoStatus cancelar(){System.out.println("Não");return getStatus();};
-    public PedidoStatus entregar(){System.out.println("Não");return getStatus();};
-    public PedidoStatus finalizar(){System.out.println("Não");return getStatus();};
-    public PedidoStatus preparar(){System.out.println("Não");return getStatus();};
-    public PedidoStatus solicitar(){System.out.println("Não");return getStatus();};  
 }

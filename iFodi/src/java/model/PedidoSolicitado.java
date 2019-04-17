@@ -11,33 +11,36 @@ package model;
  */
 public class PedidoSolicitado implements PedidoStatus{
 
+    public String nomeClasse = "PedidoSolicitado";
+    
     @Override
-    public String cancelando(Pedido pedido) {
-        return "Não pode solicitado";
+    public String cancelar(Pedido pedido) {
+        pedido.setStatus(new PedidoCancelado());
+        return "Pedido cancelado";
     }
 
     @Override
-    public String entregando(Pedido pedido) {
-        pedido.setStatus(new PedidoSolicitado());
-        return "Pedido solicitado";
+    public String entregar(Pedido pedido) {
+        return "Pedido solicitado não pode ser entregue";
     }
 
     @Override
-    public String entregue(Pedido pedido) {
-        pedido.setStatus(new PedidoSolicitado());
-        return "Pedido solicitado";
+    public String finalizar(Pedido pedido) {
+        return "Pedido solicitado não pode ser finalizado";
     }
 
     @Override
-    public String preparando(Pedido pedido) {
-        pedido.setStatus(new PedidoSolicitado());
-        return "Pedido solicitado";
+    public String preparar(Pedido pedido) {
+        pedido.setStatus(new PedidoPreparando());
+        return "Pedido em preparação";
     }
 
     @Override
-    public String solicitado(Pedido pedido) {
-        return "Não pode solicitado";
+    public String solicitar(Pedido pedido) {
+        return "Pedido solicitado não pode ser solicitado novamente";
     }
 
-     
+    public String getNomeClasse(){
+        return "PedidoSolicitado";
+    }
 }

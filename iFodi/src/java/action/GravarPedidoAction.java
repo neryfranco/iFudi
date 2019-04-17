@@ -52,7 +52,7 @@ public class GravarPedidoAction implements Action {
                 pedido.setRestaurante(r);
                 pedido.setCliente(c);
                 pedido.setFrete(frete);
-                pedido.setStatus(PedidoSolicitado);
+                pedido.solicitarPedido();
                 PedidoDAO.getInstance().save(pedido);
                 response.sendRedirect("sucesso.jsp");
             } catch (SQLException ex) {

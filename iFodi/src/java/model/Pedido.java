@@ -26,12 +26,13 @@ public class Pedido extends Observable{
 
     public Pedido(Integer id) {
         this.id = id;
+        this.status = new PedidoSolicitado();
     }
 
     public Pedido(Integer id, List<Item> itens, PedidoStatus status, String data, Integer tempoEstimado, Avaliacao avaliacao, Double frete, Cliente cliente, Restaurante restaurante) {
         this.id = id;
         this.itens = itens;
-        this.status = status;
+        this.status = new PedidoSolicitado();
         this.data = data;
         this.tempoEstimado = tempoEstimado;
         this.avaliacao = avaliacao;
@@ -44,6 +45,7 @@ public class Pedido extends Observable{
         this.id = id;
         this.data = data;
         this.tempoEstimado = tempoEstimado;
+        this.status = new PedidoSolicitado();
     }
 
     public Integer getId() {
@@ -78,6 +80,10 @@ public class Pedido extends Observable{
         this.status = status;
         setChanged();
         notifyObservers();
+    }
+    
+    public String getStatusNome(){
+        return status.getNomeClasse();
     }
 
     public String getData() {
@@ -129,6 +135,22 @@ public class Pedido extends Observable{
     }
 
     public String solicitarPedido(){
-        return status.
+        return status.solicitar(this);
+    }
+    
+    public String prepararPedido(){
+        return status.preparar(this);
+    }
+    
+    public String entregarPedido(){
+        return status.entregar(this);
+    }
+    
+    public String finalizarPedido(){
+        return status.finalizar(this);
+    }
+    
+    public String cancelarPedido(){
+        return status.cancelar(this);
     }
 }

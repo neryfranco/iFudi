@@ -11,32 +11,36 @@ package model;
  */
 public class PedidoPreparando implements PedidoStatus{
 
+    public String nomeClasse = "PedidoPreparando";
+    
     @Override
-    public String cancelando(Pedido pedido) {
-        return "Não pode ser preparado";
-    }
-
-
-    @Override
-    public String entregando(Pedido pedido) {
-        return "Não pode ser preparado";
+    public String cancelar(Pedido pedido) {
+        return "Pedido em preparação não pode ser cancelado";
     }
 
     @Override
-    public String entregue(Pedido pedido) {
-        return "Não pode ser preparado";
+    public String entregar(Pedido pedido) {
+        pedido.setStatus(new PedidoEntregando());
+        return "Pedido saiu para entrega";
     }
 
     @Override
-    public String preparando(Pedido pedido) {
-        return "Não pode ser preparado";
+    public String finalizar(Pedido pedido) {
+        return "Pedido em preparação não pode ser finalizado";
     }
 
     @Override
-    public String solicitado(Pedido pedido) {
-        pedido.setStatus(new PedidoPreparando());
-        return "Pedido sendo preparado";
+    public String preparar(Pedido pedido) {
+        return "Pedido em preparação não pode ser preparado novamente";
     }
 
+    @Override
+    public String solicitar(Pedido pedido) {
+        return "Pedido em preparação não pode ser solicitado";
+    }
+
+    public String getNomeClasse(){
+        return "PedidoPreparando";
+    }
    
 }

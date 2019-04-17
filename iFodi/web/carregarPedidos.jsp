@@ -40,6 +40,7 @@
             </c:forEach>
             </table>
         </form>
+        <p value="${msgPedido}">${msgPedido}</p>
         <a href="index.jsp"  class="btn btn-default">Voltar</a>
     </body>
 </html>

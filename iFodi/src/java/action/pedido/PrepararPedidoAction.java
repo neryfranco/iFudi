@@ -19,6 +19,10 @@ import model.PedidoCancelado;
  * @author Nery
  */
 import dao.PedidoDAO;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
 import model.Pedido;
 import model.PedidoPreparando;
 public class PrepararPedidoAction implements Action{
@@ -37,15 +41,19 @@ public class PrepararPedidoAction implements Action{
             try {
                 Pedido p = PedidoDAO.getInstance().read(pedido);
                 if (p != null) {
-                    p.prepararPedido();
+                    
+                    request.setAttribute("msgPedido", p.prepararPedido());
                     PedidoDAO.getInstance().edit(p);
-                    response.sendRedirect("FrontController?action=action.CarregarPedidosAction");
+                    RequestDispatcher view = request.getRequestDispatcher("FrontController?action=action.CarregarPedidosAction");
+                    view.forward(request, response);
                 }
             } catch (SQLException ex) {
                 response.sendRedirect("erro.jsp");
                 ex.printStackTrace();
             } catch (ClassNotFoundException ex) {
                 ex.printStackTrace();
+            } catch (ServletException ex) {
+                Logger.getLogger(PrepararPedidoAction.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
     }

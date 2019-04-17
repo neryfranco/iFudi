@@ -30,14 +30,12 @@ public class Cliente extends Usuario implements Observer {
 
     @Override
     public void update(Observable pedidoSubject, Object arg) {
-        PedidoStatus statusPedido;
+        String statusPedido;
         if (pedidoSubject instanceof Pedido) {
             Pedido pedido = (Pedido) pedidoSubject;
-            statusPedido = pedido.getStatus();
+            statusPedido = pedido.getStatus().getNomeClasse();
             System.out.println("Atenção" + getNome() + "seu pedido está no estado de: " + statusPedido);
-
         }
-
     }
 
 }

@@ -14,10 +14,11 @@ import java.util.Observer;
  */
 public class Cliente extends Usuario implements Observer {
 
-    private Cartao cartao;
-
-    public Cliente(String email, String senha, String nome) {
+    private Cartao cartao;    
+    
+    public Cliente(String email, String senha, String nome, Observable pedido) {
         super(email, senha, nome);
+        pedido.addObserver(this);
     }
 
     public Cartao getCartao() {

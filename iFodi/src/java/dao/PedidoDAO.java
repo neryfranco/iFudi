@@ -89,7 +89,7 @@ public class PedidoDAO {
                     rs.getString("data"),
                     rs.getInt("tempoEstimado"));
             a.setFrete(rs.getDouble("tempoEstimado"));
-            Cliente cliente = new Cliente (rs.getString("cliente_usuario_email"), null, null);
+            Cliente cliente = new Cliente (rs.getString("cliente_usuario_email"), null, null, null);
             Restaurante restaurante = new Restaurante (rs.getString("restaurante_cnpj"));
             a.setRestaurante(RestauranteDAO.getInstance().read(restaurante));
             a.setCliente(ClienteDAO.getInstance().read(cliente));

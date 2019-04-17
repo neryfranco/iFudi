@@ -23,30 +23,6 @@
                 <td>Senha: </td> 
                 <td>${usuario.senha}</td>
             </tr>
-            <tr>
-                <td>Nome: </td> 
-                <td>${usuario.nome}</td>
-            </tr>
-            <tr>
-                <td>CPF: </td> 
-                <td>${usuario.cpf}</td>
-            </tr>
-            <tr>
-                <td>Rua: </td> 
-                <td>${usuario.rua}</td>
-            </tr>
-            <tr>
-                <td>Número: </td> 
-                <td>${usuario.numero}</td>
-            </tr>
-            <tr>
-                <td>Cidade: </td> 
-                <td>${usuario.cidade}</td>
-            </tr>
-            <tr>
-                <td>Estado: </td> 
-                <td>${usuario.estado}</td>
-            </tr>
         </table>
         <a href="index.jsp"  class="btn btn-default">Voltar</a>
     </body>

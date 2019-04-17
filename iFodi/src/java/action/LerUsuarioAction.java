@@ -17,20 +17,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import model.Usuario;
 
-/**
- *
- * @author Jessica
-
 public class LerUsuarioAction implements Action {
-    
-    public LerUsuarioAction(){}
 
+    public LerUsuarioAction() {}
+    
     @Override
     public void execute(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
         String email = request.getParameter("txtEmail");
-        
-        Usuario usuario = new Usuario(email, null, null, null, null, null, null, null);
+        String senha = request.getParameter("txtShenha");
+        Usuario usuario = new Usuario(email, senha, null, null, null, null, null, null, null);
         if (email.equals("")) {
             response.sendRedirect("lerUsuario.jsp");
         } else {
@@ -49,5 +45,23 @@ public class LerUsuarioAction implements Action {
             }
         }
     }
+    public void logar(HttpServletRequest request, HttpServletResponse response) throws SQLException, ServletException, IOException{
+        
+        String email = request.getParameter("txtEmail");
+        String senha = request.getParameter("txtSenha");
+        try {
+            Usuario usuario = new Usuario(email, senha);
+            RequestDispatcher view = request.getRequestDispatcher("/index.jsp");
+            if (usuario != null) {
+                String tipo = usuario.getEmail();
+                if (tipo.equals("vendedor")) {
+                    view = request.getRequestDispatcher("/vendedor.jsp");
+                }
+                if (tipo.equals("cliente")) {
+                    view = request.getRequestDispatcher("/cliente.jsp");
+                }
+            }
+            view.forward(request, response);
+        } 
+    }
 }
- */

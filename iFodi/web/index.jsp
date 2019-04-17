@@ -13,69 +13,55 @@
         <link href="src/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
-        <h1>Sistema iFodi</h1>
-        <ul>
-            <h1>Menu</h1>
+        <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="">Sistema IFood</a>
+                </div>
+            </div>
+        </nav>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h1 class="mt-5">Sistema IFood</h1>
+                </div>
+            </div>
+        </div>
+        <div class="container">    
+            <div id="loginbox" style="margin-top:50px;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">                    
+                <div class="panel panel-info" >
+                    <div class="panel-heading">
+                        <div class="panel-title">Login</div>
+                    </div>     
 
-            <%--
-            <h2>Avaliação</h2>
-            <li><a href="gravarAvaliacao.jsp">Gravar</a></li>
-            <li><a href="lerAvaliacao.jsp">Visualizar</a></li>
-            <li><a href="apagarAvaliacao.jsp">Apagar</a></li>
-            <br>
-            --%>
-            <h2>Categoria</h2>
-            <li><a href="gravarCategoria.jsp">Gravar</a></li>
-            <li><a href="lerCategoria.jsp">Visualizar</a></li>
-            <li><a href="apagarCategoria.jsp">Apagar</a></li>
-            <br>
-            <h2>Cliente</h2>
-            <li><a href="gravarCliente.jsp">Gravar</a></li>
-            <li><a href="lerCliente.jsp">Visualizar</a></li>
-            <li><a href="apagarCliente.jsp">Apagar</a></li>
-            <br>
-            <h2>Frete</h2>
-            <li><a href="gravarFrete.jsp">Gravar</a></li>
-            <li><a href="lerFrete.jsp">Visualizar</a></li>
-            <li><a href="apagarFrete.jsp">Apagar</a></li>
-            <br>
-            <h2>Item</h2>
-            <li><a href="FrontController?action=action.PrepararGravarItemAction">Gravar</a></li>
-            <li><a href="lerItem.jsp">Visualizar</a></li>
-            <li><a href="apagarItem.jsp">Apagar</a></li>
-            <br>
-            <%--
-            <h2>Pagamento</h2>
-            <li><a href="gravarPagamento.jsp">Gravar</a></li>
-            <li><a href="lerPagamento.jsp">Visualizar</a></li>
-            <li><a href="apagarPagamento.jsp">Apagar</a></li>
-            <br>
-            --%>
-            <h2>Pedido</h2>
-            <li><a href="FrontController?action=action.PrepararGravarPedidoAction">Gravar</a></li>
-            <li><a href="lerPedido.jsp">Visualizar</a></li>
-            <li><a href="FrontController?action=action.CarregarPedidosAction">Lista de Pedidos</a></li>
-            <li><a href="apagarPedido.jsp">Apagar</a></li>
-            <br>
-            <h2>Produto</h2>
-            <li><a href="FrontController?action=action.PrepararGravarProdutoAction">Gravar</a></li>
-            <li><a href="lerProduto.jsp">Visualizar</a></li>
-            <li><a href="apagarProduto.jsp">Apagar</a></li>
-            <br>
-            <h2>Promoção</h2>
-            <li><a href="gravarPromocao.jsp">Gravar</a></li>
-            <li><a href="lerPromocao.jsp">Visualizar</a></li>
-            <li><a href="apagarPromocao.jsp">Apagar</a></li>
-            <br>
-            <h2>Restaurante</h2>
-            <li><a href="FrontController?action=action.PrepararGravarRestauranteAction">Gravar</a></li>
-            <li><a href="lerRestaurante.jsp">Visualizar</a></li>
-            <li><a href="apagarRestaurante.jsp">Apagar</a></li>
-            <br>
-            <h2>Vendedor</h2>
-            <li><a href="gravarVendedor.jsp">Gravar</a></li>
-            <li><a href="lerVendedor.jsp">Visualizar</a></li>
-            <li><a href="apagarVendedor.jsp">Apagar</a></li>
-        </ul>
+                    <div style="padding-top:30px" class="panel-body" >
+
+                        <div style="display:none" id="login-alert" class="alert alert-danger col-sm-12"></div>
+
+                        <form id="loginform" action="FrontController?action=action.LerUsuarioAction?logar" method="post" class="form-horizontal" role="form">
+
+                            <div style="margin-bottom: 25px" class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                                <input id="login-username" type="text" class="form-control" name="txtEmail" value="" placeholder="email">                                        
+                            </div>
+                            <div style="margin-bottom: 25px" class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                                <input id="login-password" type="password" class="form-control" name="txtSenha" placeholder="senha">
+                            </div>
+                            <div style="margin-top:10px" class="form-group">
+                           <div class="col-sm-12 controls">
+                        <input id="btn-login" class="btn btn-success" type="submit" name="btnLogin" value="Entrar">
+                    </div>
+                 </div>
+                 <div class="form-group">
+                    <div class="col-md-12 control">
+                        <div style="border-top: 1px solid#888; padding-top:15px; font-size:85%" >
+                        Criar conta? 
+                        <a href="gravarUsuario.jsp" onClick="$('#loginbox').hide(); $('#signupbox').show()">clique aqui</a>
+                    </div> 
+                </div>
+            </div>    
+        </form>  
     </body>
 </html>
+

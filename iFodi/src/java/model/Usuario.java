@@ -27,6 +27,11 @@ public class Usuario {
         this.nome = nome;
     }
 
+    public Usuario(String email, String senha) {
+        this.email = email;
+        this.senha = senha;
+    }
+
     public Usuario(String email, String senha, String nome, String cpf, String rua, String numero, String cidade, String estado, String complemento) {
         this.email = email;
         this.senha = senha;
@@ -42,8 +47,6 @@ public class Usuario {
     public Usuario(String email) {
         this.email = email;
     }
-    
-    
 
     public String getSenha() {
         return senha;
@@ -116,6 +119,4 @@ public class Usuario {
     public void setComplemento(String complemento) {
         this.complemento = complemento;
     }
-
-    
 }

@@ -18,6 +18,8 @@
             <table class="table table-dark table-hover">
                 Entre com email
                 <input type="text" name="txtEmail"/><br/>
+                Entre com senha
+                <input type="text" name="txtSenha"/><br/>
                 <input type="submit" class="btn btn-success"/>
             </table>
             <a href="index.jsp"  class="btn btn-default">Voltar</a>

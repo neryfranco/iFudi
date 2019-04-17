@@ -13,10 +13,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import model.Usuario;
 
-/**
- *
- * @author Jessica
-
 public class GravarUsuarioAction implements Action {
     
     public GravarUsuarioAction(){}
@@ -32,11 +28,12 @@ public class GravarUsuarioAction implements Action {
         String numero = request.getParameter("txtNumero");
         String cidade = request.getParameter("txtCidade");
         String estado = request.getParameter("txtEstado");
+        String complemento = request.getParameter("txtComplemento");
 
-        if (email.equals("") || senha.equals("") || nome.equals("") || cpf.equals("") || rua.equals("") || numero.equals("") || cidade.equals("") || estado.equals("")) {
+        if (email.equals("") || senha.equals("") || nome.equals("") || cpf.equals("") || rua.equals("") || numero.equals("") || cidade.equals("") || estado.equals("") || complemento.equals("")) {
             response.sendRedirect("gravarUsuario.jsp");
         } else {
-            Usuario usuario = new Usuario(email, senha, nome, cpf, rua, numero, cidade, estado);
+            Usuario usuario = new Usuario(email, senha, nome, cpf, rua, numero, cidade, estado, complemento);
             try {
                 UsuarioDAO.getInstance().save(usuario);
                 response.sendRedirect("sucesso.jsp");
@@ -51,5 +48,3 @@ public class GravarUsuarioAction implements Action {
     }
 
 }
-
- */

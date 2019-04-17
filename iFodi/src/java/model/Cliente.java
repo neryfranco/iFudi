@@ -40,4 +40,9 @@ public class Cliente extends Usuario implements Observer {
 
     }
 
+    @Override
+    public boolean getTipoUsuario() {
+        return true;
+    }
+
 }

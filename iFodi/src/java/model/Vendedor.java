@@ -38,4 +38,9 @@ public class Vendedor extends Usuario {
     public void removeRestaurante(Restaurante restaurante){
         restaurantes.remove(restaurante);
     }
+
+    @Override
+    public boolean getTipoUsuario() {
+        return false;
+    }
 }

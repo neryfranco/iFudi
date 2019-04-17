@@ -9,7 +9,7 @@ package model;
  *
  * @author Jessica
  */
-public class Usuario {
+public abstract class Usuario {
 
     private String email;
     private String senha;
@@ -42,6 +42,8 @@ public class Usuario {
     public Usuario(String email) {
         this.email = email;
     }
+    
+    public abstract boolean getTipoUsuario();
     
     
 

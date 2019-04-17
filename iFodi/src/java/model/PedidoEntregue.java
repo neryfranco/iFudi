@@ -9,34 +9,32 @@ package model;
  *
  * @author Nery
  */
-public class PedidoCancelado implements PedidoStatus{
+public class PedidoEntregue implements PedidoStatus{
 
     @Override
     public String cancelando(Pedido pedido) {
-        return "Não pode cancelar";
+        return "Não pode ser entregue";
     }
 
     @Override
     public String entregando(Pedido pedido) {
-        return "Não pode cancelar";
+        return "Não pode ser entregue";
     }
 
     @Override
     public String entregue(Pedido pedido) {
-        return "Não pode cancelar";
+        return "Não pode ser entregue";
     }
 
     @Override
     public String preparando(Pedido pedido) {
-        return "Não pode cancelar";
+        return "Não pode ser entregue";
     }
 
     @Override
     public String solicitado(Pedido pedido) {
-        pedido.setStatus(new PedidoCancelado());
-        return "Pedido Cancelado";
+        return "Não pode ser entregue";
     }
 
-  
     
 }

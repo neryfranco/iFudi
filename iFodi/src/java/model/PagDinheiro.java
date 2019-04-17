@@ -12,7 +12,7 @@ package model;
 public class PagDinheiro implements FormaPagamento {
 
     @Override
-    public String obterDesconto() {
-        return "Desconto de 15%";
+    public String obterFormaPagamento() {
+        return "Pagamento em dinheiro";
     }
 }

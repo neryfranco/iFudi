@@ -12,8 +12,8 @@ package model;
 public class PagDebito implements FormaPagamento {
 
     @Override
-    public String obterDesconto() {
-        return "Desconto de 10%";
+    public String obterFormaPagamento() {
+        return "Pagamento em débito";
     }
 
 }

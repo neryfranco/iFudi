@@ -9,11 +9,12 @@ package model;
  *
  * @author Nery
  */
-public interface PedidoStatus {
 
-    public PedidoStatus cancelar(Pedido p);
-    public PedidoStatus entregar(Pedido p);
-    public PedidoStatus finalizar(Pedido p);
-    public PedidoStatus preparar(Pedido p);
-    public PedidoStatus solicitar(Pedido p);
+public interface PedidoStatus {    
+    
+    public String cancelando(Pedido pedido);
+    public String entregando(Pedido pedido);
+    public String entregue(Pedido pedido);
+    public String preparando(Pedido pedido);
+    public String solicitado(Pedido pedido);
 }

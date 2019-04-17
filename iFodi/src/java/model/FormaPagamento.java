@@ -11,6 +11,6 @@ package model;
  */
 public interface FormaPagamento {
 
-    public String obterDesconto();
+    public String obterFormaPagamento();
 
 }

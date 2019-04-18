@@ -5,6 +5,8 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -14,27 +16,22 @@
     </head>
     <body>
         <h1>Ler Produto</h1>
-        <table class="table table-dark table-hover">
+        <table class="table table-dark table-hover" style="width: 50%">
             <tr>
-                <td>Código: </td> 
+                <th>Código</th> 
+                <th>Descrição</th> 
+                <th>Preço</th> 
+                <th>Promoção</th>
+                <th>Restaurante</th> 
+            </tr>
+            <c:forEach items="${produtos}" var="produto">
                 <td>${produto.id}</td>
-            </tr>
-            <tr>
-                <td>Descrição: </td> 
                 <td>${produto.descricao}</td>
-            </tr>
-            <tr>
-                <td>Preço: </td> 
                 <td>${produto.preco}</td>
-            </tr>
-            <tr>
-                <td>Promoção: </td> 
                 <td>${promocao.porcentagem}</td>
-            </tr>
-            <tr>
-                <td>Restaurante: </td> 
                 <td>${restaurante.nome}</td>
-            </tr>
+                </tr>
+            </c:forEach>
         </table>
         <a href="index.jsp"  class="btn btn-default">Voltar</a>
     </body>

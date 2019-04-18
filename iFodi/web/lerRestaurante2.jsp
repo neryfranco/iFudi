@@ -5,6 +5,8 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -14,39 +16,29 @@
     </head>
     <body>
         <h1>Ler Restaurante</h1>
-        <table class="table table-dark table-hover">
+        <table class="table table-dark table-hover" style="width: 50%">
             <tr>
-                <td>CNPJ: </td> 
-                <td>${restaurante.cnpj}</td>
+                <th>CNPJ: </th> 
+                <th>Nome: </th> 
+                <th>Rua: </th> 
+                <th>Número: </th> 
+                <th>Cidade: </th> 
+                <th>Estado: </th> 
+                <th>Categoria: </th>
+                <th>Vendedor: </th> 
             </tr>
-            <tr>
-                <td>Nome: </td> 
-                <td>${restaurante.nome}</td>
-            </tr>
-            <tr>
-                <td>Rua: </td> 
-                <td>${restaurante.rua}</td>
-            </tr>
-            <tr>
-                <td>Número: </td> 
-                <td>${restaurante.numero}</td>
-            </tr>
-            <tr>
-                <td>Cidade: </td> 
-                <td>${restaurante.cidade}</td>
-            </tr>
-            <tr>
-                <td>Estado: </td> 
-                <td>${restaurante.estado}</td>
-            </tr>
-            <tr>
-                <td>Categoria: </td> 
-                <td>${categoria.nome}</td>
-            </tr>
-            <tr>
-                <td>Vendedor: </td> 
-                <td>${vendedor.nome}</td>
-            </tr>
+            <c:forEach items="${restaurantes}" var="restaurante">
+                <tr>
+                    <td>${restaurante.cnpj}</td>
+                    <td>${restaurante.nome}</td>
+                    <td>${restaurante.rua}</td>
+                    <td>${restaurante.numero}</td>
+                    <td>${restaurante.cidade}</td>
+                    <td>${restaurante.estado}</td>
+                    <td>${categoria.nome}</td>
+                    <td>${vendedor.nome}</td>
+                </tr>
+            </c:forEach>
         </table>
         <a href="index.jsp"  class="btn btn-default">Voltar</a>
     </body>

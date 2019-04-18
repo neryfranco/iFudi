@@ -19,11 +19,11 @@
         <form action="FrontController?action=action.CarregarPedidosAction" method="post" style="width: 50%">
             <table class="table table-dark table-hover">
                 <tr>
-                    <th>Código: </th> 
-                    <td>Restaurante: </td> 
-                    <td>Cliente: </td> 
-                    <td>Pedido Status: </td> 
-                    <td colspan=5>Mudar Status: </td>
+                    <th>Código</th> 
+                    <th>Restaurante</th> 
+                    <td>Cliente</th> 
+                    <th>Pedido Status</th> 
+                    <th colspan=5>Mudar Status</th>
                 </tr>
                 <c:forEach items="${pedidos}" var="pedido">
                 <tr>

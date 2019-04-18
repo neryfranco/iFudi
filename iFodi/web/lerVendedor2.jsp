@@ -5,6 +5,8 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -14,19 +16,19 @@
     </head>
     <body>
         <h1>Ler Vendedor</h1>
-        <table class="table table-dark table-hover">
+        <table class="table table-dark table-hover" style="width: 50%">
             <tr>
-                <td>Email: </td> 
-                <td>${vendedor.email}</td>
+                <th>Email: </th> 
+                <th>Senha: </th>
+                <th>Nome: </th> 
             </tr>
-            <tr>
-                <td>Senha: </td> 
-                <td>${vendedor.senha}</td>
-            </tr>
-            <tr>
-                <td>Nome: </td> 
-                <td>${vendedor.nome}</td>
-            </tr>
+            <c:forEach items="${vendedores}" var="vendedor">
+                <tr>
+                    <td>${vendedor.email}</td>
+                    <td>${vendedor.senha}</td>
+                    <td>${vendedor.nome}</td>
+                </tr>
+            </c:forEach>
         </table>
         <a href="index.jsp"  class="btn btn-default">Voltar</a>
     </body>

@@ -5,6 +5,8 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -14,32 +16,26 @@
     </head>
     <body>
         <h1>Ler Pedido</h1>
-        <table class="table table-dark table-hover">
+        <table class="table table-dark table-hover" style="width: 50%">
             <tr>
-                <td>Código: </td> 
-                <td>${pedido.id}</td>
+                <th>Código</th> 
+                <th>Data</th> 
+                <th>Avaliação</th> 
+                <th>Restaurante</th>
+                <th>Frete</th>
+                <th>Cliente</th>
             </tr>
-            <tr>
-                <td>Data: </td> 
-                <td>${pedido.data}</td>
-            </tr>
-            <tr>
-                <td>Avaliação: </td> 
-                <td>${avaliacao.descricao}</td>
-            </tr>
-            <tr>
-                <td>Restaurante: </td> 
-                <td>${restaurante.cnpj}</td>
-            </tr>
-            <tr>
-                <td>Frete: </td> 
-                <td>${pedido.frete}</td>
-            </tr>
-            <tr>
-                <td>Cliente: </td> 
-                <td>${cliente.nome}</td>
-            </tr>
-        </table>
-        <a href="index.jsp"  class="btn btn-default">Voltar</a>
-    </body>
-</html>
+            <c:forEach items="${pedidos}" var="pedido">
+                <tr>
+                    <td><c:out value="${pedido.id}"/></td>
+                    <td><c:out value="${pedido.data}"/></td>
+                    <td><c:out value="${avaliacao.descricao}"/></td>
+                    <td><c:out value="${restaurante.cnpj}"/></td>
+                    <td><c:out value="${pedido.frete}"/></td>
+                    <td><c:out value="${cliente.nome}"/></td>
+                </tr>
+            </c:forEach>
+            </table>
+            <a href="index.jsp"  class="btn btn-default">Voltar</a>
+        </body>
+    </html>

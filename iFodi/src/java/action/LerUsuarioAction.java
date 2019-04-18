@@ -19,8 +19,9 @@ import model.Usuario;
 
 public class LerUsuarioAction implements Action {
 
-    public LerUsuarioAction() {}
-    
+    public LerUsuarioAction() {
+    }
+
     @Override
     public void execute(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
@@ -45,8 +46,9 @@ public class LerUsuarioAction implements Action {
             }
         }
     }
-    public void logar(HttpServletRequest request, HttpServletResponse response) throws SQLException, ServletException, IOException{
-        
+
+    public void logar(HttpServletRequest request, HttpServletResponse response) throws SQLException, ServletException, IOException {
+
         String email = request.getParameter("txtEmail");
         String senha = request.getParameter("txtSenha");
         try {
@@ -62,6 +64,8 @@ public class LerUsuarioAction implements Action {
                 }
             }
             view.forward(request, response);
-        } 
+        } catch (ServletException | IOException ex) {
+
+        }
     }
 }

@@ -29,7 +29,6 @@ public class Avaliacao {
         this.votacao = votacao;
     }
     
-
     public Integer getID() {
         return id;
     }
@@ -61,6 +60,4 @@ public class Avaliacao {
     public void setPedido(Pedido pedido) {
         this.pedido = pedido;
     }
-
-    
 }

@@ -48,5 +48,4 @@ public class Promocao {
     public void setPorcentagem(Double porcentagem) {
         this.porcentagem = porcentagem;
     }
-
 }

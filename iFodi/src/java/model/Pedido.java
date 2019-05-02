@@ -13,7 +13,7 @@ import sun.java2d.Disposer;
  *
  * @author Jessica
  */
-public class Pedido extends Observable{
+public class Pedido extends Observable {
 
     private Integer id;
     private List<Item> itens;
@@ -82,8 +82,8 @@ public class Pedido extends Observable{
         setChanged();
         notifyObservers();
     }
-    
-    public String getStatusNome(){
+
+    public String getStatusNome() {
         return status.getNomeClasse();
     }
 
@@ -135,23 +135,31 @@ public class Pedido extends Observable{
         this.restaurante = restaurante;
     }
 
-    public String solicitarPedido(){
+    public String solicitarPedido() {
         return status.solicitar(this);
     }
-    
-    public String prepararPedido(){
+
+    public String prepararPedido() {
         return status.preparar(this);
     }
-    
-    public String entregarPedido(){
+
+    public String entregarPedido() {
         return status.entregar(this);
     }
-    
-    public String finalizarPedido(){
+
+    public String finalizarPedido() {
         return status.finalizar(this);
     }
-    
-    public String cancelarPedido(){
+
+    public String cancelarPedido() {
         return status.cancelar(this);
+    }
+
+    public PedidoMemento saveToMemento() {
+        return new PedidoMemento(status);
+    }
+
+    public void restoreFromMemento(PedidoMemento memento) {
+        status = (PedidoStatus) memento.getEstadoSalvo();
     }
 }

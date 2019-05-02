@@ -42,5 +42,4 @@ public class PedidoPreparando implements PedidoStatus{
     public String getNomeClasse(){
         return "PedidoPreparando";
     }
-   
 }

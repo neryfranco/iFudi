@@ -41,5 +41,4 @@ public class PedidoFinalizado implements PedidoStatus{
     public String getNomeClasse(){
         return "PedidoFinalizado";
     }
-    
 }

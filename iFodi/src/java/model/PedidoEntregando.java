@@ -18,7 +18,6 @@ public class PedidoEntregando implements PedidoStatus{
         return "Pedido entregue não pode ser cancelado";
     }
 
-
     @Override
     public String entregar(Pedido pedido) {
         return "Pedido entregue não pode sair para entrega novamente";

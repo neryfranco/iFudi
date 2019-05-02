@@ -42,5 +42,4 @@ public class PedidoCancelado implements PedidoStatus{
     public String getNomeClasse(){
         return "PedidoCancelado";
     }
-    
 }

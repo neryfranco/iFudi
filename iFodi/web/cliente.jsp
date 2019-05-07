@@ -29,7 +29,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="#">Área Clienter</a>
+                    <a class="navbar-brand" href="#">Área Cliente</a>
                 </div>
             </div>
         </nav>
@@ -39,6 +39,16 @@
             <div id="sidebar-wrapper">
                 <ul class="sidebar-nav">
                     <br>
+                    <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Vendedor">
+                        <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseMulti22" data-parent="#exampleAccordion">
+                            <i class="fa fa-fw fa-sitemap"></i>Conta
+                        </a>
+                        <ul class="sidenav-second-level collapse" id="collapseMulti22">
+                            <li>
+                                <a href="gravarCliente.jsp">Nova Conta</a>
+                            </li>
+                        </ul>
+                    </li>
                     <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Vendedor">
                         <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseMulti0" data-parent="#exampleAccordion">
                             <i class="fa fa-fw fa-sitemap"></i>Vendedor

@@ -39,6 +39,16 @@
             <div id="sidebar-wrapper">
                 <ul class="sidebar-nav">
                     <br>
+                    <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Vendedor">
+                        <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseMulti22" data-parent="#exampleAccordion">
+                            <i class="fa fa-fw fa-sitemap"></i>Conta
+                        </a>
+                        <ul class="sidenav-second-level collapse" id="collapseMulti22">
+                            <li>
+                                <a href="gravarVendedor.jsp">Nova Conta</a>
+                            </li>
+                        </ul>
+                    </li>
                     <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Cliente">
                         <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseMulti0" data-parent="#exampleAccordion">
                             <i class="fa fa-fw fa-sitemap"></i>Cliente

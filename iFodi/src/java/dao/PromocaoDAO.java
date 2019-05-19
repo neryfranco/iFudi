@@ -132,6 +132,4 @@ public class PromocaoDAO {
         catch(SQLException e){
         }
     }
-
-
 }

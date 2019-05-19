@@ -46,6 +46,5 @@ public class PrepararGravarRestauranteAction implements Action{
         } catch (ServletException ex) {
             Logger.getLogger(PrepararGravarRestauranteAction.class.getName()).log(Level.SEVERE, null, ex);
         }
-    
     }
 }

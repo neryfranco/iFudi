@@ -54,5 +54,4 @@ public class ActionFactory {
         actionObject = (PedidoStatus) objeto;
         return actionObject;
     }
-
 }

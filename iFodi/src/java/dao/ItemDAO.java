@@ -142,6 +142,4 @@ public class ItemDAO {
         catch(SQLException e){
         }
     }
-
-
 }

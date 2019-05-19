@@ -14,7 +14,6 @@
 <section>
     <div class="container">
         <div class="row mbr-justify-content-center">
-
             <div class="col-lg-6 mbr-col-md-10">
                 <div class="wrap">
                     <div class="ico-wrap">

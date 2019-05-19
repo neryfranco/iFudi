@@ -150,6 +150,4 @@ public class ClienteDAO {
         catch(SQLException e){
         }
     }
-
-
 }

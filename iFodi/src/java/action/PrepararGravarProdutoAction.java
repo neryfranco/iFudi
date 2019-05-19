@@ -45,6 +45,5 @@ public class PrepararGravarProdutoAction implements Action{
             Logger.getLogger(PrepararGravarProdutoAction.class.getName()).log(Level.SEVERE, null, ex);
         }
         //response.sendRedirect("gravarProduto.jsp");
-    
     }
 }

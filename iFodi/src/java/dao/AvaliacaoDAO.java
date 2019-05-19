@@ -113,6 +113,4 @@ public class AvaliacaoDAO {
         catch(SQLException e){
         }
     }
-
-
 }

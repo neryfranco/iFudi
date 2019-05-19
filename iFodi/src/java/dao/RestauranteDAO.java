@@ -148,6 +148,4 @@ public class RestauranteDAO {
         catch(SQLException e){
         }
     }
-
-
 }

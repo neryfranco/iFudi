@@ -52,7 +52,7 @@ public class CancelarPedidoAction implements Action{
                 ex.printStackTrace();
             } catch (ServletException ex) {
                 Logger.getLogger(CancelarPedidoAction.class.getName()).log(Level.SEVERE, null, ex);
-            }
+            } 
         }
     }
 }

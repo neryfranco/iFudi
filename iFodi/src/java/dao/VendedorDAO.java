@@ -158,6 +158,4 @@ public class VendedorDAO {
         catch(SQLException e){
         }
     }
-
-
 }

@@ -49,5 +49,4 @@ public class LerCategoriaAction implements Action {
             }
         }
     }
-
 }

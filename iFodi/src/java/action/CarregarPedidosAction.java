@@ -42,7 +42,5 @@ public class CarregarPedidosAction implements Action {
         } catch (ServletException ex) {
             Logger.getLogger(CarregarPedidosAction.class.getName()).log(Level.SEVERE, null, ex);
         }
-
     }
-
 }

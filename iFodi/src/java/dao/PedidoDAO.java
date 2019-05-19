@@ -177,6 +177,4 @@ public class PedidoDAO {
         catch(SQLException e){
         }
     }
-
-
 }

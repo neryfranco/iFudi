@@ -126,5 +126,4 @@ public class CategoriaDAO {
         catch(SQLException e){
         }
     }
-
 }

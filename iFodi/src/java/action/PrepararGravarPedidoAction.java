@@ -53,7 +53,6 @@ public class PrepararGravarPedidoAction implements Action{
             request.setAttribute("restaurante", null);
         } catch (ServletException ex) {
             Logger.getLogger(PrepararGravarPedidoAction.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    
+        }    
     }
 }

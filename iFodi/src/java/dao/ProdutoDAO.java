@@ -141,6 +141,4 @@ public class ProdutoDAO {
         catch(SQLException e){
         }
     }
-
-
 }

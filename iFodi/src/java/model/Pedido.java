@@ -154,12 +154,4 @@ public class Pedido extends Observable {
     public String cancelarPedido() {
         return status.cancelar(this);
     }
-
-    public PedidoMemento saveToMemento() {
-        return new PedidoMemento(status);
-    }
-
-    public void restoreFromMemento(PedidoMemento memento) {
-        status = (PedidoStatus) memento.getEstadoSalvo();
-    }
 }

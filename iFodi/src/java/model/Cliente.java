@@ -37,5 +37,4 @@ public class Cliente extends Usuario implements Observer {
             System.out.println("Atenção" + getNome() + "seu pedido está no estado de: " + statusPedido);
         }
     }
-
 }

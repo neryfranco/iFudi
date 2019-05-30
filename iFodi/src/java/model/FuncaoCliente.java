@@ -20,5 +20,4 @@ public class FuncaoCliente extends Funcao {
     public String getDescricaoFuncao() {
         return "Cliente";
     }
-
 }

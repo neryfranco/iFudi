@@ -22,14 +22,15 @@ import model.Pagamento;
  * @author Jessica
  */
 public class LerPagamentoAction implements Action {
-    
-    public LerPagamentoAction(){}
+
+    public LerPagamentoAction() {
+    }
 
     @Override
     public void execute(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
         Integer id = Integer.parseInt(request.getParameter("txtId"));
-        
+
         Pagamento pagamento = new Pagamento(id, null);
         if (id.equals("")) {
             response.sendRedirect("lerPagamento.jsp");

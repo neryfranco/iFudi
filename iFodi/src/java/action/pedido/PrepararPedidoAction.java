@@ -25,13 +25,15 @@ import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import model.Pedido;
 import model.PedidoPreparando;
-public class PrepararPedidoAction implements Action{
-    
-    public PrepararPedidoAction(){}
+
+public class PrepararPedidoAction implements Action {
+
+    public PrepararPedidoAction() {
+    }
 
     @Override
     public void execute(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        
+
         Integer id = Integer.parseInt(request.getParameter("idPedido"));
 
         Pedido pedido = new Pedido(id, null, null);
@@ -41,7 +43,7 @@ public class PrepararPedidoAction implements Action{
             try {
                 Pedido p = PedidoDAO.getInstance().read(pedido);
                 if (p != null) {
-                    
+
                     request.setAttribute("msgPedido", p.prepararPedido());
                     PedidoDAO.getInstance().edit(p);
                     RequestDispatcher view = request.getRequestDispatcher("FrontController?action=action.CarregarPedidosAction");

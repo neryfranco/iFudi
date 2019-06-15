@@ -10,5 +10,5 @@ package model;
  * @author Jessica
  */
 public interface TipoAutorizacao {
-    
+
 }

@@ -16,20 +16,20 @@
         <h1>Cadastro de Avaliações</h1>
         <form action="FrontController?action=action.GravarAvaliacaoAction" method="post" style="width: 50%">
             <table class="table table-dark table-hover">
-            Código:
-            <input type="text" class="form-control" name="txtId"/><br/>
-            Descrição:
-            <input type="text" class="form-control"name="txtDescricao"/><br/>
-            Votação:
-            <input type="text" class="form-control" name="txtVotacao"/><br/>
-            Pedido:
+                Código:
+                <input type="text" class="form-control" name="txtId"/><br/>
+                Descrição:
+                <input type="text" class="form-control"name="txtDescricao"/><br/>
+                Votação:
+                <input type="text" class="form-control" name="txtVotacao"/><br/>
+                Pedido:
                 <select class="form-control" name="optPedido">
                     <option value="0"></option>  
                     <c:forEach items="${pedidos}" var="pedido">
                         <option value="${pedido.id}">${pedido.id}</option>  
                     </c:forEach>
                 </select> 
-            <input type="submit" class="btn btn-success"/>
+                <input type="submit" class="btn btn-success"/>
             </table>
             <a href="index.jsp"  class="btn btn-default">Voltar</a>
         </form>

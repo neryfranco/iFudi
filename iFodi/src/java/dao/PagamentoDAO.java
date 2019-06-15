@@ -19,31 +19,32 @@ import model.Pedido;
  * @author Nery
  */
 public class PagamentoDAO {
-    
+
     private static PagamentoDAO instance = new PagamentoDAO();
-    
-    private PagamentoDAO(){}
-    
-    public static PagamentoDAO getInstance(){
+
+    private PagamentoDAO() {
+    }
+
+    public static PagamentoDAO getInstance() {
         return instance;
     }
-    
-    public void save (String id) throws SQLException, ClassNotFoundException {
+
+    public void save(String id) throws SQLException, ClassNotFoundException {
         Connection conn = null;
         Statement st = null;
-        
+
         try {
             conn = DatabaseLocator.getInstance().getConnection();
             st = conn.createStatement();
-            st.execute("insert into pagamento (id)" +
-                    "values ('" + id + "')");
-        } catch(SQLException e){
+            st.execute("insert into pagamento (id)"
+                    + "values ('" + id + "')");
+        } catch (SQLException e) {
             throw e;
         } finally {
             closeResources(conn, st);
         }
     }
-    
+
     public void save(Pagamento pagamento) throws SQLException, ClassNotFoundException {
         Connection conn = null;
         Statement st = null;
@@ -51,19 +52,19 @@ public class PagamentoDAO {
         try {
             conn = DatabaseLocator.getInstance().getConnection();
             st = conn.createStatement();
-            SQL = "insert into pagamento (id, valor, formaPagamento, pedido_id) " +
-                    "values ('" + pagamento.getId() + "', '" 
-                    + pagamento.getValor() + "', '" 
-                    + pagamento.getFormaPagamento()+ "', '" 
+            SQL = "insert into pagamento (id, valor, formaPagamento, pedido_id) "
+                    + "values ('" + pagamento.getId() + "', '"
+                    + pagamento.getValor() + "', '"
+                    + pagamento.getFormaPagamento() + "', '"
                     + pagamento.getPedido().getId() + "')";
             st.execute(SQL);
-        } catch(SQLException e){
+        } catch (SQLException e) {
             throw e;
         } finally {
             closeResources(conn, st);
         }
     }
-    
+
     public Pagamento read(Pagamento pagamento) throws SQLException, ClassNotFoundException {
         Connection conn = null;
         Statement st = null;
@@ -72,15 +73,15 @@ public class PagamentoDAO {
         try {
             conn = DatabaseLocator.getInstance().getConnection();
             st = conn.createStatement();
-            ResultSet rs = st.executeQuery("select * from pagamento where id = '" + pagamento.getId()+ "'");
+            ResultSet rs = st.executeQuery("select * from pagamento where id = '" + pagamento.getId() + "'");
             rs.first();
-            
-            a = new Pagamento(rs.getInt("id"), 
+
+            a = new Pagamento(rs.getInt("id"),
                     null,
                     rs.getDouble("valor"),
                     null);
-            
-            Pedido pedido = PedidoDAO.getInstance().read(new Pedido (rs.getInt("id")));
+
+            Pedido pedido = PedidoDAO.getInstance().read(new Pedido(rs.getInt("id")));
             a.setPedido(pedido);
         } catch (SQLException e) {
             throw e;
@@ -89,7 +90,7 @@ public class PagamentoDAO {
         }
         return a;
     }
-    
+
     public void delete(Pagamento pagamento) throws SQLException, ClassNotFoundException {
         Connection conn = null;
         Statement st = null;
@@ -97,7 +98,7 @@ public class PagamentoDAO {
         try {
             conn = DatabaseLocator.getInstance().getConnection();
             st = conn.createStatement();
-            stringSQL = "delete from Pagamento where id = '" + pagamento.getId()+ "'";
+            stringSQL = "delete from Pagamento where id = '" + pagamento.getId() + "'";
             st.execute(stringSQL);
         } catch (SQLException e) {
             throw e;
@@ -107,11 +108,14 @@ public class PagamentoDAO {
     }
 
     private void closeResources(Connection conn, Statement st) {
-        try{
-            if(st!=null) st.close();
-            if(conn!=null) conn.close();
-        } 
-        catch(SQLException e){
+        try {
+            if (st != null) {
+                st.close();
+            }
+            if (conn != null) {
+                conn.close();
+            }
+        } catch (SQLException e) {
         }
     }
 }

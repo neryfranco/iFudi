@@ -22,14 +22,15 @@ import model.Pedido;
  * @author Jessica
  */
 public class LerPedidoAction implements Action {
-    
-    public LerPedidoAction(){}
+
+    public LerPedidoAction() {
+    }
 
     @Override
     public void execute(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
         Integer id = Integer.parseInt(request.getParameter("txtId"));
-        
+
         Pedido pedido = new Pedido(id, null, null);
         if (id.equals("")) {
             response.sendRedirect("lerPedido.jsp");

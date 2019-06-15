@@ -23,13 +23,14 @@ import model.Item;
  */
 public class LerItemAction implements Action {
 
-    public LerItemAction() {}
+    public LerItemAction() {
+    }
 
     @Override
     public void execute(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
         Integer id = Integer.parseInt(request.getParameter("txtId"));
-        
+
         Item item = new Item(id, null, null, null, null);
         if (id.equals("")) {
             response.sendRedirect("lerItem.jsp");

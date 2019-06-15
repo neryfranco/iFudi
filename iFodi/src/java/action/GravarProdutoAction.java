@@ -22,8 +22,9 @@ import model.Restaurante;
  * @author Jessica
  */
 public class GravarProdutoAction implements Action {
-    
-    public GravarProdutoAction(){}
+
+    public GravarProdutoAction() {
+    }
 
     @Override
     public void execute(HttpServletRequest request, HttpServletResponse response) throws IOException {

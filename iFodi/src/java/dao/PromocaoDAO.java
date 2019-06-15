@@ -18,31 +18,32 @@ import model.Promocao;
  * @author Nery
  */
 public class PromocaoDAO {
-    
+
     private static PromocaoDAO instance = new PromocaoDAO();
-    
-    private PromocaoDAO(){}
-    
-    public static PromocaoDAO getInstance(){
+
+    private PromocaoDAO() {
+    }
+
+    public static PromocaoDAO getInstance() {
         return instance;
     }
-    
-    public void save (String id) throws SQLException, ClassNotFoundException {
+
+    public void save(String id) throws SQLException, ClassNotFoundException {
         Connection conn = null;
         Statement st = null;
-        
+
         try {
             conn = DatabaseLocator.getInstance().getConnection();
             st = conn.createStatement();
-            st.execute("insert into promocao (id)" +
-                    "values ('" + id + "')");
-        } catch(SQLException e){
+            st.execute("insert into promocao (id)"
+                    + "values ('" + id + "')");
+        } catch (SQLException e) {
             throw e;
         } finally {
             closeResources(conn, st);
         }
     }
-    
+
     public void save(Promocao promocao) throws SQLException, ClassNotFoundException {
         Connection conn = null;
         Statement st = null;
@@ -51,19 +52,18 @@ public class PromocaoDAO {
             conn = DatabaseLocator.getInstance().getConnection();
             st = conn.createStatement();
             SQL = "insert into promocao (id, descricao, porcentagem) "
-                    
-                    + "values ('" + promocao.getId() + "', '" 
-                    + promocao.getDescricao() + "', '" 
-                    + promocao.getPorcentagem()+ "')";
-            
+                    + "values ('" + promocao.getId() + "', '"
+                    + promocao.getDescricao() + "', '"
+                    + promocao.getPorcentagem() + "')";
+
             st.execute(SQL);
-        } catch(SQLException e){
+        } catch (SQLException e) {
             throw e;
         } finally {
             closeResources(conn, st);
         }
     }
-    
+
     public Promocao read(Promocao promocao) throws SQLException, ClassNotFoundException {
         Connection conn = null;
         Statement st = null;
@@ -72,10 +72,10 @@ public class PromocaoDAO {
         try {
             conn = DatabaseLocator.getInstance().getConnection();
             st = conn.createStatement();
-            ResultSet rs = st.executeQuery("select * from promocao where id = '" + promocao.getId()+ "'");
+            ResultSet rs = st.executeQuery("select * from promocao where id = '" + promocao.getId() + "'");
             rs.first();
-            
-            a = new Promocao(rs.getInt("id"), 
+
+            a = new Promocao(rs.getInt("id"),
                     rs.getString("descricao"),
                     rs.getDouble("porcentagem"));
 
@@ -86,7 +86,7 @@ public class PromocaoDAO {
         }
         return a;
     }
-    
+
     public void delete(Promocao promocao) throws SQLException, ClassNotFoundException {
         Connection conn = null;
         Statement st = null;
@@ -94,7 +94,7 @@ public class PromocaoDAO {
         try {
             conn = DatabaseLocator.getInstance().getConnection();
             st = conn.createStatement();
-            stringSQL = "delete from Promocao where id = '" + promocao.getId()+ "'";
+            stringSQL = "delete from Promocao where id = '" + promocao.getId() + "'";
             st.execute(stringSQL);
         } catch (SQLException e) {
             throw e;
@@ -102,7 +102,7 @@ public class PromocaoDAO {
             closeResources(conn, st);
         }
     }
-    
+
     public ArrayList<Promocao> getPromocoes() throws ClassNotFoundException {
         Connection conn = null;
         Statement st = null;
@@ -113,7 +113,7 @@ public class PromocaoDAO {
             st = conn.createStatement();
             ResultSet rs = st.executeQuery("select * from promocao");
             while (rs.next()) {
-                promocao = new Promocao (rs.getInt("id"), rs.getString("descricao"), rs.getDouble("porcentagem"));
+                promocao = new Promocao(rs.getInt("id"), rs.getString("descricao"), rs.getDouble("porcentagem"));
                 promocoes.add(promocao);
             }
         } catch (SQLException e) {
@@ -125,11 +125,14 @@ public class PromocaoDAO {
     }
 
     private void closeResources(Connection conn, Statement st) {
-        try{
-            if(st!=null) st.close();
-            if(conn!=null) conn.close();
-        } 
-        catch(SQLException e){
+        try {
+            if (st != null) {
+                st.close();
+            }
+            if (conn != null) {
+                conn.close();
+            }
+        } catch (SQLException e) {
         }
     }
 }

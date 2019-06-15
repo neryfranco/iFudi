@@ -18,14 +18,15 @@ import model.Item;
  * @author Jessica
  */
 public class ApagarItemAction implements Action {
-    
-    public ApagarItemAction(){}
+
+    public ApagarItemAction() {
+    }
 
     @Override
     public void execute(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
         Integer id = Integer.parseInt(request.getParameter("txtId"));
-        
+
         Item item = new Item(id, null, null);
         if (id.equals("")) {
             response.sendRedirect("apagarItem.jsp");

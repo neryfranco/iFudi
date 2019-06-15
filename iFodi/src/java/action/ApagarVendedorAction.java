@@ -18,14 +18,15 @@ import model.Vendedor;
  * @author Jessica
  */
 public class ApagarVendedorAction implements Action {
-    
-    public ApagarVendedorAction(){}
+
+    public ApagarVendedorAction() {
+    }
 
     @Override
     public void execute(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
         String email = request.getParameter("txtEmail");
-        
+
         Vendedor vendedor = new Vendedor(email, null, null);
         if (email.equals("")) {
             response.sendRedirect("apagarVendedor.jsp");

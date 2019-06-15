@@ -23,7 +23,7 @@ public class Produto {
         this.restaurante = restaurante;
         this.preco = preco;
     }
-    
+
     public Produto(Integer id, String descricao, Restaurante restaurante) {
         this.id = id;
         this.descricao = descricao;
@@ -74,5 +74,4 @@ public class Produto {
     public void setPreco(Double preco) {
         this.preco = preco;
     }
-    
 }

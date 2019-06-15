@@ -21,13 +21,14 @@ import model.Pedido;
  *
  * @author Nery
  */
-public class EntregarPedidoAction implements Action{
-    
-    public EntregarPedidoAction(){}
+public class EntregarPedidoAction implements Action {
+
+    public EntregarPedidoAction() {
+    }
 
     @Override
     public void execute(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        
+
         Integer id = Integer.parseInt(request.getParameter("idPedido"));
 
         Pedido pedido = new Pedido(id, null, null);

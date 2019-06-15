@@ -9,10 +9,10 @@ package model;
  *
  * @author Nery
  */
-public class PedidoEntregando implements PedidoStatus{
+public class PedidoEntregando implements PedidoStatus {
 
     public String nomeClasse = "PedidoEntregando";
-    
+
     @Override
     public String cancelar(Pedido pedido) {
         return "Pedido entregue não pode ser cancelado";
@@ -38,8 +38,8 @@ public class PedidoEntregando implements PedidoStatus{
     public String solicitar(Pedido pedido) {
         return "Pedido entregue não pode ser solicitado novamente";
     }
-  
-    public String getNomeClasse(){
+
+    public String getNomeClasse() {
         return "PedidoEntregando";
     }
 }

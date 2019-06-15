@@ -28,7 +28,7 @@ public class Avaliacao {
         this.descricao = descricao;
         this.votacao = votacao;
     }
-    
+
     public Integer getID() {
         return id;
     }

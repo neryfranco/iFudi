@@ -22,14 +22,15 @@ import model.Restaurante;
  * @author Jessica
  */
 public class LerRestauranteAction implements Action {
-    
-    public LerRestauranteAction(){}
+
+    public LerRestauranteAction() {
+    }
 
     @Override
     public void execute(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
         String cnpj = request.getParameter("txtCnpj");
-        
+
         Restaurante restaurante = new Restaurante(cnpj, null, null, null, null, null);
         if (cnpj.equals("")) {
             response.sendRedirect("lerRestaurante.jsp");

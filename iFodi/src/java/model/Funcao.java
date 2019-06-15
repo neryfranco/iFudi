@@ -23,7 +23,7 @@ public abstract class Funcao {
     public void setFuncao(Funcao funcao) {
         this.funcao = funcao;
     }
-    
+
     public abstract String getDescricaoFuncao();
 
     public String assinaAutorizacao(Autorizacoes autorizacao) {

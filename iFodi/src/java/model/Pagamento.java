@@ -67,7 +67,5 @@ public class Pagamento {
     public void setValor(Double valor) {
         this.valor = valor;
     }
-    
     //public abstract Double getValorPagamento();
-    
 }

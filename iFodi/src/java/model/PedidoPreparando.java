@@ -9,10 +9,10 @@ package model;
  *
  * @author Nery
  */
-public class PedidoPreparando implements PedidoStatus{
+public class PedidoPreparando implements PedidoStatus {
 
     public String nomeClasse = "PedidoPreparando";
-    
+
     @Override
     public String cancelar(Pedido pedido) {
         return "Pedido em preparação não pode ser cancelado";
@@ -39,7 +39,7 @@ public class PedidoPreparando implements PedidoStatus{
         return "Pedido em preparação não pode ser solicitado";
     }
 
-    public String getNomeClasse(){
+    public String getNomeClasse() {
         return "PedidoPreparando";
     }
 }

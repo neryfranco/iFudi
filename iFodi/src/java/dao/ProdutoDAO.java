@@ -20,31 +20,32 @@ import model.Restaurante;
  * @author Nery
  */
 public class ProdutoDAO {
-    
+
     private static ProdutoDAO instance = new ProdutoDAO();
-    
-    private ProdutoDAO(){}
-    
-    public static ProdutoDAO getInstance(){
+
+    private ProdutoDAO() {
+    }
+
+    public static ProdutoDAO getInstance() {
         return instance;
     }
-    
-    public void save (String id) throws SQLException, ClassNotFoundException {
+
+    public void save(String id) throws SQLException, ClassNotFoundException {
         Connection conn = null;
         Statement st = null;
-        
+
         try {
             conn = DatabaseLocator.getInstance().getConnection();
             st = conn.createStatement();
-            st.execute("insert into produto (id)" +
-                    "values ('" + id + "')");
-        } catch(SQLException e){
+            st.execute("insert into produto (id)"
+                    + "values ('" + id + "')");
+        } catch (SQLException e) {
             throw e;
         } finally {
             closeResources(conn, st);
         }
     }
-    
+
     public void save(Produto produto) throws SQLException, ClassNotFoundException {
         Connection conn = null;
         Statement st = null;
@@ -53,21 +54,20 @@ public class ProdutoDAO {
             conn = DatabaseLocator.getInstance().getConnection();
             st = conn.createStatement();
             SQL = "insert into produto (id, promocao_id, restaurante_cnpj, descricao, preco) "
-                    
-                    + "values ('" + produto.getId() + "', '" 
-                    + produto.getPromocao().getId() + "', '" 
-                    + produto.getRestaurante().getCnpj() + "', '" 
-                    + produto.getDescricao() + "', '" 
+                    + "values ('" + produto.getId() + "', '"
+                    + produto.getPromocao().getId() + "', '"
+                    + produto.getRestaurante().getCnpj() + "', '"
+                    + produto.getDescricao() + "', '"
                     + produto.getPreco() + "')";
-            
+
             st.execute(SQL);
-        } catch(SQLException e){
+        } catch (SQLException e) {
             throw e;
         } finally {
             closeResources(conn, st);
         }
     }
-    
+
     public Produto read(Produto produto) throws SQLException, ClassNotFoundException {
         Connection conn = null;
         Statement st = null;
@@ -76,14 +76,14 @@ public class ProdutoDAO {
         try {
             conn = DatabaseLocator.getInstance().getConnection();
             st = conn.createStatement();
-            ResultSet rs = st.executeQuery("select * from produto where id = '" + produto.getId()+ "'");
+            ResultSet rs = st.executeQuery("select * from produto where id = '" + produto.getId() + "'");
             rs.first();
-            
-            a = new Produto(rs.getInt("id"), 
+
+            a = new Produto(rs.getInt("id"),
                     rs.getString("descricao"),
                     null);
-            Restaurante restaurante = RestauranteDAO.getInstance().read(new Restaurante (rs.getString("restaurante_cnpj")));
-            Promocao promocao = PromocaoDAO.getInstance().read(new Promocao (rs.getInt("promocao_id")));
+            Restaurante restaurante = RestauranteDAO.getInstance().read(new Restaurante(rs.getString("restaurante_cnpj")));
+            Promocao promocao = PromocaoDAO.getInstance().read(new Promocao(rs.getInt("promocao_id")));
             a.setRestaurante(restaurante);
             a.setPromocao(promocao);
             a.setPreco(rs.getDouble("preco"));
@@ -94,7 +94,7 @@ public class ProdutoDAO {
         }
         return a;
     }
-    
+
     public void delete(Produto produto) throws SQLException, ClassNotFoundException {
         Connection conn = null;
         Statement st = null;
@@ -102,7 +102,7 @@ public class ProdutoDAO {
         try {
             conn = DatabaseLocator.getInstance().getConnection();
             st = conn.createStatement();
-            stringSQL = "delete from Produto where id = '" + produto.getId()+ "'";
+            stringSQL = "delete from Produto where id = '" + produto.getId() + "'";
             st.execute(stringSQL);
         } catch (SQLException e) {
             throw e;
@@ -110,7 +110,7 @@ public class ProdutoDAO {
             closeResources(conn, st);
         }
     }
-    
+
     public ArrayList<Produto> getProdutos() throws ClassNotFoundException {
         Connection conn = null;
         Statement st = null;
@@ -121,7 +121,7 @@ public class ProdutoDAO {
             st = conn.createStatement();
             ResultSet rs = st.executeQuery("select * from produto");
             while (rs.next()) {
-                produto = new Produto (rs.getInt("id"), null);
+                produto = new Produto(rs.getInt("id"), null);
                 produto = read(produto);
                 produtos.add(produto);
             }
@@ -134,11 +134,14 @@ public class ProdutoDAO {
     }
 
     private void closeResources(Connection conn, Statement st) {
-        try{
-            if(st!=null) st.close();
-            if(conn!=null) conn.close();
-        } 
-        catch(SQLException e){
+        try {
+            if (st != null) {
+                st.close();
+            }
+            if (conn != null) {
+                conn.close();
+            }
+        } catch (SQLException e) {
         }
     }
 }

@@ -7,10 +7,10 @@ package model;
 
 /**
  *
- * @author Nery
+ * @author Jessica
  */
 public class Cartao {
-    
+
     private String codigo;
 
     public Cartao(String codigo) {
@@ -24,6 +24,5 @@ public class Cartao {
     public void setCodigo(String codigo) {
         this.codigo = codigo;
     }
-   
-    
+
 }

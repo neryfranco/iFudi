@@ -24,13 +24,15 @@ import java.util.logging.Logger;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import model.Pedido;
-public class CancelarPedidoAction implements Action{
-    
-    public CancelarPedidoAction(){}
+
+public class CancelarPedidoAction implements Action {
+
+    public CancelarPedidoAction() {
+    }
 
     @Override
     public void execute(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        
+
         Integer id = Integer.parseInt(request.getParameter("idPedido"));
 
         Pedido pedido = new Pedido(id, null, null);
@@ -52,7 +54,7 @@ public class CancelarPedidoAction implements Action{
                 ex.printStackTrace();
             } catch (ServletException ex) {
                 Logger.getLogger(CancelarPedidoAction.class.getName()).log(Level.SEVERE, null, ex);
-            } 
+            }
         }
     }
 }

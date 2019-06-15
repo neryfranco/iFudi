@@ -23,13 +23,14 @@ import model.Promocao;
  */
 public class LerPromocaoAction implements Action {
 
-    public LerPromocaoAction() {}
+    public LerPromocaoAction() {
+    }
 
     @Override
     public void execute(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
         Integer id = Integer.parseInt(request.getParameter("txtId"));
-        
+
         Promocao promocao = new Promocao(id, null, null);
         if (id.equals("")) {
             response.sendRedirect("lerPromocao.jsp");

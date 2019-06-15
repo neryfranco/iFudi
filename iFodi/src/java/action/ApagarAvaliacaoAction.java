@@ -19,13 +19,14 @@ import model.Avaliacao;
  */
 public class ApagarAvaliacaoAction implements Action {
 
-    public ApagarAvaliacaoAction() {}
+    public ApagarAvaliacaoAction() {
+    }
 
     @Override
     public void execute(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
-       Integer id = Integer.parseInt(request.getParameter("txtId"));
-        
+        Integer id = Integer.parseInt(request.getParameter("txtId"));
+
         Avaliacao avaliacao = new Avaliacao(id, null, null);
         if (id.equals("")) {
             response.sendRedirect("apagarAvaliacao.jsp");

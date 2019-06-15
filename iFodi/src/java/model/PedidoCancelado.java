@@ -9,8 +9,8 @@ package model;
  *
  * @author Nery
  */
-public class PedidoCancelado implements PedidoStatus{
-    
+public class PedidoCancelado implements PedidoStatus {
+
     public String nomeClasse = "PedidoCancelado";
 
     @Override
@@ -39,7 +39,7 @@ public class PedidoCancelado implements PedidoStatus{
         return "Pedido Solicitado";
     }
 
-    public String getNomeClasse(){
+    public String getNomeClasse() {
         return "PedidoCancelado";
     }
 }

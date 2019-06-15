@@ -22,14 +22,15 @@ import model.Produto;
  * @author Jessica
  */
 public class LerProdutoAction implements Action {
-    
-    public LerProdutoAction(){}
+
+    public LerProdutoAction() {
+    }
 
     @Override
     public void execute(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
         Integer id = Integer.parseInt(request.getParameter("txtId"));
-       
+
         Produto produto = new Produto(id, null);
         if (id.equals("")) {
             response.sendRedirect("lerProduto.jsp");

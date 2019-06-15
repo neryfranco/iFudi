@@ -30,9 +30,9 @@
                 <td>${produto.preco}</td>
                 <td>${promocao.porcentagem}</td>
                 <td>${restaurante.nome}</td>
-                </tr>
-            </c:forEach>
-        </table>
-        <a href="index.jsp"  class="btn btn-default">Voltar</a>
-    </body>
+            </tr>
+        </c:forEach>
+    </table>
+    <a href="index.jsp"  class="btn btn-default">Voltar</a>
+</body>
 </html>

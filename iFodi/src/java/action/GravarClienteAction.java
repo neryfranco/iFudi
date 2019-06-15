@@ -19,7 +19,8 @@ import model.Cliente;
  */
 public class GravarClienteAction implements Action {
 
-    public GravarClienteAction() {}
+    public GravarClienteAction() {
+    }
 
     @Override
     public void execute(HttpServletRequest request, HttpServletResponse response) throws IOException {

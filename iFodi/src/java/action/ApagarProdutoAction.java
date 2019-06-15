@@ -18,8 +18,9 @@ import model.Produto;
  * @author Jessica
  */
 public class ApagarProdutoAction implements Action {
-    
-    public ApagarProdutoAction(){}
+
+    public ApagarProdutoAction() {
+    }
 
     @Override
     public void execute(HttpServletRequest request, HttpServletResponse response) throws IOException {

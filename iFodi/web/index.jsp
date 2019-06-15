@@ -20,19 +20,6 @@
                         <span class="glyphicon glyphicon-user"></span>
                     </div>
                     <div class="text-wrap vcenter">
-                        <h2 class="mbr-fonts-style mbr-bold mbr-section-title3 display-5">Autorização</h2>
-                        <a href="carregarAutorizacao.jsp">Acesse aqui</a>
-                    </div>
-                </div>
-            </div>
-    <div class="container">
-        <div class="row mbr-justify-content-center">
-            <div class="col-lg-6 mbr-col-md-10">
-                <div class="wrap">
-                    <div class="ico-wrap">
-                        <span class="glyphicon glyphicon-user"></span>
-                    </div>
-                    <div class="text-wrap vcenter">
                         <h2 class="mbr-fonts-style mbr-bold mbr-section-title3 display-5">Vendedor</h2>
                         <p class="mbr-fonts-style text1 mbr-text display-6">Para acessar área do venddedor</p>
                         <a href="vendedor.jsp">Acesse aqui</a>

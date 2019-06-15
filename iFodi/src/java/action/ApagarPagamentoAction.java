@@ -18,14 +18,15 @@ import model.Pagamento;
  * @author Jessica
  */
 public class ApagarPagamentoAction implements Action {
-    
-    public ApagarPagamentoAction(){}
+
+    public ApagarPagamentoAction() {
+    }
 
     @Override
     public void execute(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
         Integer id = Integer.parseInt(request.getParameter("txtId"));
-       
+
         Pagamento pagamento = new Pagamento(id, null);
         if (id.equals("")) {
             response.sendRedirect("apagarPagamento.jsp");

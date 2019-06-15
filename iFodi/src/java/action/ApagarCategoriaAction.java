@@ -18,14 +18,15 @@ import model.Categoria;
  * @author Jessica
  */
 public class ApagarCategoriaAction implements Action {
-    
-    public ApagarCategoriaAction(){}
+
+    public ApagarCategoriaAction() {
+    }
 
     @Override
     public void execute(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
-       Integer id = Integer.parseInt(request.getParameter("txtId"));
-        
+        Integer id = Integer.parseInt(request.getParameter("txtId"));
+
         Categoria categoria = new Categoria(id, null);
         if (id.equals("")) {
             response.sendRedirect("apagarCategoria.jsp");

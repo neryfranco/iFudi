@@ -138,5 +138,4 @@ public class Restaurante {
     public void setVendedor(Vendedor vendedor) {
         this.vendedor = vendedor;
     }
-
 }

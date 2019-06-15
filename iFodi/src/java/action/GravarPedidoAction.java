@@ -27,19 +27,20 @@ import model.Restaurante;
  * @author Jessica
  */
 public class GravarPedidoAction implements Action {
-    
-    public GravarPedidoAction() {}
-    
+
+    public GravarPedidoAction() {
+    }
+
     @Override
     public void execute(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        
+
         Integer id = Integer.parseInt(request.getParameter("txtId"));
         String data = request.getParameter("txtData");
         Integer tempoEstimado = Integer.parseInt(request.getParameter("txtTempoEntrega"));
         String restaurante_cnpj = request.getParameter("optRestaurante");
         Double frete = Double.parseDouble(request.getParameter("txtFrete"));
         String email = request.getParameter("optCliente");
-        
+
         if (id.equals("") || data.equals("") || tempoEstimado.equals("")) {
             response.sendRedirect("gravarPedido.jsp");
         } else {

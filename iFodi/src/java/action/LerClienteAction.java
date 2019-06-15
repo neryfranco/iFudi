@@ -22,14 +22,15 @@ import model.Cliente;
  * @author Jessica
  */
 public class LerClienteAction implements Action {
-    
-    public LerClienteAction(){}
+
+    public LerClienteAction() {
+    }
 
     @Override
     public void execute(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
         String email = request.getParameter("txtEmail");
-        
+
         Cliente cliente = new Cliente(email, null, null);
         if (email.equals("")) {
             response.sendRedirect("lerCliente.jsp");

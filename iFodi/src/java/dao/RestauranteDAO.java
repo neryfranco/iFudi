@@ -20,31 +20,32 @@ import model.Vendedor;
  * @author Nery
  */
 public class RestauranteDAO {
-    
+
     private static RestauranteDAO instance = new RestauranteDAO();
-    
-    private RestauranteDAO(){}
-    
-    public static RestauranteDAO getInstance(){
+
+    private RestauranteDAO() {
+    }
+
+    public static RestauranteDAO getInstance() {
         return instance;
     }
-    
-    public void save (String cnpj) throws SQLException, ClassNotFoundException {
+
+    public void save(String cnpj) throws SQLException, ClassNotFoundException {
         Connection conn = null;
         Statement st = null;
-        
+
         try {
             conn = DatabaseLocator.getInstance().getConnection();
             st = conn.createStatement();
-            st.execute("insert into restaurante (id)" +
-                    "values ('" + cnpj + "')");
-        } catch(SQLException e){
+            st.execute("insert into restaurante (id)"
+                    + "values ('" + cnpj + "')");
+        } catch (SQLException e) {
             throw e;
         } finally {
             closeResources(conn, st);
         }
     }
-    
+
     public void save(Restaurante restaurante) throws SQLException, ClassNotFoundException {
         Connection conn = null;
         Statement st = null;
@@ -53,24 +54,23 @@ public class RestauranteDAO {
             conn = DatabaseLocator.getInstance().getConnection();
             st = conn.createStatement();
             SQL = "insert into restaurante (cnpj, nome, rua, numero, cidade, estado, categoria_id, vendedor_usuario_email) "
-                    
-                    + "values ('" + restaurante.getCnpj()+ "', '" 
-                    + restaurante.getNome() + "', '" 
+                    + "values ('" + restaurante.getCnpj() + "', '"
+                    + restaurante.getNome() + "', '"
                     + restaurante.getRua() + "', '"
-                    + restaurante.getNumero() + "', '" 
-                    + restaurante.getCidade() + "', '" 
-                    + restaurante.getEstado() + "', '" 
-                    + restaurante.getCategoria().getId() + "', '" 
+                    + restaurante.getNumero() + "', '"
+                    + restaurante.getCidade() + "', '"
+                    + restaurante.getEstado() + "', '"
+                    + restaurante.getCategoria().getId() + "', '"
                     + restaurante.getVendedor().getEmail() + "')";
-            
+
             st.execute(SQL);
-        } catch(SQLException e){
+        } catch (SQLException e) {
             throw e;
         } finally {
             closeResources(conn, st);
         }
     }
-    
+
     public Restaurante read(Restaurante restaurante) throws SQLException, ClassNotFoundException {
         Connection conn = null;
         Statement st = null;
@@ -79,10 +79,10 @@ public class RestauranteDAO {
         try {
             conn = DatabaseLocator.getInstance().getConnection();
             st = conn.createStatement();
-            ResultSet rs = st.executeQuery("select * from restaurante where cnpj = '" + restaurante.getCnpj()+ "'");
+            ResultSet rs = st.executeQuery("select * from restaurante where cnpj = '" + restaurante.getCnpj() + "'");
             rs.first();
-            
-            a = new Restaurante(rs.getString("cnpj"), 
+
+            a = new Restaurante(rs.getString("cnpj"),
                     rs.getString("nome"),
                     rs.getString("rua"),
                     rs.getString("numero"),
@@ -90,8 +90,8 @@ public class RestauranteDAO {
                     rs.getString("estado"),
                     null,
                     null);
-            Categoria categoria = CategoriaDAO.getInstance().read(new Categoria (rs.getInt("categoria_id"), null));
-            Vendedor vendedor = VendedorDAO.getInstance().read(new Vendedor (rs.getString("vendedor_usuario_email")));
+            Categoria categoria = CategoriaDAO.getInstance().read(new Categoria(rs.getInt("categoria_id"), null));
+            Vendedor vendedor = VendedorDAO.getInstance().read(new Vendedor(rs.getString("vendedor_usuario_email")));
             a.setCategoria(categoria);
             a.setVendedor(vendedor);
         } catch (SQLException e) {
@@ -101,7 +101,7 @@ public class RestauranteDAO {
         }
         return a;
     }
-    
+
     public void delete(Restaurante restaurante) throws SQLException, ClassNotFoundException {
         Connection conn = null;
         Statement st = null;
@@ -109,7 +109,7 @@ public class RestauranteDAO {
         try {
             conn = DatabaseLocator.getInstance().getConnection();
             st = conn.createStatement();
-            stringSQL = "delete from Restaurante where cnpj = '" + restaurante.getCnpj()+ "'";
+            stringSQL = "delete from Restaurante where cnpj = '" + restaurante.getCnpj() + "'";
             st.execute(stringSQL);
         } catch (SQLException e) {
             throw e;
@@ -117,7 +117,7 @@ public class RestauranteDAO {
             closeResources(conn, st);
         }
     }
-    
+
     public ArrayList<Restaurante> getRestaurantes() throws ClassNotFoundException {
         Connection conn = null;
         Statement st = null;
@@ -128,7 +128,7 @@ public class RestauranteDAO {
             st = conn.createStatement();
             ResultSet rs = st.executeQuery("select * from restaurante");
             while (rs.next()) {
-                restaurante = new Restaurante (rs.getString("cnpj"));
+                restaurante = new Restaurante(rs.getString("cnpj"));
                 restaurante = read(restaurante);
                 promocoes.add(restaurante);
             }
@@ -141,11 +141,14 @@ public class RestauranteDAO {
     }
 
     private void closeResources(Connection conn, Statement st) {
-        try{
-            if(st!=null) st.close();
-            if(conn!=null) conn.close();
-        } 
-        catch(SQLException e){
+        try {
+            if (st != null) {
+                st.close();
+            }
+            if (conn != null) {
+                conn.close();
+            }
+        } catch (SQLException e) {
         }
     }
 }

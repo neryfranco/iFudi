@@ -15,10 +15,9 @@ public class FuncaoFuncionario extends Funcao {
         listaDeAutorizacao.add(AutorizacaoTrocarBrinde.getAutorizacaoTrocarBrinde());
         setFuncao(funcao);
     }
-    
+
     @Override
     public String getDescricaoFuncao() {
         return "Funcionario";
     }
-
 }

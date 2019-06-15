@@ -22,14 +22,15 @@ import model.Vendedor;
  * @author Jessica
  */
 public class LerVendedorAction implements Action {
-    
-    public LerVendedorAction(){}
+
+    public LerVendedorAction() {
+    }
 
     @Override
     public void execute(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
         String email = request.getParameter("txtEmail");
-        
+
         Vendedor vendedor = new Vendedor(email, null, null);
         if (email.equals("")) {
             response.sendRedirect("lerVendedor.jsp");

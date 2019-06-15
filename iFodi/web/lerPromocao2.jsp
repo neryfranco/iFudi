@@ -26,9 +26,9 @@
                 <td>${promocao.id}</td>
                 <td>${promocao.descricao}</td>
                 <td>${promocao.porcentagem}</td>
-                </tr>
-            </c:forEach>
-        </table>
-        <a href="index.jsp"  class="btn btn-default">Voltar</a>
-    </body>
+            </tr>
+        </c:forEach>
+    </table>
+    <a href="index.jsp"  class="btn btn-default">Voltar</a>
+</body>
 </html>

@@ -90,7 +90,6 @@ public class FuncionarioDAO {
                     usuario.getNome(),
                     a.getFuncao());
             a.setCidade(usuario.getCidade());
-            a.setComplemento(usuario.getComplemento());
             a.setCpf(usuario.getCpf());
             a.setEstado(usuario.getEstado());
             a.setNumero(usuario.getNumero());

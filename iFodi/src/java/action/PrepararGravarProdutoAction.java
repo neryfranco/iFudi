@@ -24,12 +24,12 @@ import model.Restaurante;
  *
  * @author Nery
  */
-public class PrepararGravarProdutoAction implements Action{
-    
+public class PrepararGravarProdutoAction implements Action {
+
     @Override
-    public void execute(HttpServletRequest request, HttpServletResponse response) 
-            throws IOException{
-        
+    public void execute(HttpServletRequest request, HttpServletResponse response)
+            throws IOException {
+
         ArrayList<Promocao> promocoes = null;
         ArrayList<Restaurante> restaurantes = null;
         try {

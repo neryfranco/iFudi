@@ -22,31 +22,32 @@ import model.Restaurante;
  * @author Nery
  */
 public class PedidoDAO {
-    
+
     private static PedidoDAO instance = new PedidoDAO();
-    
-    private PedidoDAO(){}
-    
-    public static PedidoDAO getInstance(){
+
+    private PedidoDAO() {
+    }
+
+    public static PedidoDAO getInstance() {
         return instance;
     }
-    
-    public void save (String id) throws SQLException, ClassNotFoundException {
+
+    public void save(String id) throws SQLException, ClassNotFoundException {
         Connection conn = null;
         Statement st = null;
-        
+
         try {
             conn = DatabaseLocator.getInstance().getConnection();
             st = conn.createStatement();
-            st.execute("insert into pedido (id)" +
-                    "values ('" + id + "')");
-        } catch(SQLException e){
+            st.execute("insert into pedido (id)"
+                    + "values ('" + id + "')");
+        } catch (SQLException e) {
             throw e;
         } finally {
             closeResources(conn, st);
         }
     }
-    
+
     public void save(Pedido pedido) throws SQLException, ClassNotFoundException {
         Connection conn = null;
         Statement st = null;
@@ -55,24 +56,23 @@ public class PedidoDAO {
             conn = DatabaseLocator.getInstance().getConnection();
             st = conn.createStatement();
             SQL = "insert into pedido (id, frete, cliente_usuario_email, "
-                    + "tempoEstimado, data, restaurante_cnpj, status) " +
-                    
-                    "values ('" + pedido.getId() + "', '" 
-                    + pedido.getFrete() + "', '" 
-                    + pedido.getCliente().getEmail() + "', '" 
-                    + pedido.getTempoEstimado() + "', '" 
-                    + pedido.getData() + "', '" 
-                    + pedido.getRestaurante().getCnpj() + "', '" 
+                    + "tempoEstimado, data, restaurante_cnpj, status) "
+                    + "values ('" + pedido.getId() + "', '"
+                    + pedido.getFrete() + "', '"
+                    + pedido.getCliente().getEmail() + "', '"
+                    + pedido.getTempoEstimado() + "', '"
+                    + pedido.getData() + "', '"
+                    + pedido.getRestaurante().getCnpj() + "', '"
                     + pedido.getStatus().getNomeClasse() + "')";
-            
+
             st.execute(SQL);
-        } catch(SQLException e){
+        } catch (SQLException e) {
             throw e;
         } finally {
             closeResources(conn, st);
         }
     }
-    
+
     public Pedido read(Pedido pedido) throws SQLException, ClassNotFoundException {
         Connection conn = null;
         Statement st = null;
@@ -82,18 +82,18 @@ public class PedidoDAO {
         try {
             conn = DatabaseLocator.getInstance().getConnection();
             st = conn.createStatement();
-            ResultSet rs = st.executeQuery("select * from pedido where id = '" + pedido.getId()+ "'");
+            ResultSet rs = st.executeQuery("select * from pedido where id = '" + pedido.getId() + "'");
             rs.first();
-            
-            a = new Pedido(rs.getInt("id"), 
+
+            a = new Pedido(rs.getInt("id"),
                     rs.getString("data"),
                     rs.getInt("tempoEstimado"));
             a.setFrete(rs.getDouble("tempoEstimado"));
-            Cliente cliente = new Cliente (rs.getString("cliente_usuario_email"), null, null);
-            Restaurante restaurante = new Restaurante (rs.getString("restaurante_cnpj"));
+            Cliente cliente = new Cliente(rs.getString("cliente_usuario_email"), null, null);
+            Restaurante restaurante = new Restaurante(rs.getString("restaurante_cnpj"));
             a.setRestaurante(RestauranteDAO.getInstance().read(restaurante));
             a.setCliente(ClienteDAO.getInstance().read(cliente));
-            
+
             String nomeClasse = "model." + rs.getString("status");
             ps = (PedidoStatus) ActionFactory.createPedidoStatus(nomeClasse);
             a.setStatus(ps);
@@ -104,7 +104,7 @@ public class PedidoDAO {
         }
         return a;
     }
-    
+
     public void edit(Pedido pedido) throws SQLException, ClassNotFoundException {
         Connection conn = null;
         Statement st = null;
@@ -112,8 +112,8 @@ public class PedidoDAO {
         try {
             conn = DatabaseLocator.getInstance().getConnection();
             st = conn.createStatement();
-            
-            SQL = "update pedido set " 
+
+            SQL = "update pedido set "
                     + "frete = '" + pedido.getFrete()
                     + "', tempoEstimado = '" + pedido.getTempoEstimado()
                     + "', data = '" + pedido.getData()
@@ -121,15 +121,15 @@ public class PedidoDAO {
                     + "', status = '" + pedido.getStatus().getNomeClasse()
                     + "', cliente_usuario_email = '" + pedido.getCliente().getEmail()
                     + "' where id = " + pedido.getId();
-            
+
             st.execute(SQL);
-        } catch(SQLException e){
+        } catch (SQLException e) {
             throw e;
         } finally {
             closeResources(conn, st);
         }
     }
-    
+
     public void delete(Pedido pedido) throws SQLException, ClassNotFoundException {
         Connection conn = null;
         Statement st = null;
@@ -137,7 +137,7 @@ public class PedidoDAO {
         try {
             conn = DatabaseLocator.getInstance().getConnection();
             st = conn.createStatement();
-            stringSQL = "delete from Pedido where id = '" + pedido.getId()+ "'";
+            stringSQL = "delete from Pedido where id = '" + pedido.getId() + "'";
             st.execute(stringSQL);
         } catch (SQLException e) {
             throw e;
@@ -145,7 +145,7 @@ public class PedidoDAO {
             closeResources(conn, st);
         }
     }
-    
+
     public ArrayList<Pedido> getPedidos() throws ClassNotFoundException {
         Connection conn = null;
         Statement st = null;
@@ -156,7 +156,7 @@ public class PedidoDAO {
             st = conn.createStatement();
             ResultSet rs = st.executeQuery("select * from pedido");
             while (rs.next()) {
-                pedido = new Pedido (rs.getInt("id"));
+                pedido = new Pedido(rs.getInt("id"));
                 pedido = read(pedido);
                 pedidos.add(pedido);
             }
@@ -168,13 +168,15 @@ public class PedidoDAO {
         return pedidos;
     }
 
-
     private void closeResources(Connection conn, Statement st) {
-        try{
-            if(st!=null) st.close();
-            if(conn!=null) conn.close();
-        } 
-        catch(SQLException e){
+        try {
+            if (st != null) {
+                st.close();
+            }
+            if (conn != null) {
+                conn.close();
+            }
+        } catch (SQLException e) {
         }
     }
 }

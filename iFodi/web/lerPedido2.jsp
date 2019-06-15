@@ -35,7 +35,7 @@
                     <td><c:out value="${cliente.nome}"/></td>
                 </tr>
             </c:forEach>
-            </table>
-            <a href="index.jsp"  class="btn btn-default">Voltar</a>
-        </body>
-    </html>
+        </table>
+        <a href="index.jsp"  class="btn btn-default">Voltar</a>
+    </body>
+</html>

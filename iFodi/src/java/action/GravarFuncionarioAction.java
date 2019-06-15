@@ -17,9 +17,10 @@ import model.Funcionario;
  *
  * @author Jessica
  */
-public class GravarFuncionarioAction implements Action{
-    
-     public GravarFuncionarioAction() {}
+public class GravarFuncionarioAction implements Action {
+
+    public GravarFuncionarioAction() {
+    }
 
     @Override
     public void execute(HttpServletRequest request, HttpServletResponse response) throws IOException {
@@ -33,7 +34,7 @@ public class GravarFuncionarioAction implements Action{
         if (email.equals("") || email.equals("") || nome.equals("") || funcao.equals("")) {
             response.sendRedirect("gravarFuncionario.jsp");
         } else {
-            Funcionario funcionario= new Funcionario(email, senha, nome, funcao);
+            Funcionario funcionario = new Funcionario(email, senha, nome, funcao);
             try {
                 FuncionarioDAO.getInstance().save(funcionario);
                 response.sendRedirect("sucesso.jsp");

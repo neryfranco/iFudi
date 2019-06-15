@@ -21,31 +21,32 @@ import model.Item;
  * @author Nery
  */
 public class ItemDAO {
-    
+
     private static ItemDAO instance = new ItemDAO();
-    
-    private ItemDAO(){}
-    
-    public static ItemDAO getInstance(){
+
+    private ItemDAO() {
+    }
+
+    public static ItemDAO getInstance() {
         return instance;
     }
-    
-    public void save (String id) throws SQLException, ClassNotFoundException {
+
+    public void save(String id) throws SQLException, ClassNotFoundException {
         Connection conn = null;
         Statement st = null;
-        
+
         try {
             conn = DatabaseLocator.getInstance().getConnection();
             st = conn.createStatement();
-            st.execute("insert into item (id)" +
-                    "values ('" + id + "')");
-        } catch(SQLException e){
+            st.execute("insert into item (id)"
+                    + "values ('" + id + "')");
+        } catch (SQLException e) {
             throw e;
         } finally {
             closeResources(conn, st);
         }
     }
-    
+
     public void save(Item item) throws SQLException, ClassNotFoundException {
         Connection conn = null;
         Statement st = null;
@@ -53,20 +54,20 @@ public class ItemDAO {
         try {
             conn = DatabaseLocator.getInstance().getConnection();
             st = conn.createStatement();
-            SQL = "insert into item (id, quantidade, precoTotal, produto_id, pedido_id) " +
-                    "values ('" + item.getId() + "', '" 
-                    + item.getQuantidade() + "', '" 
-                    + item.getPrecoTotal()+ "', '" 
-                    + item.getProduto().getId() + "', '" 
+            SQL = "insert into item (id, quantidade, precoTotal, produto_id, pedido_id) "
+                    + "values ('" + item.getId() + "', '"
+                    + item.getQuantidade() + "', '"
+                    + item.getPrecoTotal() + "', '"
+                    + item.getProduto().getId() + "', '"
                     + item.getPedido().getId() + "')";
             st.execute(SQL);
-        } catch(SQLException e){
+        } catch (SQLException e) {
             throw e;
         } finally {
             closeResources(conn, st);
         }
     }
-    
+
     public Item read(Item item) throws SQLException, ClassNotFoundException {
         Connection conn = null;
         Statement st = null;
@@ -75,16 +76,16 @@ public class ItemDAO {
         try {
             conn = DatabaseLocator.getInstance().getConnection();
             st = conn.createStatement();
-            ResultSet rs = st.executeQuery("select * from item where id = '" + item.getId()+ "'");
+            ResultSet rs = st.executeQuery("select * from item where id = '" + item.getId() + "'");
             rs.first();
-            
-            a = new Item(rs.getInt("id"), 
+
+            a = new Item(rs.getInt("id"),
                     null,
                     rs.getInt("quantidade"),
                     rs.getDouble("precoTotal"),
                     null);
-            
-            Pedido pedido = PedidoDAO.getInstance().read(new Pedido (rs.getInt("pedido_id")));
+
+            Pedido pedido = PedidoDAO.getInstance().read(new Pedido(rs.getInt("pedido_id")));
             Produto produto = ProdutoDAO.getInstance().read(new Produto(rs.getInt("produto_id"), null));
             a.setPedido(pedido);
             a.setProduto(produto);
@@ -95,7 +96,7 @@ public class ItemDAO {
         }
         return a;
     }
-    
+
     public void delete(Item item) throws SQLException, ClassNotFoundException {
         Connection conn = null;
         Statement st = null;
@@ -103,7 +104,7 @@ public class ItemDAO {
         try {
             conn = DatabaseLocator.getInstance().getConnection();
             st = conn.createStatement();
-            stringSQL = "delete from Item where id = '" + item.getId()+ "'";
+            stringSQL = "delete from Item where id = '" + item.getId() + "'";
             st.execute(stringSQL);
         } catch (SQLException e) {
             throw e;
@@ -111,7 +112,7 @@ public class ItemDAO {
             closeResources(conn, st);
         }
     }
-    
+
     public ArrayList<Item> getItems() throws ClassNotFoundException {
         Connection conn = null;
         Statement st = null;
@@ -122,7 +123,7 @@ public class ItemDAO {
             st = conn.createStatement();
             ResultSet rs = st.executeQuery("select * from item");
             while (rs.next()) {
-                item = new Item (rs.getInt("id"));
+                item = new Item(rs.getInt("id"));
                 item = read(item);
                 items.add(item);
             }
@@ -135,11 +136,14 @@ public class ItemDAO {
     }
 
     private void closeResources(Connection conn, Statement st) {
-        try{
-            if(st!=null) st.close();
-            if(conn!=null) conn.close();
-        } 
-        catch(SQLException e){
+        try {
+            if (st != null) {
+                st.close();
+            }
+            if (conn != null) {
+                conn.close();
+            }
+        } catch (SQLException e) {
         }
     }
 }

@@ -18,8 +18,9 @@ import model.Vendedor;
  * @author Jessica
  */
 public class GravarVendedorAction implements Action {
-    
-    public GravarVendedorAction(){}
+
+    public GravarVendedorAction() {
+    }
 
     @Override
     public void execute(HttpServletRequest request, HttpServletResponse response) throws IOException {
@@ -40,7 +41,7 @@ public class GravarVendedorAction implements Action {
                 ex.printStackTrace();
             } catch (ClassNotFoundException ex) {
                 response.sendRedirect("erro.jsp");
-                ex.printStackTrace(); 
+                ex.printStackTrace();
             }
         }
     }

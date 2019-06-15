@@ -19,7 +19,8 @@ import model.Categoria;
  */
 public class GravarCategoriaAction implements Action {
 
-    public GravarCategoriaAction() {}
+    public GravarCategoriaAction() {
+    }
 
     @Override
     public void execute(HttpServletRequest request, HttpServletResponse response) throws IOException {

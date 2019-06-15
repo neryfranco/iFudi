@@ -22,14 +22,15 @@ import model.Avaliacao;
  * @author Jessica
  */
 public class LerAvaliacaoAction implements Action {
-    
-    public LerAvaliacaoAction(){}
+
+    public LerAvaliacaoAction() {
+    }
 
     @Override
     public void execute(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
         Integer id = Integer.parseInt(request.getParameter("txtId"));
-        
+
         Avaliacao avaliacao = new Avaliacao(id, null, null);
         if (id.equals("")) {
             response.sendRedirect("lerAvaliacao.jsp");

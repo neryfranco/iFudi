@@ -28,12 +28,12 @@ import model.Restaurante;
  *
  * @author Nery
  */
-public class PrepararGravarItemAction implements Action{
-    
+public class PrepararGravarItemAction implements Action {
+
     @Override
-    public void execute(HttpServletRequest request, HttpServletResponse response) 
-            throws IOException{
-        
+    public void execute(HttpServletRequest request, HttpServletResponse response)
+            throws IOException {
+
         ArrayList<Produto> produtos = null;
         ArrayList<Pedido> pedidos = null;
         try {
@@ -48,6 +48,6 @@ public class PrepararGravarItemAction implements Action{
         } catch (ServletException ex) {
             Logger.getLogger(PrepararGravarItemAction.class.getName()).log(Level.SEVERE, null, ex);
         }
-    
+
     }
 }

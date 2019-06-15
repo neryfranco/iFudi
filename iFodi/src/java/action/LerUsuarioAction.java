@@ -27,7 +27,7 @@ public class LerUsuarioAction implements Action {
 
         String email = request.getParameter("txtEmail");
         String senha = request.getParameter("txtShenha");
-        Usuario usuario = new Usuario(email, senha, null, null, null, null, null, null, null);
+        Usuario usuario = new Usuario(email, senha);
         if (email.equals("")) {
             response.sendRedirect("lerUsuario.jsp");
         } else {

@@ -19,7 +19,8 @@ import model.Restaurante;
  */
 public class ApagarRestauranteAction implements Action {
 
-    public ApagarRestauranteAction() {}
+    public ApagarRestauranteAction() {
+    }
 
     @Override
     public void execute(HttpServletRequest request, HttpServletResponse response) throws IOException {

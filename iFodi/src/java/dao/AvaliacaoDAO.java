@@ -18,31 +18,32 @@ import model.Pedido;
  * @author Nery
  */
 public class AvaliacaoDAO {
-    
+
     private static AvaliacaoDAO instance = new AvaliacaoDAO();
-    
-    private AvaliacaoDAO(){}
-    
-    public static AvaliacaoDAO getInstance(){
+
+    private AvaliacaoDAO() {
+    }
+
+    public static AvaliacaoDAO getInstance() {
         return instance;
     }
-    
-    public void save (String id) throws SQLException, ClassNotFoundException {
+
+    public void save(String id) throws SQLException, ClassNotFoundException {
         Connection conn = null;
         Statement st = null;
-        
+
         try {
             conn = DatabaseLocator.getInstance().getConnection();
             st = conn.createStatement();
-            st.execute("insert into avaliacao (id)" +
-                    "values ('" + id + "')");
-        } catch(SQLException e){
+            st.execute("insert into avaliacao (id)"
+                    + "values ('" + id + "')");
+        } catch (SQLException e) {
             throw e;
         } finally {
             closeResources(conn, st);
         }
     }
-    
+
     public void save(Avaliacao avaliacao) throws SQLException, ClassNotFoundException {
         Connection conn = null;
         Statement st = null;
@@ -50,19 +51,19 @@ public class AvaliacaoDAO {
         try {
             conn = DatabaseLocator.getInstance().getConnection();
             st = conn.createStatement();
-            SQL = "insert into avaliacao (id, descricao, votacao, pedido_id) " +
-                    "values ('" + avaliacao.getID() + "', '" 
-                    + avaliacao.getDescricao() + "', '" 
-                    + avaliacao.getVotacao() + 
-                    + avaliacao.getPedido().getId() + "')";
+            SQL = "insert into avaliacao (id, descricao, votacao, pedido_id) "
+                    + "values ('" + avaliacao.getID() + "', '"
+                    + avaliacao.getDescricao() + "', '"
+                    + avaliacao.getVotacao()
+                    + +avaliacao.getPedido().getId() + "')";
             st.execute(SQL);
-        } catch(SQLException e){
+        } catch (SQLException e) {
             throw e;
         } finally {
             closeResources(conn, st);
         }
     }
-    
+
     public Avaliacao read(Avaliacao avaliacao) throws SQLException, ClassNotFoundException {
         Connection conn = null;
         Statement st = null;
@@ -71,15 +72,15 @@ public class AvaliacaoDAO {
         try {
             conn = DatabaseLocator.getInstance().getConnection();
             st = conn.createStatement();
-            ResultSet rs = st.executeQuery("select * from avaliacao where id = '" + avaliacao.getID()+ "'");
+            ResultSet rs = st.executeQuery("select * from avaliacao where id = '" + avaliacao.getID() + "'");
             rs.first();
-            
-            a = new Avaliacao(rs.getInt("id"), 
+
+            a = new Avaliacao(rs.getInt("id"),
                     rs.getString("descricao"),
                     rs.getInt("votacao"),
                     null);
-            
-            Pedido pedido = PedidoDAO.getInstance().read(new Pedido (rs.getInt("id")));
+
+            Pedido pedido = PedidoDAO.getInstance().read(new Pedido(rs.getInt("id")));
             a.setPedido(pedido);
         } catch (SQLException e) {
             throw e;
@@ -88,7 +89,7 @@ public class AvaliacaoDAO {
         }
         return a;
     }
-    
+
     public void delete(Avaliacao avaliacao) throws SQLException, ClassNotFoundException {
         Connection conn = null;
         Statement st = null;
@@ -96,7 +97,7 @@ public class AvaliacaoDAO {
         try {
             conn = DatabaseLocator.getInstance().getConnection();
             st = conn.createStatement();
-            stringSQL = "delete from Avaliacao where id = '" + avaliacao.getID()+ "'";
+            stringSQL = "delete from Avaliacao where id = '" + avaliacao.getID() + "'";
             st.execute(stringSQL);
         } catch (SQLException e) {
             throw e;
@@ -106,11 +107,14 @@ public class AvaliacaoDAO {
     }
 
     private void closeResources(Connection conn, Statement st) {
-        try{
-            if(st!=null) st.close();
-            if(conn!=null) conn.close();
-        } 
-        catch(SQLException e){
+        try {
+            if (st != null) {
+                st.close();
+            }
+            if (conn != null) {
+                conn.close();
+            }
+        } catch (SQLException e) {
         }
     }
 }

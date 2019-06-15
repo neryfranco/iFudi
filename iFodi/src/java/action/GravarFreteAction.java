@@ -18,8 +18,9 @@ import model.Frete;
  * @author Jessica
  */
 public class GravarFreteAction implements Action {
-    
-    public GravarFreteAction(){} 
+
+    public GravarFreteAction() {
+    }
 
     @Override
     public void execute(HttpServletRequest request, HttpServletResponse response) throws IOException {

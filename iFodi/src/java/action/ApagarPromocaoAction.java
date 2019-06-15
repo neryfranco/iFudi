@@ -18,14 +18,15 @@ import model.Promocao;
  * @author Jessica
  */
 public class ApagarPromocaoAction implements Action {
-    
-    public ApagarPromocaoAction(){}
+
+    public ApagarPromocaoAction() {
+    }
 
     @Override
     public void execute(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
         Integer id = Integer.parseInt(request.getParameter("txtId"));
-        
+
         Promocao promocao = new Promocao(id, null, null);
         if (id.equals("")) {
             response.sendRedirect("apagarPromocao.jsp");

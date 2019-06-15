@@ -25,7 +25,7 @@ public class CarregarAutorizacaoAction implements Action {
 
     @Override
     public void execute(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        
+
         FuncaoCliente cliente = new FuncaoCliente(null);
         FuncaoFuncionario funcionario = new FuncaoFuncionario(null);
         FuncaoVendedor vendedor = new FuncaoVendedor(null);

@@ -17,31 +17,32 @@ import model.Usuario;
  * @author Nery
  */
 public class UsuarioDAO {
-    
+
     private static UsuarioDAO instance = new UsuarioDAO();
-    
-    private UsuarioDAO(){}
-    
-    public static UsuarioDAO getInstance(){
+
+    private UsuarioDAO() {
+    }
+
+    public static UsuarioDAO getInstance() {
         return instance;
     }
-    
-    public void save (String email) throws SQLException, ClassNotFoundException {
+
+    public void save(String email) throws SQLException, ClassNotFoundException {
         Connection conn = null;
         Statement st = null;
-        
+
         try {
             conn = DatabaseLocator.getInstance().getConnection();
             st = conn.createStatement();
-            st.execute("insert into usuario (email)" +
-                    "values ('" + email + "')");
-        } catch(SQLException e){
+            st.execute("insert into usuario (email)"
+                    + "values ('" + email + "')");
+        } catch (SQLException e) {
             throw e;
         } finally {
             closeResources(conn, st);
         }
     }
-    
+
     public void save(Usuario usuario) throws SQLException, ClassNotFoundException {
         Connection conn = null;
         Statement st = null;
@@ -49,23 +50,23 @@ public class UsuarioDAO {
         try {
             conn = DatabaseLocator.getInstance().getConnection();
             st = conn.createStatement();
-            SQL = "insert into usuario (email, senha, nome, cpf, rua, numero, cidade, estado) " +
-                    "values ('" + usuario.getEmail()+ "', '" 
-                    + usuario.getSenha()+ "', '" 
-                    + usuario.getNome()+ "', '" 
-                    + usuario.getCpf()+ "', '" 
-                    + usuario.getRua()+ "', '" 
-                    + usuario.getNumero()+ "', '" 
-                    + usuario.getCidade()+ "', '" 
+            SQL = "insert into usuario (email, senha, nome, cpf, rua, numero, cidade, estado) "
+                    + "values ('" + usuario.getEmail() + "', '"
+                    + usuario.getSenha() + "', '"
+                    + usuario.getNome() + "', '"
+                    + usuario.getCpf() + "', '"
+                    + usuario.getRua() + "', '"
+                    + usuario.getNumero() + "', '"
+                    + usuario.getCidade() + "', '"
                     + usuario.getEstado() + "')";
             st.execute(SQL);
-        } catch(SQLException e){
+        } catch (SQLException e) {
             throw e;
         } finally {
             closeResources(conn, st);
         }
     }
-    
+
     public Usuario read(Usuario usuario) throws SQLException, ClassNotFoundException {
         Connection conn = null;
         Statement st = null;
@@ -74,18 +75,17 @@ public class UsuarioDAO {
         try {
             conn = DatabaseLocator.getInstance().getConnection();
             st = conn.createStatement();
-            ResultSet rs = st.executeQuery("select * from usuario where email = '" + usuario.getEmail()+ "'");
+            ResultSet rs = st.executeQuery("select * from usuario where email = '" + usuario.getEmail() + "'");
             rs.first();
-            
-            a = new Usuario(rs.getString("email"), 
+
+           a = new Usuario(rs.getString("email"), 
                     rs.getString("senha"),
                     rs.getString("nome"),
                     rs.getString("cpf"),
                     rs.getString("rua"),
                     rs.getString("numero"),
                     rs.getString("cidade"),
-                    rs.getString("estado"),
-                    rs.getString("complemento"));
+                    rs.getString("estado"));
         } catch (SQLException e) {
             throw e;
         } finally {
@@ -93,7 +93,7 @@ public class UsuarioDAO {
         }
         return a;
     }
-    
+
     public void delete(Usuario usuario) throws SQLException, ClassNotFoundException {
         Connection conn = null;
         Statement st = null;
@@ -101,7 +101,7 @@ public class UsuarioDAO {
         try {
             conn = DatabaseLocator.getInstance().getConnection();
             st = conn.createStatement();
-            stringSQL = "delete from Usuario where email = '" + usuario.getEmail()+ "'";
+            stringSQL = "delete from Usuario where email = '" + usuario.getEmail() + "'";
             st.execute(stringSQL);
         } catch (SQLException e) {
             throw e;
@@ -111,11 +111,14 @@ public class UsuarioDAO {
     }
 
     private void closeResources(Connection conn, Statement st) {
-        try{
-            if(st!=null) st.close();
-            if(conn!=null) conn.close();
-        } 
-        catch(SQLException e){
+        try {
+            if (st != null) {
+                st.close();
+            }
+            if (conn != null) {
+                conn.close();
+            }
+        } catch (SQLException e) {
         }
     }
 }

@@ -26,18 +26,18 @@
                     <th colspan=5>Mudar Status</th>
                 </tr>
                 <c:forEach items="${pedidos}" var="pedido">
-                <tr>
-                    <td><c:out value="${pedido.id}" /></td>
-                    <td><c:out value="${pedido.restaurante.nome}" /></td>
-                    <td><c:out value="${pedido.cliente.email}" /></td>
-                    <td><c:out value="${pedido.status.nomeClasse}" /></td>
-                    <td><a href="FrontController?action=action.pedido.SolicitarPedidoAction&idPedido=<c:out value="${pedido.id}"/>">Solicitar</a></td>
-                    <td><a href="FrontController?action=action.pedido.PrepararPedidoAction&idPedido=<c:out value="${pedido.id}"/>">Preparar</a></td>
-                    <td><a href="FrontController?action=action.pedido.EntregarPedidoAction&idPedido=<c:out value="${pedido.id}"/>">Entregar</a></td>
-                    <td><a href="FrontController?action=action.pedido.FinalizarPedidoAction&idPedido=<c:out value="${pedido.id}"/>">Finalizar</a></td>
-                    <td><a href="FrontController?action=action.pedido.CancelarPedidoAction&idPedido=<c:out value="${pedido.id}"/>">Cancelar</a></td>
-                </tr>
-            </c:forEach>
+                    <tr>
+                        <td><c:out value="${pedido.id}" /></td>
+                        <td><c:out value="${pedido.restaurante.nome}" /></td>
+                        <td><c:out value="${pedido.cliente.email}" /></td>
+                        <td><c:out value="${pedido.status.nomeClasse}" /></td>
+                        <td><a href="FrontController?action=action.pedido.SolicitarPedidoAction&idPedido=<c:out value="${pedido.id}"/>">Solicitar</a></td>
+                        <td><a href="FrontController?action=action.pedido.PrepararPedidoAction&idPedido=<c:out value="${pedido.id}"/>">Preparar</a></td>
+                        <td><a href="FrontController?action=action.pedido.EntregarPedidoAction&idPedido=<c:out value="${pedido.id}"/>">Entregar</a></td>
+                        <td><a href="FrontController?action=action.pedido.FinalizarPedidoAction&idPedido=<c:out value="${pedido.id}"/>">Finalizar</a></td>
+                        <td><a href="FrontController?action=action.pedido.CancelarPedidoAction&idPedido=<c:out value="${pedido.id}"/>">Cancelar</a></td>
+                    </tr>
+                </c:forEach>
             </table>
         </form>
         <p value="${msgPedido}">${msgPedido}</p>

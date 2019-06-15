@@ -11,7 +11,7 @@ import java.util.List;
  *
  * @author Jessica
  */
-public class Vendedor extends Usuario {
+public class Vendedor extends Usuario{
 
     private List<Restaurante> restaurantes;
 
@@ -22,7 +22,7 @@ public class Vendedor extends Usuario {
     public Vendedor(String email) {
         super(email);
     }
-    
+
     public List<Restaurante> getRestaurantes() {
         return restaurantes;
     }
@@ -30,12 +30,12 @@ public class Vendedor extends Usuario {
     public void setRestaurantes(List<Restaurante> restaurantes) {
         this.restaurantes = restaurantes;
     }
-  
-    public void addRestaurante(Restaurante restaurante){
+
+    public void addRestaurante(Restaurante restaurante) {
         restaurantes.add(restaurante);
     }
-    
-    public void removeRestaurante(Restaurante restaurante){
+
+    public void removeRestaurante(Restaurante restaurante) {
         restaurantes.remove(restaurante);
     }
 }

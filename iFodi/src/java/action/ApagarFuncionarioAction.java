@@ -17,15 +17,16 @@ import model.Funcionario;
  *
  * @author Jessica
  */
-public class ApagarFuncionarioAction implements Action{
-    
-     public ApagarFuncionarioAction(){}
+public class ApagarFuncionarioAction implements Action {
+
+    public ApagarFuncionarioAction() {
+    }
 
     @Override
     public void execute(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
-         String email = request.getParameter("txtEmail");
-        
+        String email = request.getParameter("txtEmail");
+
         Funcionario funcionario = new Funcionario(email, null, null, null);
         if (email.equals("")) {
             response.sendRedirect("apagarFuncionario.jsp");
@@ -44,5 +45,5 @@ public class ApagarFuncionarioAction implements Action{
             }
         }
     }
-    
+
 }

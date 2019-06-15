@@ -14,8 +14,9 @@ import javax.servlet.http.HttpServletResponse;
 import model.Usuario;
 
 public class GravarUsuarioAction implements Action {
-    
-    public GravarUsuarioAction(){}
+
+    public GravarUsuarioAction() {
+    }
 
     @Override
     public void execute(HttpServletRequest request, HttpServletResponse response) throws IOException {
@@ -28,12 +29,11 @@ public class GravarUsuarioAction implements Action {
         String numero = request.getParameter("txtNumero");
         String cidade = request.getParameter("txtCidade");
         String estado = request.getParameter("txtEstado");
-        String complemento = request.getParameter("txtComplemento");
 
-        if (email.equals("") || senha.equals("") || nome.equals("") || cpf.equals("") || rua.equals("") || numero.equals("") || cidade.equals("") || estado.equals("") || complemento.equals("")) {
+        if (email.equals("") || senha.equals("") || nome.equals("") || cpf.equals("") || rua.equals("") || numero.equals("") || cidade.equals("") || estado.equals("")) {
             response.sendRedirect("gravarUsuario.jsp");
         } else {
-            Usuario usuario = new Usuario(email, senha, nome, cpf, rua, numero, cidade, estado, complemento);
+             Usuario usuario = new Usuario(email, senha, nome, cpf, rua, numero, cidade, estado);
             try {
                 UsuarioDAO.getInstance().save(usuario);
                 response.sendRedirect("sucesso.jsp");

@@ -22,14 +22,15 @@ import model.Categoria;
  * @author Jessica
  */
 public class LerCategoriaAction implements Action {
-    
-    public LerCategoriaAction(){}
+
+    public LerCategoriaAction() {
+    }
 
     @Override
     public void execute(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
         Integer id = Integer.parseInt(request.getParameter("txtId"));
-        
+
         Categoria categoria = new Categoria(id, null);
         if (id.equals("")) {
             response.sendRedirect("lerCategoria.jsp");

@@ -18,8 +18,9 @@ import model.Promocao;
  * @author Jessica
  */
 public class GravarPromocaoAction implements Action {
-    
-    public GravarPromocaoAction(){}
+
+    public GravarPromocaoAction() {
+    }
 
     @Override
     public void execute(HttpServletRequest request, HttpServletResponse response) throws IOException {

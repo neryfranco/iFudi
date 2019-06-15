@@ -21,7 +21,8 @@ import model.Pedido;
  */
 public class GravarAvaliacaoAction implements Action {
 
-    public GravarAvaliacaoAction() {}
+    public GravarAvaliacaoAction() {
+    }
 
     @Override
     public void execute(HttpServletRequest request, HttpServletResponse response) throws IOException {
@@ -35,8 +36,8 @@ public class GravarAvaliacaoAction implements Action {
             response.sendRedirect("gravarAvaliacao.jsp");
         } else {
             try {
-                Pedido pedido = PedidoDAO.getInstance().read(new Pedido (pedidoID));
-                Avaliacao avaliacao = new Avaliacao(id, descricao, votacao,pedido);
+                Pedido pedido = PedidoDAO.getInstance().read(new Pedido(pedidoID));
+                Avaliacao avaliacao = new Avaliacao(id, descricao, votacao, pedido);
                 AvaliacaoDAO.getInstance().save(avaliacao);
                 response.sendRedirect("sucesso.jsp");
             } catch (SQLException ex) {

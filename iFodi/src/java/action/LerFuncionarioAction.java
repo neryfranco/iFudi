@@ -23,7 +23,8 @@ import model.Funcionario;
  */
 public class LerFuncionarioAction implements Action {
 
-    public LerFuncionarioAction() {}
+    public LerFuncionarioAction() {
+    }
 
     @Override
     public void execute(HttpServletRequest request, HttpServletResponse response) throws IOException {

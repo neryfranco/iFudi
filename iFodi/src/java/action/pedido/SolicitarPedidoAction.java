@@ -24,13 +24,15 @@ import java.util.logging.Logger;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import model.Pedido;
-public class SolicitarPedidoAction implements Action{
-    
-    public SolicitarPedidoAction(){}
+
+public class SolicitarPedidoAction implements Action {
+
+    public SolicitarPedidoAction() {
+    }
 
     @Override
     public void execute(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        
+
         Integer id = Integer.parseInt(request.getParameter("idPedido"));
 
         Pedido pedido = new Pedido(id, null, null);

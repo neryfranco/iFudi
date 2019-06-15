@@ -17,31 +17,32 @@ import model.Frete;
  * @author Nery
  */
 public class FreteDAO {
-    
+
     private static FreteDAO instance = new FreteDAO();
-    
-    private FreteDAO(){}
-    
-    public static FreteDAO getInstance(){
+
+    private FreteDAO() {
+    }
+
+    public static FreteDAO getInstance() {
         return instance;
     }
-    
-    public void save (String id) throws SQLException, ClassNotFoundException {
+
+    public void save(String id) throws SQLException, ClassNotFoundException {
         Connection conn = null;
         Statement st = null;
-        
+
         try {
             conn = DatabaseLocator.getInstance().getConnection();
             st = conn.createStatement();
-            st.execute("insert into frete (id)" +
-                    "values ('" + id + "')");
-        } catch(SQLException e){
+            st.execute("insert into frete (id)"
+                    + "values ('" + id + "')");
+        } catch (SQLException e) {
             throw e;
         } finally {
             closeResources(conn, st);
         }
     }
-    
+
     public void save(Frete frete) throws SQLException, ClassNotFoundException {
         Connection conn = null;
         Statement st = null;
@@ -49,18 +50,18 @@ public class FreteDAO {
         try {
             conn = DatabaseLocator.getInstance().getConnection();
             st = conn.createStatement();
-            SQL = "insert into frete (id, taxa, tempoEntrega) " +
-                    "values ('" + frete.getID() + "', '" 
-                    + frete.getTaxa() + "', '" 
-                    + frete.getTempoEntrega()+ "')";
+            SQL = "insert into frete (id, taxa, tempoEntrega) "
+                    + "values ('" + frete.getID() + "', '"
+                    + frete.getTaxa() + "', '"
+                    + frete.getTempoEntrega() + "')";
             st.execute(SQL);
-        } catch(SQLException e){
+        } catch (SQLException e) {
             throw e;
         } finally {
             closeResources(conn, st);
         }
     }
-    
+
     public Frete read(Frete frete) throws SQLException, ClassNotFoundException {
         Connection conn = null;
         Statement st = null;
@@ -69,13 +70,13 @@ public class FreteDAO {
         try {
             conn = DatabaseLocator.getInstance().getConnection();
             st = conn.createStatement();
-            ResultSet rs = st.executeQuery("select * from frete where id = '" + frete.getID()+ "'");
+            ResultSet rs = st.executeQuery("select * from frete where id = '" + frete.getID() + "'");
             rs.first();
-            
-            a = new Frete(rs.getInt("id"), 
+
+            a = new Frete(rs.getInt("id"),
                     rs.getDouble("taxa"),
                     rs.getString("tempoEntrega"));
-            
+
         } catch (SQLException e) {
             throw e;
         } finally {
@@ -83,7 +84,7 @@ public class FreteDAO {
         }
         return a;
     }
-    
+
     public void delete(Frete frete) throws SQLException, ClassNotFoundException {
         Connection conn = null;
         Statement st = null;
@@ -91,7 +92,7 @@ public class FreteDAO {
         try {
             conn = DatabaseLocator.getInstance().getConnection();
             st = conn.createStatement();
-            stringSQL = "delete from Frete where id = '" + frete.getID()+ "'";
+            stringSQL = "delete from Frete where id = '" + frete.getID() + "'";
             st.execute(stringSQL);
         } catch (SQLException e) {
             throw e;
@@ -101,11 +102,14 @@ public class FreteDAO {
     }
 
     private void closeResources(Connection conn, Statement st) {
-        try{
-            if(st!=null) st.close();
-            if(conn!=null) conn.close();
-        } 
-        catch(SQLException e){
+        try {
+            if (st != null) {
+                st.close();
+            }
+            if (conn != null) {
+                conn.close();
+            }
+        } catch (SQLException e) {
         }
     }
 }

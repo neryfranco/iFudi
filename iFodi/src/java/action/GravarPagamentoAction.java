@@ -20,8 +20,9 @@ import model.Pedido;
  * @author Jessica
  */
 public class GravarPagamentoAction implements Action {
-    
-    public GravarPagamentoAction(){}
+
+    public GravarPagamentoAction() {
+    }
 
     @Override
     public void execute(HttpServletRequest request, HttpServletResponse response) throws IOException {

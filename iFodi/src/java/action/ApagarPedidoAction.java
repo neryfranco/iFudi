@@ -18,13 +18,14 @@ import model.Pedido;
  * @author Jessica
  */
 public class ApagarPedidoAction implements Action {
-    
-    public ApagarPedidoAction(){}
+
+    public ApagarPedidoAction() {
+    }
 
     @Override
     public void execute(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
-       Integer id = Integer.parseInt(request.getParameter("txtId"));
+        Integer id = Integer.parseInt(request.getParameter("txtId"));
 
         Pedido pedido = new Pedido(id, null, null);
         if (id.equals("")) {

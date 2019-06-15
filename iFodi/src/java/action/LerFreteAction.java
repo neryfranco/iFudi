@@ -22,14 +22,15 @@ import model.Frete;
  * @author Jessica
  */
 public class LerFreteAction implements Action {
-    
-    public LerFreteAction(){}
+
+    public LerFreteAction() {
+    }
 
     @Override
     public void execute(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
         Integer id = Integer.parseInt(request.getParameter("txtId"));
-        
+
         Frete frete = new Frete(id, null, null);
         if (id.equals("")) {
             response.sendRedirect("lerFrete.jsp");

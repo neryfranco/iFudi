@@ -14,18 +14,8 @@ import java.util.Observer;
  */
 public class Cliente extends Usuario implements Observer {
 
-    private Cartao cartao;
-
     public Cliente(String email, String senha, String nome) {
         super(email, senha, nome);
-    }
-
-    public Cartao getCartao() {
-        return cartao;
-    }
-
-    public void setCartao(Cartao cartao) {
-        this.cartao = cartao;
     }
 
     @Override

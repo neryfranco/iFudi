@@ -12,6 +12,7 @@ import java.sql.SQLException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import model.Usuario;
+import model.UsuarioBuilder;
 
 public class GravarUsuarioAction implements Action {
 
@@ -33,7 +34,7 @@ public class GravarUsuarioAction implements Action {
         if (email.equals("") || senha.equals("") || nome.equals("") || cpf.equals("") || rua.equals("") || numero.equals("") || cidade.equals("") || estado.equals("")) {
             response.sendRedirect("gravarUsuario.jsp");
         } else {
-             Usuario usuario = new Usuario(email, senha, nome, cpf, rua, numero, cidade, estado);
+             Usuario usuario = new UsuarioBuilder().setEmail(email).setSenha(senha).setNome(nome).setCpf(cpf).setRua(rua).setNumero(numero).setCidade(cidade).setEstado(estado).createUsuario();
             try {
                 UsuarioDAO.getInstance().save(usuario);
                 response.sendRedirect("sucesso.jsp");

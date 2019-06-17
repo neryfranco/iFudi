@@ -13,6 +13,7 @@ import java.sql.SQLException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import model.Avaliacao;
+import model.AvaliacaoBuilder;
 import model.Pedido;
 
 /**
@@ -37,7 +38,7 @@ public class GravarAvaliacaoAction implements Action {
         } else {
             try {
                 Pedido pedido = PedidoDAO.getInstance().read(new Pedido(pedidoID));
-                Avaliacao avaliacao = new Avaliacao(id, descricao, votacao, pedido);
+                Avaliacao avaliacao = new AvaliacaoBuilder().setId(id).setDescricao(descricao).setVotacao(votacao).setPedido(pedido).createAvaliacao();
                 AvaliacaoDAO.getInstance().save(avaliacao);
                 response.sendRedirect("sucesso.jsp");
             } catch (SQLException ex) {

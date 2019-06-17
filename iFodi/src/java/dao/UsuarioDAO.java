@@ -11,6 +11,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import model.Usuario;
+import model.UsuarioBuilder;
 
 /**
  *
@@ -78,14 +79,7 @@ public class UsuarioDAO {
             ResultSet rs = st.executeQuery("select * from usuario where email = '" + usuario.getEmail() + "'");
             rs.first();
 
-           a = new Usuario(rs.getString("email"), 
-                    rs.getString("senha"),
-                    rs.getString("nome"),
-                    rs.getString("cpf"),
-                    rs.getString("rua"),
-                    rs.getString("numero"),
-                    rs.getString("cidade"),
-                    rs.getString("estado"));
+           a = new UsuarioBuilder().setEmail(rs.getString("email")).setSenha(rs.getString("senha")).setNome(rs.getString("nome")).setCpf(rs.getString("cpf")).setRua(rs.getString("rua")).setNumero(rs.getString("numero")).setCidade(rs.getString("cidade")).setEstado(rs.getString("estado")).createUsuario();
         } catch (SQLException e) {
             throw e;
         } finally {

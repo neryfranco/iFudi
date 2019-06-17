@@ -16,6 +16,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import model.Item;
+import model.ItemBuilder;
 
 /**
  *
@@ -31,7 +32,7 @@ public class LerItemAction implements Action {
 
         Integer id = Integer.parseInt(request.getParameter("txtId"));
 
-        Item item = new Item(id, null, null, null, null);
+        Item item = new ItemBuilder().setId(id).setProduto(null).setQuantidade(null).setPrecoTotal(null).setPedido(null).createItem();
         if (id.equals("")) {
             response.sendRedirect("lerItem.jsp");
         } else {

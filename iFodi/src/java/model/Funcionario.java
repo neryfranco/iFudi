@@ -18,7 +18,7 @@ public class Funcionario extends Usuario {
         super(email, senha, nome);
         this.funcao = funcao;
     }
-
+     
     public String getFuncao() {
         return funcao;
     }

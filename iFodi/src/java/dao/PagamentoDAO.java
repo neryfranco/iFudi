@@ -5,12 +5,10 @@
  */
 package dao;
 
-import dao.DatabaseLocator;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import model.FormaPagamento;
 import model.Pagamento;
 import model.Pedido;
 

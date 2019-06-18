@@ -5,7 +5,6 @@
  */
 package dao;
 
-import dao.DatabaseLocator;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -91,7 +90,7 @@ public class RestauranteDAO {
                     null,
                     null);
             Categoria categoria = CategoriaDAO.getInstance().read(new Categoria(rs.getInt("categoria_id"), null));
-            Vendedor vendedor = VendedorDAO.getInstance().read(new Vendedor(rs.getString("vendedor_usuario_email")));
+            Vendedor vendedor = VendedorDAO.getInstance().read(new Vendedor(rs.getString("usuario_email"), null, null));
             a.setCategoria(categoria);
             a.setVendedor(vendedor);
         } catch (SQLException e) {

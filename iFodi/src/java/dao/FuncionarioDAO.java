@@ -5,7 +5,6 @@
  */
 package dao;
 
-import controller.ActionFactory;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;

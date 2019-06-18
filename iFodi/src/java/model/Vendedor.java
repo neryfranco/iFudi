@@ -19,10 +19,6 @@ public class Vendedor extends Usuario{
         super(email, senha, nome);
     }
 
-    public Vendedor(String email) {
-        super(email);
-    }
-
     public List<Restaurante> getRestaurantes() {
         return restaurantes;
     }

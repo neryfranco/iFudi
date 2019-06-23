@@ -18,6 +18,7 @@ public class UsuarioBuilder {
     private String estado;
 
     public UsuarioBuilder() {
+        
     }
 
     public UsuarioBuilder setEmail(String email) {

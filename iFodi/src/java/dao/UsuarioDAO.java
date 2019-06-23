@@ -11,7 +11,6 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import model.Usuario;
 import model.UsuarioBuilder;
-
 /**
  *
  * @author Nery
@@ -94,7 +93,7 @@ public class UsuarioDAO {
         try {
             conn = DatabaseLocator.getInstance().getConnection();
             st = conn.createStatement();
-            stringSQL = "delete from Usuario where email = '" + usuario.getEmail() + "'";
+            stringSQL = "delete from usuario where email = '" + usuario.getEmail() + "'";
             st.execute(stringSQL);
         } catch (SQLException e) {
             throw e;

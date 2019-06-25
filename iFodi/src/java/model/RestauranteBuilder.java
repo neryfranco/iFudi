@@ -19,10 +19,7 @@ public class RestauranteBuilder {
     private List<Produto> listaProdutos;
     private Categoria categoria;
     private Vendedor vendedor;
-
-    public RestauranteBuilder() {
-    }
-
+    
     public RestauranteBuilder setCnpj(String cnpj) {
         this.cnpj = cnpj;
         return this;

@@ -96,7 +96,7 @@ public class PagamentoDAO {
         try {
             conn = DatabaseLocator.getInstance().getConnection();
             st = conn.createStatement();
-            stringSQL = "delete from Pagamento where id = '" + pagamento.getId() + "'";
+            stringSQL = "delete from pagamento where id = '" + pagamento.getId() + "'";
             st.execute(stringSQL);
         } catch (SQLException e) {
             throw e;

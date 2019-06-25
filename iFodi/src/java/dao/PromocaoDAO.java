@@ -93,7 +93,7 @@ public class PromocaoDAO {
         try {
             conn = DatabaseLocator.getInstance().getConnection();
             st = conn.createStatement();
-            stringSQL = "delete from Promocao where id = '" + promocao.getId() + "'";
+            stringSQL = "delete from promocao where id = '" + promocao.getId() + "'";
             st.execute(stringSQL);
         } catch (SQLException e) {
             throw e;

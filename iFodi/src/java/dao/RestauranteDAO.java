@@ -108,7 +108,7 @@ public class RestauranteDAO {
         try {
             conn = DatabaseLocator.getInstance().getConnection();
             st = conn.createStatement();
-            stringSQL = "delete from Restaurante where cnpj = '" + restaurante.getCnpj() + "'";
+            stringSQL = "delete from restaurante where cnpj = '" + restaurante.getCnpj() + "'";
             st.execute(stringSQL);
         } catch (SQLException e) {
             throw e;

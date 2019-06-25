@@ -59,7 +59,7 @@ public class PedidoBuilder {
     }
 
     public PedidoBuilder setCliente(Cliente cliente) {
-        this.cliente = cliente;
+        this.cliente =  cliente;
         return this;
     }
 

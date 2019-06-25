@@ -88,7 +88,7 @@ public class CategoriaDAO {
         try {
             conn = DatabaseLocator.getInstance().getConnection();
             st = conn.createStatement();
-            stringSQL = "delete from Categoria where id = '" + categoria.getId() + "'";
+            stringSQL = "delete from categoria where id = '" + categoria.getId() + "'";
             st.execute(stringSQL);
         } catch (SQLException e) {
             throw e;

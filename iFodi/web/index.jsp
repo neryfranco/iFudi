@@ -21,7 +21,7 @@
                     </div>
                     <div class="text-wrap vcenter">
                         <h2 class="mbr-fonts-style mbr-bold mbr-section-title3 display-5">Vendedor</h2>
-                        <p class="mbr-fonts-style text1 mbr-text display-6">Para acessar área do venddedor</p>
+                        <p class="mbr-fonts-style text1 mbr-text display-6">Para acessar área do vendedor</p>
                         <a href="vendedor.jsp">Acesse aqui</a>
                     </div>
                 </div>

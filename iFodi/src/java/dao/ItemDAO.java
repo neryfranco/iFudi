@@ -102,7 +102,7 @@ public class ItemDAO {
         try {
             conn = DatabaseLocator.getInstance().getConnection();
             st = conn.createStatement();
-            stringSQL = "delete from Item where id = '" + item.getId() + "'";
+            stringSQL = "delete from item where id = '" + item.getId() + "'";
             st.execute(stringSQL);
         } catch (SQLException e) {
             throw e;

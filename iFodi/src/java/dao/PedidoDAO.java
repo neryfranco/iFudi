@@ -136,7 +136,7 @@ public class PedidoDAO {
         try {
             conn = DatabaseLocator.getInstance().getConnection();
             st = conn.createStatement();
-            stringSQL = "delete from Pedido where id = '" + pedido.getId() + "'";
+            stringSQL = "delete from pedido where id = '" + pedido.getId() + "'";
             st.execute(stringSQL);
         } catch (SQLException e) {
             throw e;

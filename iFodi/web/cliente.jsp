@@ -29,7 +29,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="#">Área Clienter</a>
+                    <a class="navbar-brand" href="#">Área Cliente</a>
                 </div>
             </div>
         </nav>

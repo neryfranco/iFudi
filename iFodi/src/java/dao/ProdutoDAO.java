@@ -101,7 +101,7 @@ public class ProdutoDAO {
         try {
             conn = DatabaseLocator.getInstance().getConnection();
             st = conn.createStatement();
-            stringSQL = "delete from Produto where id = '" + produto.getId() + "'";
+            stringSQL = "delete from produto where id = '" + produto.getId() + "'";
             st.execute(stringSQL);
         } catch (SQLException e) {
             throw e;

@@ -91,7 +91,7 @@ public class FreteDAO {
         try {
             conn = DatabaseLocator.getInstance().getConnection();
             st = conn.createStatement();
-            stringSQL = "delete from Frete where id = '" + frete.getID() + "'";
+            stringSQL = "delete from frete where id = '" + frete.getID() + "'";
             st.execute(stringSQL);
         } catch (SQLException e) {
             throw e;

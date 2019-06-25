@@ -96,7 +96,7 @@ public class AvaliacaoDAO {
         try {
             conn = DatabaseLocator.getInstance().getConnection();
             st = conn.createStatement();
-            stringSQL = "delete from Avaliacao where id = '" + avaliacao.getID() + "'";
+            stringSQL = "delete from avaliacao where id = '" + avaliacao.getID() + "'";
             st.execute(stringSQL);
         } catch (SQLException e) {
             throw e;

@@ -11,6 +11,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import model.Usuario;
 import model.UsuarioBuilder;
+
 /**
  *
  * @author Nery

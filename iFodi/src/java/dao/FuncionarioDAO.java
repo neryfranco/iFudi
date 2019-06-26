@@ -83,16 +83,16 @@ public class FuncionarioDAO {
             ResultSet rs = st.executeQuery("select * from funcionario where usuario_email = '" + funcionario.getEmail() + "'");
             rs.first();
 
-            Usuario usuario = UsuarioDAO.getInstance().read(new Usuario(rs.getString("usuario_email")));
-            a = new Funcionario(usuario.getEmail(),
-                    usuario.getSenha(),
-                    usuario.getNome(),
+            UsuarioBuilder usuarioBuilder = UsuarioDAO.getInstance().read(new UsuarioBuilder(rs.getString("usuario_email")));
+            a = new Funcionario(usuarioBuilder.getEmail(),
+                    usuarioBuilder.getSenha(),
+                    usuarioBuilder.getNome(),
                     a.getFuncao());
-            a.setCidade(usuario.getCidade());
-            a.setCpf(usuario.getCpf());
-            a.setEstado(usuario.getEstado());
-            a.setNumero(usuario.getNumero());
-            a.setRua(usuario.getRua());
+            a.setCidade(usuarioBuilder.getCidade());
+            a.setCpf(usuarioBuilder.getCpf());
+            a.setEstado(usuarioBuilder.getEstado());
+            a.setNumero(usuarioBuilder.getNumero());
+            a.setRua(usuarioBuilder.getRua());
         } catch (SQLException e) {
             throw e;
         } finally {

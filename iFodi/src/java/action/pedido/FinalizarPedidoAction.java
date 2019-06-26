@@ -35,7 +35,7 @@ public class FinalizarPedidoAction implements Action {
 
         Integer id = Integer.parseInt(request.getParameter("idPedido"));
 
-        PedidoBuilder pedido = new PedidoBuilder(id, null, null);
+        PedidoBuilder pedido = new PedidoBuilder();
         if (id.equals("")) {
             response.sendRedirect("carregarPedidos.jsp");
         } else {

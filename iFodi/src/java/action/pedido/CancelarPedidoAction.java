@@ -5,14 +5,10 @@
  */
 package action.pedido;
 
-import dao.ItemDAO;
 import java.io.IOException;
-import java.sql.SQLException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import model.Item;
 import controller.Action;
-import model.PedidoCancelado;
 
 /**
  *
@@ -35,7 +31,7 @@ public class CancelarPedidoAction implements Action {
 
         Integer id = Integer.parseInt(request.getParameter("idPedido"));
 
-        PedidoBuilder pedido = new PedidoBuilder(id, null, null);
+        PedidoBuilder pedido = new PedidoBuilder();
         if (id.equals("")) {
             response.sendRedirect("carregarPedidos.jsp");
         } else {

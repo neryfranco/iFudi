@@ -10,8 +10,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-import model.PedidoBuilder;
-import model.ProdutoBuilder;
 import model.ItemBuilder;
 
 /**
@@ -45,7 +43,7 @@ public class ItemDAO {
         }
     }
 
-    public void save(Item item) throws SQLException, ClassNotFoundException {
+    public void save(ItemBuilder itemBuilder) throws SQLException, ClassNotFoundException {
         Connection conn = null;
         Statement st = null;
         String SQL = null;
@@ -53,11 +51,11 @@ public class ItemDAO {
             conn = DatabaseLocator.getInstance().getConnection();
             st = conn.createStatement();
             SQL = "insert into item (id, quantidade, precoTotal, produto_id, pedido_id) "
-                    + "values ('" + item.getId() + "', '"
-                    + item.getQuantidade() + "', '"
-                    + item.getPrecoTotal() + "', '"
-                    + item.getProduto().getId() + "', '"
-                    + item.getPedido().getId() + "')";
+                    + "values ('" + itemBuilder.getId() + "', '"
+                    + itemBuilder.getQuantidade() + "', '"
+                    + itemBuilder.getPrecoTotal() + "', '"
+                    + itemBuilder.getProduto().getId() + "', '"
+                    + itemBuilder.getPedido().getId() + "')";
             st.execute(SQL);
         } catch (SQLException e) {
             throw e;
@@ -66,26 +64,26 @@ public class ItemDAO {
         }
     }
 
-    public Item read(Item item) throws SQLException, ClassNotFoundException {
+    public ItemBuilder read(ItemBuilder item) throws SQLException, ClassNotFoundException {
         Connection conn = null;
         Statement st = null;
         String stringSQL;
-        Item a = null;
+        ItemBuilder a = null;
         try {
             conn = DatabaseLocator.getInstance().getConnection();
             st = conn.createStatement();
             ResultSet rs = st.executeQuery("select * from item where id = '" + item.getId() + "'");
             rs.first();
 
-            a = new Item(rs.getInt("id"),
+            a = new ItemBuilder(rs.getInt("id"),
                     null,
                     rs.getInt("quantidade"),
                     rs.getDouble("precoTotal"),
                     null);
 
-            Pedido pedido = PedidoDAO.getInstance().read(new Pedido(rs.getInt("pedido_id")));
-            Produto produto = ProdutoDAO.getInstance().read(new Produto(rs.getInt("produto_id"), null));
-            a.setPedido(pedido);
+            PedidoBuilder pedidoBuilder = PedidoDAO.getInstance().read(new PedidoBuilder(rs.getInt("pedido_id")));
+            ProdutoBuilder produto = ProdutoDAO.getInstance().read(new ProdutoBuilder(rs.getInt("produto_id"), null));
+            a.setPedido(pedidoBuilder);
             a.setProduto(produto);
         } catch (SQLException e) {
             throw e;
@@ -95,14 +93,14 @@ public class ItemDAO {
         return a;
     }
 
-    public void delete(Item item) throws SQLException, ClassNotFoundException {
+    public void delete(ItemBuilder itemBuilder) throws SQLException, ClassNotFoundException {
         Connection conn = null;
         Statement st = null;
         String stringSQL;
         try {
             conn = DatabaseLocator.getInstance().getConnection();
             st = conn.createStatement();
-            stringSQL = "delete from item where id = '" + item.getId() + "'";
+            stringSQL = "delete from item where id = '" + itemBuilder.getId() + "'";
             st.execute(stringSQL);
         } catch (SQLException e) {
             throw e;
@@ -111,19 +109,19 @@ public class ItemDAO {
         }
     }
 
-    public ArrayList<Item> getItems() throws ClassNotFoundException {
+    public ArrayList<ItemBuilder> getItemBuilder() throws ClassNotFoundException {
         Connection conn = null;
         Statement st = null;
-        ArrayList<Item> items = new ArrayList<Item>();
-        Item item = null;
+        ArrayList<ItemBuilder> items = new ArrayList<ItemBuilder>();
+        ItemBuilder itemBuilder = null;
         try {
             conn = DatabaseLocator.getInstance().getConnection();
             st = conn.createStatement();
             ResultSet rs = st.executeQuery("select * from item");
             while (rs.next()) {
-                item = new Item(rs.getInt("id"));
-                item = read(item);
-                items.add(item);
+                itemBuilder = new ItemBuilder(rs.getInt("id"));
+                itemBuilder = read(itemBuilder);
+                itemBuilder.add(itemBuilder);
             }
         } catch (SQLException e) {
             e.printStackTrace();

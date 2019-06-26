@@ -8,7 +8,6 @@ package action.pedido;
 import controller.Action;
 import dao.PedidoDAO;
 import java.io.IOException;
-import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.RequestDispatcher;
@@ -31,7 +30,7 @@ public class EntregarPedidoAction implements Action {
 
         Integer id = Integer.parseInt(request.getParameter("idPedido"));
 
-        PedidoBuilder pedido = new PedidoBuilder(id, null, null);
+        PedidoBuilder pedido = new PedidoBuilder();
         if (id.equals("")) {
             response.sendRedirect("carregarPedidos.jsp");
         } else {

@@ -11,7 +11,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import model.Cliente;
-import model.Usuario;
+import model.UsuarioBuilder;
 
 /**
  *

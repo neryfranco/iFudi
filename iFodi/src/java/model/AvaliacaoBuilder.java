@@ -5,13 +5,12 @@
  */
 package model;
 
-
 public class AvaliacaoBuilder {
 
     private Integer id;
     private String descricao;
     private Integer votacao;
-    private Pedido pedido;
+    private PedidoBuilder pedidoBuilder;
 
     public AvaliacaoBuilder() {
     }
@@ -31,13 +30,9 @@ public class AvaliacaoBuilder {
         return this;
     }
 
-    public AvaliacaoBuilder setPedido(Pedido pedido) {
-        this.pedido = pedido;
+    public AvaliacaoBuilder setPedido(PedidoBuilder pedidoBuilder) {
+        this.pedidoBuilder = pedidoBuilder;
         return this;
     }
 
-    public Avaliacao createAvaliacao() {
-        return new Avaliacao(id, descricao, votacao, pedido);
-    }
-    
 }

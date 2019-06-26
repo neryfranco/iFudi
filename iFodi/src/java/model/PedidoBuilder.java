@@ -11,25 +11,22 @@ import java.util.List;
 public class PedidoBuilder {
 
     private Integer id;
-    private List<Item> itens;
+    private List<ItemBuilder> itemBuilder;
     private PedidoStatus status;
     private String data;
     private Integer tempoEstimado;
-    private Avaliacao avaliacao;
+    private AvaliacaoBuilder avaliacaoBuilder;
     private Double frete;
     private Cliente cliente;
-    private Restaurante restaurante;
-
-    public PedidoBuilder() {
-    }
+    private RestauranteBuilder restauranteBuilder;
 
     public PedidoBuilder setId(Integer id) {
         this.id = id;
         return this;
     }
 
-    public PedidoBuilder setItens(List<Item> itens) {
-        this.itens = itens;
+    public PedidoBuilder setItens(List<ItemBuilder> itemBuilder) {
+        this.itemBuilder = itemBuilder;
         return this;
     }
 
@@ -48,8 +45,8 @@ public class PedidoBuilder {
         return this;
     }
 
-    public PedidoBuilder setAvaliacao(Avaliacao avaliacao) {
-        this.avaliacao = avaliacao;
+    public PedidoBuilder setAvaliacao(AvaliacaoBuilder avaliacaoBuilder) {
+        this.avaliacaoBuilder = avaliacaoBuilder;
         return this;
     }
 
@@ -63,13 +60,13 @@ public class PedidoBuilder {
         return this;
     }
 
-    public PedidoBuilder setRestaurante(Restaurante restaurante) {
-        this.restaurante = restaurante;
+    public PedidoBuilder setRestaurante(RestauranteBuilder restauranteBuilder) {
+        this.restauranteBuilder = restauranteBuilder;
         return this;
     }
 
-    public Pedido createPedido() {
-        return new Pedido(id, itens, status, data, tempoEstimado, avaliacao, frete, cliente, restaurante);
+    Object getStatus() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 }

@@ -5,12 +5,11 @@
  */
 package model;
 
-
 public class ProdutoBuilder {
 
     private Integer id;
     private String descricao;
-    private Restaurante restaurante;
+    private RestauranteBuilder restauranteBuider;
     private Double preco;
 
     public ProdutoBuilder() {
@@ -26,8 +25,8 @@ public class ProdutoBuilder {
         return this;
     }
 
-    public ProdutoBuilder setRestaurante(Restaurante restaurante) {
-        this.restaurante = restaurante;
+    public ProdutoBuilder setRestaurante(RestauranteBuilder restauranteBuider) {
+        this.restauranteBuider = restauranteBuider;
         return this;
     }
 
@@ -36,8 +35,4 @@ public class ProdutoBuilder {
         return this;
     }
 
-    public Produto createProduto() {
-        return new Produto(id, descricao, restaurante, preco);
-    }
-    
 }

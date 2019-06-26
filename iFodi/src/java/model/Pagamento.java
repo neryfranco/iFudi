@@ -12,13 +12,13 @@ package model;
 public class Pagamento {
 
     private Integer id;
-    private Pedido pedido;
+    private PedidoBuilder pedidoBuilder;
     private Double valor;
     private FormaPagamento formaPagamento;
 
-    public Pagamento(Integer id, Pedido pedido, Double valor, FormaPagamento formaPagamento) {
+    public Pagamento(Integer id, PedidoBuilder pedidoBuilder, Double valor, FormaPagamento formaPagamento) {
         this.id = id;
-        this.pedido = pedido;
+        this.pedidoBuilder = pedidoBuilder;
         this.valor = valor;
         this.formaPagamento = formaPagamento;
     }
@@ -36,12 +36,12 @@ public class Pagamento {
         this.id = id;
     }
 
-    public Pedido getPedido() {
-        return pedido;
+    public PedidoBuilder getPedido() {
+        return pedidoBuilder;
     }
 
-    public void setPedido(Pedido pedido) {
-        this.pedido = pedido;
+    public void setPedido(PedidoBuilder pedidoBuilder) {
+        this.pedidoBuilder = pedidoBuilder;
     }
 
     public FormaPagamento getFormaPagamento() {

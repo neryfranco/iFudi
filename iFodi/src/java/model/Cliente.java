@@ -12,19 +12,20 @@ import java.util.Observer;
  *
  * @author Jessica
  */
-public class Cliente extends Usuario implements Observer {
-
-    public Cliente(String email, String senha, String nome) {
-        super(email, senha, nome);
-    }
+public class Cliente extends UsuarioBuilder implements Observer {
 
     @Override
     public void update(Observable pedidoSubject, Object arg) {
         String statusPedido;
-        if (pedidoSubject instanceof Pedido) {
-            Pedido pedido = (Pedido) pedidoSubject;
-            statusPedido = pedido.getStatus().getNomeClasse();
+        if (pedidoSubject instanceof PedidoBuilder) {
+            PedidoBuilder pedidoBuilder;
+            pedidoBuilder = (PedidoBuilder) pedidoSubject;
+            statusPedido = pedidoBuilder.getStatus().getNomeClasse();
             System.out.println("Atenção" + getNome() + "seu pedido está no estado de: " + statusPedido);
         }
+    }
+
+    private String getNome() {
+        return null;
     }
 }

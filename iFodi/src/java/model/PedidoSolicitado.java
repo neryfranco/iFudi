@@ -14,29 +14,29 @@ public class PedidoSolicitado implements PedidoStatus {
     public String nomeClasse = "PedidoSolicitado";
 
     @Override
-    public String cancelar(Pedido pedido) {
-        pedido.setStatus(new PedidoCancelado());
+    public String cancelar(PedidoBuilder pedidoBuilder) {
+        pedidoBuilder.setStatus(new PedidoCancelado());
         return "Pedido cancelado";
     }
 
     @Override
-    public String entregar(Pedido pedido) {
+    public String entregar(PedidoBuilder pedidoBuilder) {
         return "Pedido solicitado não pode ser entregue";
     }
 
     @Override
-    public String finalizar(Pedido pedido) {
+    public String finalizar(PedidoBuilder pedidoBuilder) {
         return "Pedido solicitado não pode ser finalizado";
     }
 
     @Override
-    public String preparar(Pedido pedido) {
-        pedido.setStatus(new PedidoPreparando());
+    public String preparar(PedidoBuilder pedidoBuilder) {
+        pedidoBuilder.setStatus(new PedidoPreparando());
         return "Pedido em preparação";
     }
 
     @Override
-    public String solicitar(Pedido pedido) {
+    public String solicitar(PedidoBuilder pedidoBuilder) {
         return "Pedido solicitado não pode ser solicitado novamente";
     }
 

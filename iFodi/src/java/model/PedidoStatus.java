@@ -11,15 +11,15 @@ package model;
  */
 public interface PedidoStatus {
 
-    public String cancelar(Pedido pedido);
+    public String cancelar(PedidoBuilder pedidoBuilder);
 
-    public String entregar(Pedido pedido);
+    public String entregar(PedidoBuilder pedidoBuilder);
 
-    public String finalizar(Pedido pedido);
+    public String finalizar(PedidoBuilder pedidoBuilder);
 
-    public String preparar(Pedido pedido);
+    public String preparar(PedidoBuilder pedidoBuilder);
 
-    public String solicitar(Pedido pedido);
+    public String solicitar(PedidoBuilder pedidoBuilder);
 
     public String getNomeClasse();
 }

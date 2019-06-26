@@ -11,27 +11,23 @@ import java.util.List;
  *
  * @author Jessica
  */
-public class Vendedor extends Usuario{
+public class Vendedor extends UsuarioBuilder{
 
-    private List<Restaurante> restaurantes;
+    private List<RestauranteBuilder> restauranteBuilder;
 
-    public Vendedor(String email, String senha, String nome) {
-        super(email, senha, nome);
+    public List<RestauranteBuilder> getRestaurantes() {
+        return restauranteBuilder;
     }
 
-    public List<Restaurante> getRestaurantes() {
-        return restaurantes;
+    public void setRestaurantes(List<RestauranteBuilder> restauranteBuilder) {
+        this.restauranteBuilder = restauranteBuilder;
     }
 
-    public void setRestaurantes(List<Restaurante> restaurantes) {
-        this.restaurantes = restaurantes;
+    public void addRestauranteBuilder(RestauranteBuilder restauranteBuilder) {
+        restauranteBuilder.add(restauranteBuilder);
     }
 
-    public void addRestaurante(Restaurante restaurante) {
-        restaurantes.add(restaurante);
-    }
-
-    public void removeRestaurante(Restaurante restaurante) {
-        restaurantes.remove(restaurante);
+    public void removeRestaurante(RestauranteBuilder restaurante) {
+        restauranteBuilder.remove(restauranteBuilder);
     }
 }

@@ -9,16 +9,11 @@ package model;
  *
  * @author Jessica
  */
-public class Funcionario extends Usuario {
+public class Funcionario extends UsuarioBuilder {
 
     private String funcao;
     private String status;
 
-    public Funcionario(String funcao, String email, String senha, String nome) {
-        super(email, senha, nome);
-        this.funcao = funcao;
-    }
-     
     public String getFuncao() {
         return funcao;
     }

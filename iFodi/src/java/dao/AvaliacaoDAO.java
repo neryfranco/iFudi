@@ -9,8 +9,8 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import model.Avaliacao;
-import model.Pedido;
+import model.AvaliacaoBuilder;
+import model.PedidoBuilder;
 
 /**
  *
@@ -43,7 +43,7 @@ public class AvaliacaoDAO {
         }
     }
 
-    public void save(Avaliacao avaliacao) throws SQLException, ClassNotFoundException {
+    public void save(AvaliacaoBuilder avaliacao) throws SQLException, ClassNotFoundException {
         Connection conn = null;
         Statement st = null;
         String SQL = null;
@@ -63,23 +63,23 @@ public class AvaliacaoDAO {
         }
     }
 
-    public Avaliacao read(Avaliacao avaliacao) throws SQLException, ClassNotFoundException {
+    public AvaliacaoBuilder read(AvaliacaoBuilder avaliacao) throws SQLException, ClassNotFoundException {
         Connection conn = null;
         Statement st = null;
         String stringSQL;
-        Avaliacao a = null;
+        AvaliacaoBuilder a = null;
         try {
             conn = DatabaseLocator.getInstance().getConnection();
             st = conn.createStatement();
             ResultSet rs = st.executeQuery("select * from avaliacao where id = '" + avaliacao.getID() + "'");
             rs.first();
 
-            a = new Avaliacao(rs.getInt("id"),
+            a = new AvaliacaoBuilder(rs.getInt("id"),
                     rs.getString("descricao"),
                     rs.getInt("votacao"),
                     null);
 
-            Pedido pedido = PedidoDAO.getInstance().read(new Pedido(rs.getInt("id")));
+            PedidoBuilder pedido = PedidoDAO.getInstance().read(new PedidoBuilder(rs.getInt("id")));
             a.setPedido(pedido);
         } catch (SQLException e) {
             throw e;
@@ -89,7 +89,7 @@ public class AvaliacaoDAO {
         return a;
     }
 
-    public void delete(Avaliacao avaliacao) throws SQLException, ClassNotFoundException {
+    public void delete(AvaliacaoBuilder avaliacao) throws SQLException, ClassNotFoundException {
         Connection conn = null;
         Statement st = null;
         String stringSQL;

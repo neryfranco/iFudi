@@ -23,7 +23,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
-import model.Pedido;
+import model.PedidoBuilder;
 
 public class CancelarPedidoAction implements Action {
 
@@ -35,23 +35,18 @@ public class CancelarPedidoAction implements Action {
 
         Integer id = Integer.parseInt(request.getParameter("idPedido"));
 
-        Pedido pedido = new Pedido(id, null, null);
+        PedidoBuilder pedido = new PedidoBuilder(id, null, null);
         if (id.equals("")) {
             response.sendRedirect("carregarPedidos.jsp");
         } else {
             try {
-                Pedido p = PedidoDAO.getInstance().read(pedido);
+                PedidoBuilder p = PedidoDAO.getInstance().read(pedido);
                 if (p != null) {
                     request.setAttribute("msgPedido", p.cancelarPedido());
                     PedidoDAO.getInstance().edit(p);
                     RequestDispatcher view = request.getRequestDispatcher("FrontController?action=action.CarregarPedidosAction");
                     view.forward(request, response);
                 }
-            } catch (SQLException ex) {
-                response.sendRedirect("erro.jsp");
-                ex.printStackTrace();
-            } catch (ClassNotFoundException ex) {
-                ex.printStackTrace();
             } catch (ServletException ex) {
                 Logger.getLogger(CancelarPedidoAction.class.getName()).log(Level.SEVERE, null, ex);
             }

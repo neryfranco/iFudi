@@ -7,7 +7,6 @@ package model;
 
 import java.util.List;
 
-
 public class RestauranteBuilder {
 
     private String cnpj;
@@ -16,10 +15,10 @@ public class RestauranteBuilder {
     private String numero;
     private String cidade;
     private String estado;
-    private List<Produto> listaProdutos;
+    private List<ProdutoBuilder> listaProdutos;
     private Categoria categoria;
     private Vendedor vendedor;
-    
+
     public RestauranteBuilder setCnpj(String cnpj) {
         this.cnpj = cnpj;
         return this;
@@ -50,7 +49,7 @@ public class RestauranteBuilder {
         return this;
     }
 
-    public RestauranteBuilder setListaProdutos(List<Produto> listaProdutos) {
+    public RestauranteBuilder setListaProdutos(List<ProdutoBuilder> listaProdutos) {
         this.listaProdutos = listaProdutos;
         return this;
     }
@@ -65,8 +64,7 @@ public class RestauranteBuilder {
         return this;
     }
 
-    public Restaurante createRestaurante() {
-        return new Restaurante(cnpj, nome, rua, numero, cidade, estado, listaProdutos, categoria, vendedor);
+    void add(RestauranteBuilder restauranteBuilder) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    
 }

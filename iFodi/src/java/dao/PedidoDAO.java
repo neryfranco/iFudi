@@ -12,9 +12,9 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import model.Cliente;
-import model.Pedido;
+import model.PedidoBuilder;
 import model.PedidoStatus;
-import model.Restaurante;
+import model.RestauranteBuilder;
 
 /**
  *

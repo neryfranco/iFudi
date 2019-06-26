@@ -5,14 +5,13 @@
  */
 package model;
 
-
 public class ItemBuilder {
 
     private Integer id;
-    private Produto produto;
+    private ProdutoBuilder produtoBuilder;
     private Integer quantidade;
     private Double precoTotal;
-    private Pedido pedido;
+    private PedidoBuilder pedidoBuilder;
 
     public ItemBuilder() {
     }
@@ -22,8 +21,8 @@ public class ItemBuilder {
         return this;
     }
 
-    public ItemBuilder setProduto(Produto produto) {
-        this.produto = produto;
+    public ItemBuilder setProduto(ProdutoBuilder produtoBuilder) {
+        this.produtoBuilder = produtoBuilder;
         return this;
     }
 
@@ -37,13 +36,9 @@ public class ItemBuilder {
         return this;
     }
 
-    public ItemBuilder setPedido(Pedido pedido) {
-        this.pedido = pedido;
+    public ItemBuilder setPedido(PedidoBuilder pedidoBuilder) {
+        this.pedidoBuilder = pedidoBuilder;
         return this;
     }
 
-    public Item createItem() {
-        return new Item(id, produto, quantidade, precoTotal, pedido);
-    }
-    
 }

@@ -5,7 +5,6 @@
  */
 package model;
 
-
 public class UsuarioBuilder {
 
     private String email;
@@ -18,7 +17,7 @@ public class UsuarioBuilder {
     private String estado;
 
     public UsuarioBuilder() {
-        
+
     }
 
     public UsuarioBuilder setEmail(String email) {
@@ -61,8 +60,4 @@ public class UsuarioBuilder {
         return this;
     }
 
-    public Usuario createUsuario() {
-        return new Usuario(email, senha, nome, cpf, rua, numero, cidade, estado);
-    }
-    
 }
